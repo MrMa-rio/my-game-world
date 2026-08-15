@@ -150,7 +150,7 @@ O catálogo rejeita IDs duplicados, pesos zero e listas vazias. A ordem das entr
 
 `IAssetRegistry<TAsset>` é o limite entre domínio e representação. No cliente Unity, uma implementação futura resolverá `AssetId` para prefabs, meshes, materiais ou descritores sem expor caminhos físicos ao gameplay.
 
-Metadados de compatibilidade serão adicionados em descritores próprios:
+Metadados de compatibilidade são representados por `AssetDescriptor`. O contrato inicial implementa categoria, traits, traits exigidos no outro asset e traits proibidos. Outros metadados permanecem planejados:
 
 ```text
 AssetDescriptor
@@ -171,6 +171,8 @@ AssetDescriptor
 ## 8. Compatibilidade
 
 Combinações inválidas devem ser prevenidas pelo catálogo.
+
+`AssetCompatibilityEvaluator` avalia os dois descritores: todas as traits exigidas por cada lado precisam existir no outro, e nenhuma trait excluída pode estar presente. A avaliação é pura, simétrica e não consulta recursos Unity.
 
 Exemplos:
 
@@ -461,6 +463,8 @@ Regras operacionais:
 - criar nova `AssetCatalogVersion` quando uma mudança puder alterar seleção;
 - manter catálogos antigos disponíveis enquanto houver DNA persistido que os referencie;
 - validar que o registry concreto possui a mesma versão solicitada pelo contexto.
+
+O adapter `MyGameWorld.Client.AssetResolution` implementa essa resolução para Unity. O `UnityAssetCatalog` é autorado como `ScriptableObject`; ao iniciar, `UnityAssetRegistry` copia seus bindings e rejeita entradas nulas, objetos ausentes e IDs repetidos.
 
 ---
 

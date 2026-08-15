@@ -1,6 +1,6 @@
 # ADR 0004: Identidade estável e catálogo de assets
 
-**Status:** Aceita  
+**Status:** Aceita
 **Data:** 2026-08-15
 
 ## Contexto
@@ -12,6 +12,8 @@ Caminhos, nomes de arquivo, GUIDs da engine e posições em listas não são con
 Representar assets por `AssetId`, um inteiro positivo e estável cujo valor zero é reservado. IDs publicados nunca serão reutilizados para outro conteúdo. `AssetCatalog` associa IDs a pesos dentro de uma `AssetCatalogVersion`, rejeita entradas inválidas ou duplicadas e trata a ordem como parte do contrato determinístico.
 
 A resolução para recursos concretos ocorre por `IAssetRegistry<TAsset>`. Implementações que conhecem Unity permanecem em assemblies de adapter do cliente. Seleção ponderada usa o RNG determinístico compartilhado e qualquer mudança de IDs, ordem ou pesos capaz de alterar resultados exige uma nova versão do catálogo.
+
+Compatibilidade é descrita por categorias e traits persistentes, sem referências à engine. O adapter inicial `MyGameWorld.Client.AssetResolution` resolve bindings autorados em `UnityAssetCatalog`, mas não participa da seleção nem das regras autoritativas.
 
 ## Consequências
 

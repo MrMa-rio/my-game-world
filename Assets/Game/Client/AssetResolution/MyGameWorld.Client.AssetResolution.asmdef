@@ -1,0 +1,9 @@
+{
+  "name": "MyGameWorld.Client.AssetResolution",
+  "rootNamespace": "MyGameWorld.Client.AssetResolution",
+  "references": [
+    "MyGameWorld.Shared.Core",
+    "MyGameWorld.Shared.Procedural"
+  ],
+  "autoReferenced": true
+}

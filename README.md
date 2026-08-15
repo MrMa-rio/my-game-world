@@ -28,6 +28,7 @@ Abra a pasta clonada pelo Unity Hub usando a versão indicada acima. Na primeira
 ```text
 Assets/             Conteúdo, cenas, scripts e configurações do jogo
 Assets/Game/Shared/ Domínio compartilhado sem dependência da engine
+Assets/Game/Client/ Adapters e representação específicos do cliente Unity
 Assets/Tests/       Testes Edit Mode e futuros testes Play Mode
 Packages/           Manifesto e lockfile de pacotes Unity
 ProjectSettings/    Configurações versionadas do projeto

@@ -70,5 +70,20 @@ namespace MyGameWorld.Shared.Procedural
 
             return false;
         }
+
+        public bool TryGetDescriptor(AssetId assetId, out AssetDescriptor descriptor)
+        {
+            for (int index = 0; index < _entries.Length; index++)
+            {
+                if (_entries[index].AssetId == assetId)
+                {
+                    descriptor = _entries[index].Descriptor;
+                    return true;
+                }
+            }
+
+            descriptor = default;
+            return false;
+        }
     }
 }

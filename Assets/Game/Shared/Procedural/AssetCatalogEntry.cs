@@ -6,10 +6,15 @@ namespace MyGameWorld.Shared.Procedural
     public readonly struct AssetCatalogEntry : IEquatable<AssetCatalogEntry>
     {
         public AssetCatalogEntry(AssetId assetId, uint selectionWeight)
+            : this(new AssetDescriptor(assetId, AssetCategory.Generic, AssetTrait.None), selectionWeight)
         {
-            if (assetId.Value == 0)
+        }
+
+        public AssetCatalogEntry(AssetDescriptor descriptor, uint selectionWeight)
+        {
+            if (descriptor.AssetId.Value == 0)
             {
-                throw new ArgumentException("A valid asset ID is required.", nameof(assetId));
+                throw new ArgumentException("A valid asset descriptor is required.", nameof(descriptor));
             }
 
             if (selectionWeight == 0)
@@ -17,17 +22,19 @@ namespace MyGameWorld.Shared.Procedural
                 throw new ArgumentOutOfRangeException(nameof(selectionWeight), "Selection weight must be positive.");
             }
 
-            AssetId = assetId;
+            Descriptor = descriptor;
             SelectionWeight = selectionWeight;
         }
 
-        public AssetId AssetId { get; }
+        public AssetDescriptor Descriptor { get; }
+
+        public AssetId AssetId => Descriptor.AssetId;
 
         public uint SelectionWeight { get; }
 
         public bool Equals(AssetCatalogEntry other)
         {
-            return AssetId == other.AssetId && SelectionWeight == other.SelectionWeight;
+            return Descriptor.Equals(other.Descriptor) && SelectionWeight == other.SelectionWeight;
         }
 
         public override bool Equals(object obj) => obj is AssetCatalogEntry other && Equals(other);
@@ -36,7 +43,7 @@ namespace MyGameWorld.Shared.Procedural
         {
             unchecked
             {
-                return (AssetId.GetHashCode() * 397) ^ SelectionWeight.GetHashCode();
+                return (Descriptor.GetHashCode() * 397) ^ SelectionWeight.GetHashCode();
             }
         }
     }

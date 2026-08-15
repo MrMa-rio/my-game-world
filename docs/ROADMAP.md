@@ -74,10 +74,14 @@ Materializar uma entidade determinística.
 - [x] seed derivation;
 - [x] `ProceduralGenerator`;
 - [x] contrato `IAssetRegistry<TAsset>`;
-- [ ] compatibility rules;
+- [x] compatibility rules;
 - [x] weighted asset selection;
 - [x] generator versioning;
 - [x] catalog versioning.
+
+### Estado da fase
+
+Os contratos, catálogo, compatibilidade e adapter Unity inicial estão implementados e testados. Ainda falta um gerador concreto que use o catálogo para materializar uma entidade; por isso, o resultado funcional completo da fase permanece pendente.
 
 ### Prova
 
