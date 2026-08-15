@@ -4,9 +4,9 @@ Projeto de jogo 3D em estágio inicial, desenvolvido com Unity 6 e Universal Ren
 
 ## Estado atual
 
-O repositório contém a fundação técnica criada pelo template URP: uma cena de exemplo, perfis gráficos para desktop e mobile e mapas de ação do novo Input System. Ainda não há gameplay próprio implementado.
+O projeto permanece antes do primeiro protótipo jogável, mas já possui uma fundação de domínio compartilhada e independente de `UnityEngine`. Ela inclui IDs e versões fortes, RNG e derivação de seeds determinísticos, DNA de entidades, contratos de geração procedural, catálogo de assets com seleção ponderada e a base parametrizada de cognição de NPCs.
 
-Consulte [as primeiras impressões contextuais](docs/primeiras-impressoes.md) para um diagnóstico mais detalhado.
+A cena ainda é a cena de exemplo do template URP; não há personagem, composição visual, rede ou gameplay próprio implementado. Consulte [Foundation Architecture](docs/FOUNDATION_ARCHITECTURE.md) para o estado implementado e [Roadmap](docs/ROADMAP.md) para a evolução planejada.
 
 ## Requisitos
 
@@ -27,6 +27,8 @@ Abra a pasta clonada pelo Unity Hub usando a versão indicada acima. Na primeira
 
 ```text
 Assets/             Conteúdo, cenas, scripts e configurações do jogo
+Assets/Game/Shared/ Domínio compartilhado sem dependência da engine
+Assets/Tests/       Testes Edit Mode e futuros testes Play Mode
 Packages/           Manifesto e lockfile de pacotes Unity
 ProjectSettings/    Configurações versionadas do projeto
 docs/               Decisões e documentação técnica/produtiva

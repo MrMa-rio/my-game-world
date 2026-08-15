@@ -134,7 +134,23 @@ Campos explícitos sobrescrevem a escolha procedural.
 
 ## 7. Asset Catalog
 
-Cada asset deve possuir metadados.
+Cada asset publicável recebe um `AssetId` lógico, positivo e estável. Esse ID não é caminho, GUID do Unity nem índice de lista. Depois de publicado, ele nunca pode ser atribuído a outro conteúdo.
+
+O contrato inicial implementado contém:
+
+```text
+AssetCatalogVersion
+AssetCatalog
+ └── AssetCatalogEntry[]
+      ├── AssetId
+      └── SelectionWeight
+```
+
+O catálogo rejeita IDs duplicados, pesos zero e listas vazias. A ordem das entradas faz parte da saída determinística e deve permanecer estável dentro da mesma versão.
+
+`IAssetRegistry<TAsset>` é o limite entre domínio e representação. No cliente Unity, uma implementação futura resolverá `AssetId` para prefabs, meshes, materiais ou descritores sem expor caminhos físicos ao gameplay.
+
+Metadados de compatibilidade serão adicionados em descritores próprios:
 
 ```text
 AssetDescriptor
@@ -177,6 +193,8 @@ UniqueHair      weight 5
 ```
 
 A seleção ponderada deve permanecer determinística.
+
+`WeightedAssetSelector` sorteia dentro da soma dos pesos usando `DeterministicRandom.NextUInt64(exclusiveMax)`, com rejection sampling para evitar viés. Catálogo, ordem, pesos, seed e quantidade/ordem das chamadas do RNG são parte do contrato da versão.
 
 ---
 
@@ -435,6 +453,14 @@ Seed
 ```
 
 devem definir completamente o resultado.
+
+Regras operacionais:
+
+- não reutilizar um `AssetId` removido;
+- não alterar ordem ou peso de uma versão publicada;
+- criar nova `AssetCatalogVersion` quando uma mudança puder alterar seleção;
+- manter catálogos antigos disponíveis enquanto houver DNA persistido que os referencie;
+- validar que o registry concreto possui a mesma versão solicitada pelo contexto.
 
 ---
 
