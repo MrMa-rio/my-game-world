@@ -1,0 +1,9 @@
+{
+  "name": "MyGameWorld.Shared.World",
+  "rootNamespace": "MyGameWorld.Shared.World",
+  "references": [
+    "MyGameWorld.Shared.Core",
+    "MyGameWorld.Shared.Procedural"
+  ],
+  "autoReferenced": true
+}

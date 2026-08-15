@@ -1,0 +1,12 @@
+{
+  "name": "MyGameWorld.PlayModeTests",
+  "rootNamespace": "MyGameWorld.Tests.PlayMode",
+  "references": [
+    "MyGameWorld.Client.ProceduralWorld",
+    "MyGameWorld.Shared.World"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "autoReferenced": false
+}

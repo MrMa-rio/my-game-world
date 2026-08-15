@@ -334,6 +334,32 @@ Spawn Points
 Population
 ```
 
+### Estado implementado: Sandbox V1
+
+O primeiro recorte implementa:
+
+```text
+ZoneDNA
+  ↓
+BiomeDefinition (TemperateGrassland)
+  ↓
+HeightFieldGeneratorV1
+  ↓
+TerrainMeshDataBuilder
+  ↓
+4 TerrainChunkData
+  ↓
+DecorationGeneratorV1
+  ↓
+Unity client materialization
+```
+
+O height field combina fBm macro, detail noise de baixa amplitude, uma máscara de shape para patamares suaves e uma isolinha de noise usada como caminho natural. Toda amostragem usa coordenadas globais da zona e seeds derivadas por escopo. A malha pode usar shading flat ou smooth; V1 usa flat por padrão.
+
+O `PolygonBudget` inicial é representado por `targetTriangleBudget` na configuração. O maior grid quadrado compatível com o budget e divisível pela grade de chunks é escolhido antes da geração. A sandbox padrão resolve 3.200 triângulos em 40 × 40 células, distribuídas em 2 × 2 chunks.
+
+O fingerprint FNV-1a inclui configuração resolvida, heights, path masks e placements. Ele é usado para comparar reconstruções sem depender de objetos Unity.
+
 ---
 
 ## 14. World Delta

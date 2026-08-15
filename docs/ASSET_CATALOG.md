@@ -15,6 +15,8 @@ O catálogo separa identidade procedural de arquivos físicos. DNA, rede e persi
 
 Um registro externo de IDs reservados ainda será necessário antes da produção de conteúdo em escala. Até essa ferramenta existir, novos IDs devem ser revisados junto do catálogo e nunca escolhidos a partir de índices de arrays ou GUIDs Unity.
 
+O primeiro bloco reservado para recursos ambientais da sandbox está documentado em [World Visual Asset IDs](WORLD_VISUAL_ASSET_IDS.md). Esses IDs identificam a intenção visual independentemente de ela ser resolvida para um prefab finito ou para uma receita geométrica procedural de fallback.
+
 ## Camada compartilhada
 
 `AssetCatalog` contém entradas determinísticas. Cada `AssetCatalogEntry` combina:

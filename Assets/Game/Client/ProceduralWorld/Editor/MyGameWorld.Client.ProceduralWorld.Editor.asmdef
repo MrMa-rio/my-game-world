@@ -1,0 +1,14 @@
+{
+  "name": "MyGameWorld.Client.ProceduralWorld.Editor",
+  "rootNamespace": "MyGameWorld.Client.ProceduralWorld.Editor",
+  "references": [
+    "MyGameWorld.Client.ProceduralWorld",
+    "MyGameWorld.Shared.Core",
+    "MyGameWorld.Shared.Procedural",
+    "MyGameWorld.Shared.World"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true
+}

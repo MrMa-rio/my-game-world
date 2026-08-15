@@ -1,0 +1,11 @@
+{
+  "name": "MyGameWorld.Client.ProceduralWorld",
+  "rootNamespace": "MyGameWorld.Client.ProceduralWorld",
+  "references": [
+    "MyGameWorld.Shared.Core",
+    "MyGameWorld.Shared.Procedural",
+    "MyGameWorld.Shared.World",
+    "Unity.InputSystem"
+  ],
+  "autoReferenced": true
+}

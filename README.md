@@ -4,9 +4,9 @@ Projeto de jogo 3D em estágio inicial, desenvolvido com Unity 6 e Universal Ren
 
 ## Estado atual
 
-O projeto permanece antes do primeiro protótipo jogável, mas já possui uma fundação de domínio compartilhada e independente de `UnityEngine`. Ela inclui IDs e versões fortes, RNG e derivação de seeds determinísticos, DNA de entidades, contratos de geração procedural, catálogo de assets com seleção ponderada e a base parametrizada de cognição de NPCs.
+O projeto possui uma fundação de domínio compartilhada e independente de `UnityEngine`, além da primeira materialização visual: a **Procedural World Sandbox**. Ela gera uma zona 3D determinística de 1.000 × 1.000 m com terrain low-poly, biome temperado, caminhos, vegetação, rochas, câmera livre e ferramentas de inspeção.
 
-A cena ainda é a cena de exemplo do template URP; não há personagem, composição visual, rede ou gameplay próprio implementado. Consulte [Foundation Architecture](docs/FOUNDATION_ARCHITECTURE.md) para o estado implementado e [Roadmap](docs/ROADMAP.md) para a evolução planejada.
+Não há personagem, NPC visual, rede ou gameplay próprio implementado. Abra `Assets/Scenes/ProceduralWorldSandbox.unity` e execute a cena para explorar. Consulte [Procedural World Sandbox](docs/PROCEDURAL_WORLD_SANDBOX.md), [Procedural Runtime Manager](docs/PROCEDURAL_RUNTIME_MANAGER.md), [Foundation Architecture](docs/FOUNDATION_ARCHITECTURE.md) e [Roadmap](docs/ROADMAP.md).
 
 ## Requisitos
 
