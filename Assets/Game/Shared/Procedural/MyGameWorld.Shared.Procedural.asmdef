@@ -1,0 +1,9 @@
+{
+  "name": "MyGameWorld.Shared.Procedural",
+  "rootNamespace": "MyGameWorld.Shared.Procedural",
+  "references": [
+    "MyGameWorld.Shared.Core",
+    "MyGameWorld.Shared.EntityModel"
+  ],
+  "autoReferenced": true
+}

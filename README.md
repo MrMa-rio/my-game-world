@@ -1,4 +1,4 @@
-# My Project 1
+# My Game World
 
 Projeto de jogo 3D em estágio inicial, desenvolvido com Unity 6 e Universal Render Pipeline (URP).
 
@@ -50,4 +50,3 @@ Arquivos binários de arte, modelos, áudio, vídeo, fontes e pacotes são rastr
 ## Licença
 
 Nenhuma licença de uso ou redistribuição foi concedida neste momento. Consulte [LICENSE.md](LICENSE.md).
-

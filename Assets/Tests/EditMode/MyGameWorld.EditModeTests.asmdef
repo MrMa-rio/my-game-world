@@ -1,0 +1,17 @@
+{
+  "name": "MyGameWorld.EditModeTests",
+  "rootNamespace": "MyGameWorld.Tests.EditMode",
+  "references": [
+    "MyGameWorld.Shared.Core",
+    "MyGameWorld.Shared.EntityModel",
+    "MyGameWorld.Shared.Procedural",
+    "MyGameWorld.Shared.NpcCognition"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": false
+}
