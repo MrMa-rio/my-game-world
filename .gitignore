@@ -1,0 +1,65 @@
+# Unity generated directories
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Asset Store Tools
+/Assets/AssetStoreTools*
+
+# IDEs and editors
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity generated files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+sysinfo.txt
+
+# Crash and diagnostic output
+crashlytics-build.properties
+mono_crash.*
+[Ss]ys[Ii]nfo.txt
+
+# Builds and platform artifacts
+*.apk
+*.aab
+*.app
+*.unitypackage
+*.ipa
+
+# Operating systems
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+*.p12
+*.pfx
+*.mobileprovision
+

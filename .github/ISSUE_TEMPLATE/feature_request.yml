@@ -1,0 +1,27 @@
+name: Propor funcionalidade
+description: Sugira uma melhoria de produto, gameplay ou ferramenta.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema ou oportunidade
+      description: Que necessidade esta proposta atende?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposta
+      description: Descreva o resultado esperado, sem limitar prematuramente a implementação.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critérios de aceite
+      placeholder: "- [ ] ..."
+    validations:
+      required: true
+

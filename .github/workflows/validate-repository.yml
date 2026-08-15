@@ -1,0 +1,55 @@
+name: Validate repository
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unity-repository:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout with LFS
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Verify required Unity files
+        shell: bash
+        run: |
+          test -f ProjectSettings/ProjectVersion.txt
+          test -f Packages/manifest.json
+          test -f Packages/packages-lock.json
+
+      - name: Reject generated Unity directories
+        shell: bash
+        run: |
+          forbidden='^(Library|Temp|Logs|UserSettings|Obj|Build|Builds)/'
+          if git ls-files | grep -E "$forbidden"; then
+            echo 'Generated Unity directories must not be tracked.'
+            exit 1
+          fi
+
+      - name: Verify Git LFS pointers
+        shell: bash
+        run: git lfs fsck
+
+      - name: Check asset metadata pairs
+        shell: bash
+        run: |
+          missing=0
+          while IFS= read -r asset; do
+            case "$asset" in
+              *.meta) continue ;;
+            esac
+            if [ ! -f "$asset.meta" ]; then
+              echo "Missing metadata: $asset.meta"
+              missing=1
+            fi
+          done < <(find Assets -type f -print)
+          exit "$missing"
+
