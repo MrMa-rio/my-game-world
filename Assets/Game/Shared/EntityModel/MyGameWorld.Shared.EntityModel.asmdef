@@ -1,0 +1,8 @@
+{
+  "name": "MyGameWorld.Shared.EntityModel",
+  "rootNamespace": "MyGameWorld.Shared.EntityModel",
+  "references": [
+    "MyGameWorld.Shared.Core"
+  ],
+  "autoReferenced": true
+}

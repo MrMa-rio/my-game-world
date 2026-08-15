@@ -17,7 +17,7 @@ Neste momento, o projeto parece estar na etapa imediatamente posterior à criaç
 - Entrada: Input System `1.19.0`, com action maps genéricos `Player` e `UI`.
 - Ações já declaradas incluem movimento, câmera, ataque, interação, agachar, pular, correr e navegação de interface.
 - Código C# existente: somente os scripts de apresentação/tutorial do template, em `Assets/TutorialInfo`.
-- Identidade: `DefaultCompany`, produto `My project (1)`, versão `0.1.0`.
+- Identidade: `DefaultCompany`, produto `My Game World`, versão `0.1.0`.
 - Resolução padrão configurada: 1024 × 768.
 
 ## Leitura contextual

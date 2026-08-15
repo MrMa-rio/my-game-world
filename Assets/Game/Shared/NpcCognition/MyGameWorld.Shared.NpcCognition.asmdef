@@ -1,0 +1,9 @@
+{
+  "name": "MyGameWorld.Shared.NpcCognition",
+  "rootNamespace": "MyGameWorld.Shared.NpcCognition",
+  "references": [
+    "MyGameWorld.Shared.Core",
+    "MyGameWorld.Shared.EntityModel"
+  ],
+  "autoReferenced": true
+}
