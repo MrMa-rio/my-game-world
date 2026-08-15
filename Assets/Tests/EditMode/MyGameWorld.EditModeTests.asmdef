@@ -5,7 +5,8 @@
     "MyGameWorld.Shared.Core",
     "MyGameWorld.Shared.EntityModel",
     "MyGameWorld.Shared.Procedural",
-    "MyGameWorld.Shared.NpcCognition"
+    "MyGameWorld.Shared.NpcCognition",
+    "MyGameWorld.Client.AssetResolution"
   ],
   "optionalUnityReferences": [
     "TestAssemblies"

@@ -18,6 +18,33 @@ namespace MyGameWorld.Tests.EditMode
         }
 
         [Test]
+        public void NextUInt64_KnownSeed_MatchesVersionOneGoldenSequence()
+        {
+            ulong[] expected =
+            {
+                4748763819330083886UL,
+                13373165226130976131UL,
+                6256410376181272858UL,
+                6407355470263702757UL,
+                13726965772563750841UL
+            };
+            DeterministicRandom random = new DeterministicRandom(98421);
+
+            for (int index = 0; index < expected.Length; index++)
+            {
+                Assert.That(random.NextUInt64(), Is.EqualTo(expected[index]));
+            }
+        }
+
+        [Test]
+        public void NextUInt64_ZeroBound_Throws()
+        {
+            DeterministicRandom random = new DeterministicRandom(1);
+
+            Assert.Throws<System.ArgumentOutOfRangeException>(() => random.NextUInt64(0));
+        }
+
+        [Test]
         public void Derive_DifferentScope_ProducesDifferentSeed()
         {
             long npcSeed = SeedDerivation.Derive(100, 1, 55);

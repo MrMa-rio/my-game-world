@@ -18,18 +18,18 @@ Dar ao projeto uma estrutura profissional e consistente.
 
 ### Entregáveis
 
-- [ ] definir nome provisório;
-- [ ] criar repositório;
-- [ ] adicionar `AGENTS.md`;
-- [ ] adicionar documentação inicial;
-- [ ] definir linguagem e engine;
-- [ ] definir padrão de módulos;
-- [ ] configurar formatter;
+- [x] definir nome provisório;
+- [x] criar repositório;
+- [x] adicionar `AGENTS.md`;
+- [x] adicionar documentação inicial;
+- [x] definir linguagem e engine;
+- [x] definir padrão de módulos;
+- [x] configurar formatter;
 - [ ] configurar linter;
 - [ ] configurar build;
-- [ ] configurar CI;
+- [x] configurar CI;
 - [ ] definir logging;
-- [ ] definir conventions.
+- [x] definir conventions.
 
 ### Resultado
 
@@ -45,16 +45,16 @@ Criar os modelos fundamentais sem dependência gráfica.
 
 ### Implementar
 
-- [ ] `EntityId`;
-- [ ] `AssetId`;
-- [ ] `EntityDNA`;
+- [x] `EntityId`;
+- [x] `AssetId`;
+- [x] `EntityDNA`;
 - [ ] `CharacterDNA`;
-- [ ] `NpcDNA`;
+- [x] `NpcDNA`;
 - [ ] `MobDNA`;
-- [ ] `GeneratorVersion`;
-- [ ] `AssetCatalogVersion`;
-- [ ] `GenerationContext`;
-- [ ] `SimulationLOD`.
+- [x] `GeneratorVersion`;
+- [x] `AssetCatalogVersion`;
+- [x] `GenerationContext`;
+- [x] `SimulationLOD`.
 
 ### Resultado
 
@@ -70,14 +70,18 @@ Materializar uma entidade determinística.
 
 ### Implementar
 
-- [ ] deterministic RNG;
-- [ ] seed derivation;
-- [ ] `ProceduralGenerator`;
-- [ ] `AssetRegistry`;
-- [ ] compatibility rules;
-- [ ] weighted asset selection;
-- [ ] generator versioning;
-- [ ] catalog versioning.
+- [x] deterministic RNG;
+- [x] seed derivation;
+- [x] `ProceduralGenerator`;
+- [x] contrato `IAssetRegistry<TAsset>`;
+- [x] compatibility rules;
+- [x] weighted asset selection;
+- [x] generator versioning;
+- [x] catalog versioning.
+
+### Estado da fase
+
+Os contratos, catálogo, compatibilidade e adapter Unity inicial estão implementados e testados. Ainda falta um gerador concreto que use o catálogo para materializar uma entidade; por isso, o resultado funcional completo da fase permanece pendente.
 
 ### Prova
 
@@ -154,15 +158,15 @@ Criar o primeiro `NPCBrain`.
 
 ### Implementar
 
-- [ ] `NpcIntelligenceDNA`;
-- [ ] `PersonalityDNA`;
+- [x] `IntelligenceDNA`;
+- [x] `PersonalityDNA`;
 - [ ] perception;
 - [ ] attention;
 - [ ] memory;
 - [ ] needs;
 - [ ] goals;
 - [ ] utility scoring;
-- [ ] decision output;
+- [x] decision output neutro e política injetável;
 - [ ] interaction gate.
 
 ### Primeiro cenário

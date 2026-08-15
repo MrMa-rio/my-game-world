@@ -27,7 +27,17 @@ namespace MyGameWorld.Shared.Core
                 throw new ArgumentOutOfRangeException(nameof(exclusiveMax));
             }
 
-            ulong bound = (ulong)exclusiveMax;
+            return (int)NextUInt64((ulong)exclusiveMax);
+        }
+
+        public ulong NextUInt64(ulong exclusiveMax)
+        {
+            if (exclusiveMax == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(exclusiveMax));
+            }
+
+            ulong bound = exclusiveMax;
             ulong threshold = unchecked(0UL - bound) % bound;
             ulong value;
 
@@ -37,7 +47,7 @@ namespace MyGameWorld.Shared.Core
             }
             while (value < threshold);
 
-            return (int)(value % bound);
+            return value % bound;
         }
 
         public double NextUnitDouble() => (NextUInt64() >> 11) * (1.0 / (1UL << 53));
