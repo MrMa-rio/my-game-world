@@ -1,0 +1,8 @@
+{
+  "name": "MyGameWorld.Client.ApplicationFlow",
+  "rootNamespace": "MyGameWorld.Client.ApplicationFlow",
+  "references": [
+    "Unity.InputSystem"
+  ],
+  "autoReferenced": true
+}

@@ -4,8 +4,11 @@
   "references": [
     "MyGameWorld.Shared.Core",
     "MyGameWorld.Shared.World",
+    "MyGameWorld.Shared.Procedural",
     "MyGameWorld.Client.EntityRuntime",
     "MyGameWorld.Client.ActorRuntime",
+    "MyGameWorld.Client.CharacterRuntime",
+    "MyGameWorld.Client.AssetResolution",
     "Unity.InputSystem"
   ],
   "autoReferenced": true

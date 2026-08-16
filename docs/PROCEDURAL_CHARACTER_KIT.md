@@ -51,3 +51,27 @@ Usar temporariamente **The Company Characters** para validar rig/Animator e **Mr
 `AvatarCreationManager` e a fachada client-side inicial. Ele recebe o catalogo existente, gera/cacheia `CharacterAppearanceDNA`, limita requests por frame, resolve prefabs por `AssetId`, monta partes por slot, aplica indices de paleta com `MaterialPropertyBlock` e reutiliza raizes liberadas.
 
 Produzir ou licenciar um kit 3D original com arquivos fonte separados e comprovacao de direitos. Depois, importar cada parte como prefab, atribuir AssetId estavel e registrar no Unity Asset Catalog. A imagem atual nao fornece geometria suficiente para essa etapa.
+
+## Direcao visual contextual
+
+O avatar agora recebe no momento da materializacao um `AvatarEnvironmentContext` compacto: bioma, superficie, altitude e inclinacao do ponto de origem. `AvatarEnvironmentalStyleResolver` combina esse contexto com a seed e produz uma receita visual deterministica, sem modificar identidade, locomocao ou collider.
+
+Familias iniciais de silhueta: `TemperateTraveler`, `ForestRanger`, `DesertWayfarer`, `SnowHighlander` e `RockyHighlander`. Elas controlam proporcao visual moderada, paleta e angularidade. O contexto e fixado na origem do personagem; caminhar entre grama e pedra nao remodela o corpo.
+
+O pacote `Assets/Goblin_Character` foi auditado como referencia local de linguagem low-poly: possui prefab, FBX humanoide, material URP e animacoes. Ele nao foi inserido como parte humana intercambiavel porque possui esqueleto e topologia proprios. Mistura direta quebraria bind poses e animacao. Sua contribuicao nesta fase e orientar planos mais marcados, silhueta compacta, massas legiveis e baixo custo geometrico.
+
+As referencias CGTrader fornecidas sao modelos comerciais de alta densidade e licenca customizada. Elas orientam hierarquia facial, proporcao estilizada, leitura do cabelo e silhueta de vestuario, mas nenhuma geometria ou textura foi copiada para o projeto. A identidade final deve ser reconstruida em partes autorais low-poly sobre o esqueleto canonico.
+
+## Integração jogável
+
+O Player da `ProceduralWorldSandbox` usa o catálogo System G6 como fixture modular determinístico, com seed visual `3201`. O `PlayerRuntimeBootstrap` mantém física e gameplay no root do Actor e materializa `RuntimeAvatar` como filho visual. Isso permite trocar a receita sem substituir `CharacterController`, sensores, câmera ou capacidades.
+
+`ProceduralAvatarAnimation` consome o `ActorAnimationState` já produzido pela propriocepção e aplica ciclos estilizados de idle, walk, run, jump e fall aos bones compatíveis de todas as partes. A locomotion continua in-place e autoritativa; não se usa root motion para deslocar o Actor.
+
+Essa separação segue a hierarquia recomendada pelo Unity para retargeting: componentes do personagem no root e modelo/Animator em um filho. Quando o esqueleto autoral e clips finais estiverem prontos, o sink procedural pode ser substituído por `AnimatorAnimationSink` e um Animator Controller/Blend Tree sem mudar Player, Actor ou locomotion.
+
+Referências oficiais consultadas:
+
+- Humanoid retargeting e hierarquia recomendada: https://docs.unity3d.com/6000.0/Documentation/Manual/Retargeting.html
+- Blend Trees para combinar walk/run por velocidade: https://docs.unity3d.com/6000.0/Documentation/Manual/class-BlendTree.html
+- Root motion e separação do deslocamento visual: https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Animator-applyRootMotion.html

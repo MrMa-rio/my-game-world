@@ -26,7 +26,7 @@ Dar ao projeto uma estrutura profissional e consistente.
 - [x] definir padrão de módulos;
 - [x] configurar formatter;
 - [ ] configurar linter;
-- [ ] configurar build;
+- [x] configurar build e fluxo inicial de scenes;
 - [x] configurar CI;
 - [ ] definir logging;
 - [x] definir conventions.

@@ -4,7 +4,8 @@
   "references": [
     "MyGameWorld.Shared.Core",
     "MyGameWorld.Shared.Procedural",
-    "MyGameWorld.Client.AssetResolution"
+    "MyGameWorld.Client.AssetResolution",
+    "MyGameWorld.Client.ActorRuntime"
   ],
   "autoReferenced": true
 }

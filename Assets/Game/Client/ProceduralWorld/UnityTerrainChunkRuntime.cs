@@ -4,6 +4,7 @@ using MyGameWorld.Shared.World;
 using MyGameWorld.Client.EntityRuntime;
 using UnityEngine;
 using UnityEngine.Rendering;
+using MyGameWorld.Client.ActorRuntime;
 
 namespace MyGameWorld.Client.ProceduralWorld
 {
@@ -28,6 +29,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             }
 
             _root = new GameObject($"Terrain Chunk {data.ChunkX},{data.ChunkZ}");
+            _root.layer = WorldPhysicsLayers.Terrain;
             _root.transform.SetParent(parent, false);
             _root.AddComponent<WorldElementRuntimeIdentity>().Initialize(terrainIdentity);
             MeshFilter filter = _root.AddComponent<MeshFilter>();

@@ -11,6 +11,7 @@ namespace MyGameWorld.Client.CharacterRuntime
         private readonly List<GameObject> _parts = new List<GameObject>();
 
         public CharacterAppearanceDNA Appearance { get; private set; }
+        public AvatarStyleRecipe Style { get; private set; }
         public int PartCount => _parts.Count;
 
         public void RegisterAnchor(CharacterPartSlot slot, Transform anchor)
@@ -20,14 +21,19 @@ namespace MyGameWorld.Client.CharacterRuntime
         }
 
         internal Transform ResolveAnchor(CharacterPartSlot slot) => _anchors.TryGetValue(slot, out Transform anchor) ? anchor : transform;
-        internal void Initialize(CharacterAppearanceDNA appearance) => Appearance = appearance ?? throw new ArgumentNullException(nameof(appearance));
+        internal void Initialize(CharacterAppearanceDNA appearance, AvatarStyleRecipe style)
+        {
+            Appearance = appearance ?? throw new ArgumentNullException(nameof(appearance));
+            Style = style;
+            transform.localScale = style.VisualScale;
+        }
         internal void AddPart(GameObject part) => _parts.Add(part);
 
         internal void ResetAvatar()
         {
             for (int i = _parts.Count - 1; i >= 0; i--)
                 if (_parts[i] != null) DestroyObject(_parts[i]);
-            _parts.Clear(); Appearance = null;
+            _parts.Clear(); Appearance = null; Style = default; transform.localScale = Vector3.one;
         }
 
         private static void DestroyObject(UnityEngine.Object target)

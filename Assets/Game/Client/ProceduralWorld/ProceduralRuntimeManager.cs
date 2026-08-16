@@ -6,6 +6,7 @@ using MyGameWorld.Shared.Core;
 using MyGameWorld.Shared.Procedural;
 using UnityEngine;
 using UnityEngine.Rendering;
+using MyGameWorld.Client.ActorRuntime;
 
 namespace MyGameWorld.Client.ProceduralWorld
 {
@@ -260,26 +261,33 @@ namespace MyGameWorld.Client.ProceduralWorld
         {
             CapsuleCollider capsule = instance.Root.GetComponent<CapsuleCollider>();
             BoxCollider box = instance.Root.GetComponent<BoxCollider>();
+            MeshFilter filter = instance.Root.GetComponent<MeshFilter>();
+            Bounds bounds = filter.sharedMesh != null ? filter.sharedMesh.bounds : new Bounds(Vector3.up * 0.5f, Vector3.one);
             capsule.enabled = false; box.enabled = false;
+            instance.Root.layer = WorldPhysicsLayers.SoftEnvironment;
             if (instance.Definition.Kind == DecorationKind.Tree)
             {
-                capsule.enabled = true; capsule.center = new Vector3(0f, 1.4f, 0f); capsule.height = 3.2f; capsule.radius = 0.42f;
+                instance.Root.layer = WorldPhysicsLayers.StaticWorld;
+                capsule.enabled = true;
+                capsule.center = new Vector3(bounds.center.x, bounds.min.y + bounds.size.y * 0.34f, bounds.center.z);
+                capsule.height = Mathf.Max(0.5f, bounds.size.y * 0.68f);
+                capsule.radius = Mathf.Max(0.12f, Mathf.Min(bounds.size.x, bounds.size.z) * 0.16f);
             }
             else if (instance.Definition.Kind != DecorationKind.ScaleMarker)
             {
                 box.enabled = true;
                 switch (instance.Definition.Kind)
                 {
-                    case DecorationKind.Rock: box.center = new Vector3(0f, 0.5f, 0f); box.size = new Vector3(1.7f, 1.2f, 1.5f); break;
-                    case DecorationKind.TreeCluster: box.center = new Vector3(0f, 2f, 0f); box.size = new Vector3(6f, 4.5f, 5f); break;
-                    case DecorationKind.RockCluster: box.center = new Vector3(0f, 0.5f, 0f); box.size = new Vector3(3.8f, 1.4f, 3.2f); break;
-                    case DecorationKind.BushCluster: box.center = new Vector3(0f, 0.5f, 0f); box.size = new Vector3(3.2f, 1.3f, 2.8f); break;
-                    case DecorationKind.Flower: box.center = new Vector3(0f, 0.4f, 0f); box.size = new Vector3(0.45f, 0.85f, 0.45f); break;
-                    case DecorationKind.FlowerCluster: box.center = new Vector3(0f, 0.4f, 0f); box.size = new Vector3(1.4f, 0.9f, 1.4f); break;
-                    case DecorationKind.Mushroom: box.center = new Vector3(0f, 0.32f, 0f); box.size = new Vector3(0.55f, 0.7f, 0.55f); break;
-                    case DecorationKind.MushroomCluster: box.center = new Vector3(0f, 0.38f, 0f); box.size = new Vector3(1.3f, 0.8f, 1.3f); break;
-                    default: box.center = new Vector3(0f, 0.5f, 0f); box.size = new Vector3(1.8f, 1.4f, 1.5f); break;
+                    case DecorationKind.Rock:
+                    case DecorationKind.TreeCluster:
+                    case DecorationKind.RockCluster:
+                        instance.Root.layer = WorldPhysicsLayers.StaticWorld;
+                        break;
                 }
+
+                box.center = bounds.center;
+                box.size = Vector3.Max(bounds.size * (instance.Root.layer == WorldPhysicsLayers.StaticWorld ? 0.88f : 0.72f), Vector3.one * 0.08f);
+                box.isTrigger = instance.Root.layer == WorldPhysicsLayers.SoftEnvironment;
             }
         }
 

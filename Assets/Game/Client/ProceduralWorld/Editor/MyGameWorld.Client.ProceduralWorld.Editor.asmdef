@@ -3,6 +3,10 @@
   "rootNamespace": "MyGameWorld.Client.ProceduralWorld.Editor",
   "references": [
     "MyGameWorld.Client.ProceduralWorld",
+    "MyGameWorld.Client.ApplicationFlow",
+    "Unity.InputSystem",
+    "MyGameWorld.Client.AssetResolution",
+    "MyGameWorld.Client.CharacterRuntime",
     "MyGameWorld.Shared.Core",
     "MyGameWorld.Shared.Procedural",
     "MyGameWorld.Shared.World",

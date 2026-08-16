@@ -40,6 +40,8 @@ Follow `.editorconfig`: UTF-8, LF endings, four-space indentation, and no traili
 
 Unity Test Framework `1.6.0` is installed, but there are no authored tests or coverage threshold. Name classes `<Subject>Tests` and methods `Method_State_ExpectedResult`. Prefer Edit Mode for pure logic and Play Mode for scene or integration behavior.
 
+Every implementation that changes procedural avatars must be validated by materializing a new procedural zone with a new zone id and seed, then spawning the new avatar through the real `ProceduralWorldSandbox` flow. Record the terrain fingerprint and resolved avatar style recipe; do not validate avatar revisions only in an isolated gallery or on a previously generated terrain.
+
 ## Commit & Pull Request Guidelines
 
 The existing history uses a short imperative commit subject, such as `Initialize Unity game repository`. Keep commits small and single-purpose. Use branches like `feature/player-movement`, `fix/camera-clipping`, or `chore/update-assets`.

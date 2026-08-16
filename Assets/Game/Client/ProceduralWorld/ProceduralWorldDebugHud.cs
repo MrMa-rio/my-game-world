@@ -143,6 +143,8 @@ namespace MyGameWorld.Client.ProceduralWorld
             _text.AppendLine("F12 shader quality");
             _text.AppendLine("Home LOD colors | End quadtree | Insert clear atmosphere");
             _text.AppendLine("PageUp quality | PageDown AA mode");
+            _text.AppendLine("Escape Main Menu");
+            _text.AppendLine("Player: WASD | Mouse look | Shift run | Space jump | V camera | Tab cursor");
 
             GUI.Label(new Rect(20f, 20f, 462f, 672f), _text.ToString(), _textStyle);
         }

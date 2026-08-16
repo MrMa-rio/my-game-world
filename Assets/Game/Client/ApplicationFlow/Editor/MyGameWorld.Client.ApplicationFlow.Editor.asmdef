@@ -1,0 +1,11 @@
+{
+  "name": "MyGameWorld.Client.ApplicationFlow.Editor",
+  "rootNamespace": "MyGameWorld.Client.ApplicationFlow.Editor",
+  "references": [
+    "MyGameWorld.Client.ApplicationFlow"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true
+}

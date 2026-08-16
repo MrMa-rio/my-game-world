@@ -72,6 +72,7 @@ namespace MyGameWorld.Client.PlayerRuntime
         public PlayerCameraRig Rig { get; private set; }
         public PlayerCameraModeController Modes { get; private set; }
         public bool IsInitialized => Rig != null;
+        public bool IsThirdPersonActive => Modes?.ActiveMode?.Id == PlayerCameraModeId.ThirdPerson;
         public void Initialize(Actor actor, Camera camera, PlayerCameraConfiguration configuration)
         {
             if (IsInitialized) throw new InvalidOperationException("Player camera is already initialized.");

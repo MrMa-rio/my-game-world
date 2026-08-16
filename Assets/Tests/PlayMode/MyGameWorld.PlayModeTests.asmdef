@@ -6,6 +6,8 @@
     "MyGameWorld.Client.EntityRuntime",
     "MyGameWorld.Client.ActorRuntime",
     "MyGameWorld.Client.PlayerRuntime",
+    "MyGameWorld.Client.CharacterRuntime",
+    "MyGameWorld.Client.ApplicationFlow",
     "Unity.InputSystem",
     "MyGameWorld.Shared.World"
   ],

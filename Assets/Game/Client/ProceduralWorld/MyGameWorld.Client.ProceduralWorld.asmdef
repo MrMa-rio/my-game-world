@@ -6,6 +6,10 @@
     "MyGameWorld.Shared.Procedural",
     "MyGameWorld.Shared.World",
     "MyGameWorld.Client.EntityRuntime",
+    "MyGameWorld.Client.ActorRuntime",
+    "MyGameWorld.Client.PlayerRuntime",
+    "MyGameWorld.Client.CharacterRuntime",
+    "MyGameWorld.Client.AssetResolution",
     "Unity.InputSystem",
     "Unity.RenderPipelines.Universal.Runtime"
   ],

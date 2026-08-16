@@ -18,12 +18,28 @@ namespace MyGameWorld.Tests.EditMode
                 CameraCollisionResolver resolver = new CameraCollisionResolver(profile);
                 Vector3 pivot = Vector3.zero; Vector3 desired = new Vector3(0f, 0f, -5f);
 
-                Vector3 resolved = resolver.Resolve(pivot, desired, desired, 0.02f);
+                Vector3 resolved = resolver.Resolve(pivot, desired, 0.02f);
 
                 Assert.That(Vector3.Distance(pivot, resolved), Is.LessThan(2.5f));
                 Assert.That(Vector3.Distance(pivot, resolved), Is.GreaterThanOrEqualTo(profile.MinimumDistance));
             }
             finally { Object.DestroyImmediate(obstacle); Object.DestroyImmediate(profile); }
+        }
+
+        [Test]
+        public void Resolve_ActorColliderAroundPivot_IgnoresTrackedActor()
+        {
+            GameObject actor = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+            CameraCollisionProfile profile = ScriptableObject.CreateInstance<CameraCollisionProfile>();
+            try
+            {
+                actor.transform.position = Vector3.zero; Physics.SyncTransforms();
+                CameraCollisionResolver resolver = new CameraCollisionResolver(profile);
+                Vector3 desired = new Vector3(0f, 0f, -5f);
+                Vector3 resolved = resolver.Resolve(Vector3.zero, desired, 0.02f, actor.transform);
+                Assert.That(Vector3.Distance(Vector3.zero, resolved), Is.EqualTo(5f).Within(0.01f));
+            }
+            finally { Object.DestroyImmediate(actor); Object.DestroyImmediate(profile); }
         }
     }
 }

@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1645302586}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MyGameWorld.Client.ProceduralWorld::MyGameWorld.Client.ProceduralWorld.RenderingQualityManager
   _profiles:
   - {fileID: 11400000, guid: 14e77e458df6406b91f22e6ff72abf34, type: 2}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76f5a570a0784590b16e80ee324c9334, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MyGameWorld.Client.ProceduralWorld::MyGameWorld.Client.ProceduralWorld.ProceduralWorldDebugHud
 --- !u!114 &35405696
 MonoBehaviour:
@@ -179,14 +179,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2794d5696f68407baa3eae09eb64008e, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MyGameWorld.Client.ProceduralWorld::MyGameWorld.Client.ProceduralWorld.ProceduralWorldSandbox
-  _zoneId: 10
-  _zoneSeed: 48151623
+  _zoneId: 12
+  _zoneSeed: 73190428
   _width: 1000
   _depth: 1000
   _requestedResolution: 257
-  _maxHeight: 420
+  _maxHeight: 500
   _targetTriangleBudget: 80000
   _chunkCountPerAxis: 10
   _shadingMode: 1
@@ -198,6 +198,58 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35405693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &544129492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 544129494}
+  - component: {fileID: 544129493}
+  m_Layer: 0
+  m_Name: Procedural Player Integration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &544129493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544129492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e258817ff981542902393cfa87e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MyGameWorld.Client.ProceduralWorld::MyGameWorld.Client.ProceduralWorld.ProceduralWorldPlayerCoordinator
+  _inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  _spawnCoordinates: {x: 0, y: 0}
+  _probeHeight: 600
+  _groundClearance: 1.15
+  _avatarAssetCatalog: {fileID: 11400000, guid: ef224b10f8ba08344b4d27b4d807e87e, type: 2}
+  _avatarPartCatalog: {fileID: 11400000, guid: f8d2c8dbdaa902b4fbaaa51711aa4092, type: 2}
+  _avatarSeed: 3201
+  _humanoidMotionController: {fileID: 9100000, guid: 92e84079dbeea80429d310c5061150aa, type: 2}
+--- !u!4 &544129494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544129492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -309,7 +361,7 @@ MonoScript:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name:
+  m_Name: 
   serializedVersion: 7
   m_DefaultReferences: {}
   m_Icon: {fileID: 0}
@@ -318,6 +370,51 @@ MonoScript:
   m_ClassName: RenderingQualityManager
   m_Namespace: MyGameWorld.Client.ProceduralWorld
   m_AssemblyName: MyGameWorld.Client.ProceduralWorld
+--- !u!1 &1680078349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1680078351}
+  - component: {fileID: 1680078350}
+  m_Layer: 0
+  m_Name: Sandbox Navigation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1680078350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680078349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca1249d31aede4499243e30eb6cd94e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MyGameWorld.Client.ApplicationFlow::MyGameWorld.Client.ApplicationFlow.SandboxReturnToMenu
+  _sceneCatalog: {fileID: 11400000, guid: db7b152b22b51ea49901f09d629715d3, type: 2}
+--- !u!4 &1680078351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680078349}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1827129992
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +445,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 925a8255509b42a593050f7d6c5d731a, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: MyGameWorld.Client.ProceduralWorld::MyGameWorld.Client.ProceduralWorld.DevelopmentFreeCamera
   _movementSpeed: 55
   _fastMultiplier: 3.5
@@ -372,7 +469,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
   m_RenderShadows: 1
   m_RequiresDepthTextureOption: 2
@@ -479,3 +576,5 @@ SceneRoots:
   - {fileID: 35405697}
   - {fileID: 1827129997}
   - {fileID: 770095053}
+  - {fileID: 1680078351}
+  - {fileID: 544129494}

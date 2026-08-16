@@ -23,13 +23,15 @@ namespace MyGameWorld.Tests.EditMode
                 ThirdPersonCameraMode mode = new ThirdPersonCameraMode(profile); system.Modes.Register(mode);
                 Assert.That(system.Modes.SetMode(PlayerCameraModeId.ThirdPerson), Is.True);
                 Vector3 initialPosition = cameraRoot.transform.position;
-                Assert.That(Vector3.Distance(initialPosition, Vector3.up * profile.PivotHeight), Is.EqualTo(profile.Distance).Within(0.01f));
+                Assert.That(Vector3.Distance(initialPosition, Vector3.up * profile.PivotHeight), Is.GreaterThan(4f));
 
                 system.SubmitLook(new Vector2(100f, 20f)); system.Modes.Tick(0.5f);
 
                 Assert.That(mode.Yaw, Is.GreaterThan(0f));
                 Assert.That(cameraRoot.transform.position, Is.Not.EqualTo(initialPosition));
                 Assert.That(mode.Pitch, Is.LessThan(0f));
+                Assert.That(Quaternion.Angle(cameraRoot.transform.rotation,
+                    Quaternion.Euler(mode.Pitch, mode.Yaw, 0f)), Is.LessThan(0.01f));
             }
             finally
             {

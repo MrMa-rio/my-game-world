@@ -21,22 +21,49 @@ namespace MyGameWorld.Client.PlayerRuntime
     public sealed class CameraCollisionResolver
     {
         private readonly CameraCollisionProfile _profile;
+        private readonly RaycastHit[] _hits = new RaycastHit[16];
+        private float _currentDistance = -1f;
         public CameraCollisionResolver(CameraCollisionProfile profile)
             => _profile = profile != null ? profile : throw new ArgumentNullException(nameof(profile));
 
-        public Vector3 Resolve(Vector3 pivot, Vector3 desiredPosition, Vector3 currentPosition, float deltaTime)
+        public void Reset(float distance) => _currentDistance = Mathf.Max(0f, distance);
+
+        public Vector3 Resolve(Vector3 pivot, Vector3 desiredPosition, float deltaTime, Transform ignoredRoot = null)
         {
             Vector3 offset = desiredPosition - pivot; float desiredDistance = offset.magnitude;
             if (desiredDistance <= 0.0001f) return pivot;
             Vector3 direction = offset / desiredDistance;
-            if (Physics.SphereCast(pivot, _profile.Radius, direction, out RaycastHit hit, desiredDistance,
-                _profile.CollisionLayers, QueryTriggerInteraction.Ignore))
+            float obstacleDistance = FindNearestObstacle(pivot, direction, desiredDistance, ignoredRoot);
+            if (obstacleDistance >= 0f)
             {
-                float safeDistance = Mathf.Clamp(hit.distance - _profile.Padding, _profile.MinimumDistance, desiredDistance);
-                return pivot + direction * safeDistance;
+                _currentDistance = Mathf.Clamp(obstacleDistance - _profile.Padding, _profile.MinimumDistance, desiredDistance);
             }
-            if (_profile.ReturnSpeed <= 0f || deltaTime <= 0f) return desiredPosition;
-            return Vector3.MoveTowards(currentPosition, desiredPosition, _profile.ReturnSpeed * deltaTime);
+            else if (_currentDistance < 0f || _profile.ReturnSpeed <= 0f || deltaTime <= 0f)
+            {
+                _currentDistance = desiredDistance;
+            }
+            else
+            {
+                _currentDistance = Mathf.MoveTowards(_currentDistance, desiredDistance, _profile.ReturnSpeed * deltaTime);
+            }
+            return pivot + direction * Mathf.Min(_currentDistance, desiredDistance);
         }
+
+        private float FindNearestObstacle(Vector3 pivot, Vector3 direction, float distance, Transform ignoredRoot)
+        {
+            int count = Physics.SphereCastNonAlloc(pivot, _profile.Radius, direction, _hits, distance,
+                _profile.CollisionLayers, QueryTriggerInteraction.Ignore);
+            float nearest = float.PositiveInfinity;
+            for (int index = 0; index < count; index++)
+            {
+                Collider collider = _hits[index].collider;
+                if (collider == null || IsPartOf(collider.transform, ignoredRoot)) continue;
+                nearest = Mathf.Min(nearest, _hits[index].distance);
+            }
+            return float.IsPositiveInfinity(nearest) ? -1f : nearest;
+        }
+
+        private static bool IsPartOf(Transform candidate, Transform root)
+            => root != null && (candidate == root || candidate.IsChildOf(root));
     }
 }

@@ -70,6 +70,24 @@ MyGameWorld.Client.ProceduralWorld
 
 O assembly compartilhado não referencia `UnityEngine`. Ele produz arrays e tipos matemáticos neutros. O cliente cria meshes, colliders, materiais e GameObjects descartáveis a partir desse resultado.
 
+## Player de validação
+
+A sandbox materializa o Player pelo mesmo `PlayerActorAssembly` usado no cenário técnico. O `ProceduralWorldPlayerCoordinator` aguarda a geração do terreno, resolve a altura de spawn pelos colliders dos chunks e então compõe Actor, locomotion, capacidades, sensores, corpo físico, câmera, HUD e um avatar modular determinístico pelo `AvatarCreationManager`.
+
+O terreno usa a layer `Terrain`; árvores e rochas usam colliders derivados dos bounds da geometria na layer `StaticWorld`; vegetação pequena utiliza triggers `SoftEnvironment`. A câmera livre permanece autorada na scene para inspeção, mas é desativada quando a câmera do Player assume `MainCamera`.
+
+Controles:
+
+```text
+WASD        movimento
+Mouse       direção/câmera
+Shift       correr
+Space       pular
+V           primeira/terceira pessoa
+Tab         liberar/capturar cursor
+Escape      voltar ao Main Menu
+```
+
 ## Height generation V2
 
 Cada ponto usa coordenadas globais da zona. Seeds independentes são derivadas da seed da zona para:

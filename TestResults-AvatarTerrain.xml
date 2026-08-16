@@ -1,0 +1,1242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="173" result="Passed" total="173" passed="173" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:41Z" duration="13.8066606">
+  <test-suite type="TestSuite" id="1000" name="My Game World" fullname="My Game World" runstate="Runnable" testcasecount="173" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:41Z" duration="13.806661" total="173" passed="173" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1233" name="MyGameWorld.EditModeTests.dll" fullname="C:/Users/mario/my-game-world/Library/ScriptAssemblies/MyGameWorld.EditModeTests.dll" runstate="Runnable" testcasecount="173" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:41Z" duration="13.801634" total="173" passed="173" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="17996" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1234" name="MyGameWorld" fullname="MyGameWorld" runstate="Runnable" testcasecount="173" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:41Z" duration="13.801391" total="173" passed="173" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1235" name="Tests" fullname="MyGameWorld.Tests" runstate="Runnable" testcasecount="173" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:41Z" duration="13.801311" total="173" passed="173" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1236" name="EditMode" fullname="MyGameWorld.Tests.EditMode" runstate="Runnable" testcasecount="173" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:41Z" duration="13.800951" total="173" passed="173" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1001" name="ActorAnimationDriverTests" fullname="MyGameWorld.Tests.EditMode.ActorAnimationDriverTests" classname="MyGameWorld.Tests.EditMode.ActorAnimationDriverTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.028689" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1002" name="ProprioceptionSamples_DeriveMovementStatesWithoutAnimatorGameplay" fullname="MyGameWorld.Tests.EditMode.ActorAnimationDriverTests.ProprioceptionSamples_DeriveMovementStatesWithoutAnimatorGameplay" methodname="ProprioceptionSamples_DeriveMovementStatesWithoutAnimatorGameplay" classname="MyGameWorld.Tests.EditMode.ActorAnimationDriverTests" runstate="Runnable" seed="656433467" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.019003" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1003" name="ActorArchitectureBoundaryTests" fullname="MyGameWorld.Tests.EditMode.ActorArchitectureBoundaryTests" classname="MyGameWorld.Tests.EditMode.ActorArchitectureBoundaryTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.005895" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1004" name="ActorRuntimeAssembly_DoesNotReferencePlayerPresentationAssembly" fullname="MyGameWorld.Tests.EditMode.ActorArchitectureBoundaryTests.ActorRuntimeAssembly_DoesNotReferencePlayerPresentationAssembly" methodname="ActorRuntimeAssembly_DoesNotReferencePlayerPresentationAssembly" classname="MyGameWorld.Tests.EditMode.ActorArchitectureBoundaryTests" runstate="Runnable" seed="780400535" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.002552" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="CapabilitiesAndSensors_DoNotDeclarePerInstanceFrameLoops" fullname="MyGameWorld.Tests.EditMode.ActorArchitectureBoundaryTests.CapabilitiesAndSensors_DoNotDeclarePerInstanceFrameLoops" methodname="CapabilitiesAndSensors_DoNotDeclarePerInstanceFrameLoops" classname="MyGameWorld.Tests.EditMode.ActorArchitectureBoundaryTests" runstate="Runnable" seed="1664801889" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000595" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="GenericActionSystems_DoNotDependOnHumanCameraOrHudTypes" fullname="MyGameWorld.Tests.EditMode.ActorArchitectureBoundaryTests.GenericActionSystems_DoNotDependOnHumanCameraOrHudTypes" methodname="GenericActionSystems_DoNotDependOnHumanCameraOrHudTypes" classname="MyGameWorld.Tests.EditMode.ActorArchitectureBoundaryTests" runstate="Runnable" seed="933175719" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001769" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1007" name="ActorCapabilityTests" fullname="MyGameWorld.Tests.EditMode.ActorCapabilityTests" classname="MyGameWorld.Tests.EditMode.ActorCapabilityTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.007361" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1011" name="AddCapability_DuplicateContract_IsRejectedBeforeSecondInitialization" fullname="MyGameWorld.Tests.EditMode.ActorCapabilityTests.AddCapability_DuplicateContract_IsRejectedBeforeSecondInitialization" methodname="AddCapability_DuplicateContract_IsRejectedBeforeSecondInitialization" classname="MyGameWorld.Tests.EditMode.ActorCapabilityTests" runstate="Runnable" seed="2109484863" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.004370" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1008" name="AddCapability_InitializesAndQueriesByCapabilityContract" fullname="MyGameWorld.Tests.EditMode.ActorCapabilityTests.AddCapability_InitializesAndQueriesByCapabilityContract" methodname="AddCapability_InitializesAndQueriesByCapabilityContract" classname="MyGameWorld.Tests.EditMode.ActorCapabilityTests" runstate="Runnable" seed="1884653295" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000835" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1010" name="CanExecute_ActorDisabled_BecomesFalseWithoutDisablingCapabilityConfiguration" fullname="MyGameWorld.Tests.EditMode.ActorCapabilityTests.CanExecute_ActorDisabled_BecomesFalseWithoutDisablingCapabilityConfiguration" methodname="CanExecute_ActorDisabled_BecomesFalseWithoutDisablingCapabilityConfiguration" classname="MyGameWorld.Tests.EditMode.ActorCapabilityTests" runstate="Runnable" seed="1815762249" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000487" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1009" name="SetEnabled_ChangesCapabilityWithoutChangingActorOrRegistry" fullname="MyGameWorld.Tests.EditMode.ActorCapabilityTests.SetEnabled_ChangesCapabilityWithoutChangingActorOrRegistry" methodname="SetEnabled_ChangesCapabilityWithoutChangingActorOrRegistry" classname="MyGameWorld.Tests.EditMode.ActorCapabilityTests" runstate="Runnable" seed="1028835908" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000683" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1012" name="ActorControllerTests" fullname="MyGameWorld.Tests.EditMode.ActorControllerTests" classname="MyGameWorld.Tests.EditMode.ActorControllerTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.015639" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1014" name="Actor_SetController_CanReplaceHumanWithAnotherDecisionSource" fullname="MyGameWorld.Tests.EditMode.ActorControllerTests.Actor_SetController_CanReplaceHumanWithAnotherDecisionSource" methodname="Actor_SetController_CanReplaceHumanWithAnotherDecisionSource" classname="MyGameWorld.Tests.EditMode.ActorControllerTests" runstate="Runnable" seed="680417213" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.009384" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1015" name="HumanController_ConfigurationCannotChangeWhileBound" fullname="MyGameWorld.Tests.EditMode.ActorControllerTests.HumanController_ConfigurationCannotChangeWhileBound" methodname="HumanController_ConfigurationCannotChangeWhileBound" classname="MyGameWorld.Tests.EditMode.ActorControllerTests" runstate="Runnable" seed="663305364" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000653" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="HumanController_ProcessInput_ProducesIntentsWithoutExecutingMovement" fullname="MyGameWorld.Tests.EditMode.ActorControllerTests.HumanController_ProcessInput_ProducesIntentsWithoutExecutingMovement" methodname="HumanController_ProcessInput_ProducesIntentsWithoutExecutingMovement" classname="MyGameWorld.Tests.EditMode.ActorControllerTests" runstate="Runnable" seed="988753643" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.004674" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1016" name="ActorDebugViewTests" fullname="MyGameWorld.Tests.EditMode.ActorDebugViewTests" classname="MyGameWorld.Tests.EditMode.ActorDebugViewTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.002953" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1017" name="RefreshSnapshot_ActorComposition_ExposesStableDebugData" fullname="MyGameWorld.Tests.EditMode.ActorDebugViewTests.RefreshSnapshot_ActorComposition_ExposesStableDebugData" methodname="RefreshSnapshot_ActorComposition_ExposesStableDebugData" classname="MyGameWorld.Tests.EditMode.ActorDebugViewTests" runstate="Runnable" seed="77559643" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001995" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1018" name="ActorFoundationTests" fullname="MyGameWorld.Tests.EditMode.ActorFoundationTests" classname="MyGameWorld.Tests.EditMode.ActorFoundationTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.003983" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1020" name="CompositionRegistries_QueryByContractWithoutComponentSearch" fullname="MyGameWorld.Tests.EditMode.ActorFoundationTests.CompositionRegistries_QueryByContractWithoutComponentSearch" methodname="CompositionRegistries_QueryByContractWithoutComponentSearch" classname="MyGameWorld.Tests.EditMode.ActorFoundationTests" runstate="Runnable" seed="1556734923" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001008" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1019" name="Initialize_ActiveWorldEntity_ExposesContextAndTracksAvailability" fullname="MyGameWorld.Tests.EditMode.ActorFoundationTests.Initialize_ActiveWorldEntity_ExposesContextAndTracksAvailability" methodname="Initialize_ActiveWorldEntity_ExposesContextAndTracksAvailability" classname="MyGameWorld.Tests.EditMode.ActorFoundationTests" runstate="Runnable" seed="1546336829" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000578" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1022" name="Initialize_WithoutInitializedWorldEntity_IsRejected" fullname="MyGameWorld.Tests.EditMode.ActorFoundationTests.Initialize_WithoutInitializedWorldEntity_IsRejected" methodname="Initialize_WithoutInitializedWorldEntity_IsRejected" classname="MyGameWorld.Tests.EditMode.ActorFoundationTests" runstate="Runnable" seed="1802313433" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000762" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1021" name="SetController_ReplacesDecisionSourceWithoutChangingActorComposition" fullname="MyGameWorld.Tests.EditMode.ActorFoundationTests.SetController_ReplacesDecisionSourceWithoutChangingActorComposition" methodname="SetController_ReplacesDecisionSourceWithoutChangingActorComposition" classname="MyGameWorld.Tests.EditMode.ActorFoundationTests" runstate="Runnable" seed="1056415896" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000613" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1023" name="ActorIntentTests" fullname="MyGameWorld.Tests.EditMode.ActorIntentTests" classname="MyGameWorld.Tests.EditMode.ActorIntentTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.004427" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1028" name="IntentTypes_CarryControllerDecisionWithoutExecutionDependencies" fullname="MyGameWorld.Tests.EditMode.ActorIntentTests.IntentTypes_CarryControllerDecisionWithoutExecutionDependencies" methodname="IntentTypes_CarryControllerDecisionWithoutExecutionDependencies" classname="MyGameWorld.Tests.EditMode.ActorIntentTests" runstate="Runnable" seed="884206000" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000712" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1027" name="RemoveCapability_UnregistersItsIntentRoutes" fullname="MyGameWorld.Tests.EditMode.ActorIntentTests.RemoveCapability_UnregistersItsIntentRoutes" methodname="RemoveCapability_UnregistersItsIntentRoutes" classname="MyGameWorld.Tests.EditMode.ActorIntentTests" runstate="Runnable" seed="1077644208" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001558" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1025" name="Submit_DisabledCapability_DoesNotExecuteHandler" fullname="MyGameWorld.Tests.EditMode.ActorIntentTests.Submit_DisabledCapability_DoesNotExecuteHandler" methodname="Submit_DisabledCapability_DoesNotExecuteHandler" classname="MyGameWorld.Tests.EditMode.ActorIntentTests" runstate="Runnable" seed="305759480" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000376" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1026" name="Submit_InactiveActor_DoesNotExecuteHandler" fullname="MyGameWorld.Tests.EditMode.ActorIntentTests.Submit_InactiveActor_DoesNotExecuteHandler" methodname="Submit_InactiveActor_DoesNotExecuteHandler" classname="MyGameWorld.Tests.EditMode.ActorIntentTests" runstate="Runnable" seed="1595852783" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000322" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1024" name="Submit_MoveIntent_RoutesDecisionToCapability" fullname="MyGameWorld.Tests.EditMode.ActorIntentTests.Submit_MoveIntent_RoutesDecisionToCapability" methodname="Submit_MoveIntent_RoutesDecisionToCapability" classname="MyGameWorld.Tests.EditMode.ActorIntentTests" runstate="Runnable" seed="1046871074" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000465" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1029" name="ActorLocomotionTests" fullname="MyGameWorld.Tests.EditMode.ActorLocomotionTests" classname="MyGameWorld.Tests.EditMode.ActorLocomotionTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.007414" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1030" name="Classify_DefaultProfile_ProducesFourSlopeBands" fullname="MyGameWorld.Tests.EditMode.ActorLocomotionTests.Classify_DefaultProfile_ProducesFourSlopeBands" methodname="Classify_DefaultProfile_ProducesFourSlopeBands" classname="MyGameWorld.Tests.EditMode.ActorLocomotionTests" runstate="Runnable" seed="108724547" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000501" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1033" name="RemoveCapability_UnregistersLocomotionFromCentralScheduler" fullname="MyGameWorld.Tests.EditMode.ActorLocomotionTests.RemoveCapability_UnregistersLocomotionFromCentralScheduler" methodname="RemoveCapability_UnregistersLocomotionFromCentralScheduler" classname="MyGameWorld.Tests.EditMode.ActorLocomotionTests" runstate="Runnable" seed="918287114" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001896" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1032" name="Simulate_DesiredMotion_MovesActorAndSynchronizesWorldPresence" fullname="MyGameWorld.Tests.EditMode.ActorLocomotionTests.Simulate_DesiredMotion_MovesActorAndSynchronizesWorldPresence" methodname="Simulate_DesiredMotion_MovesActorAndSynchronizesWorldPresence" classname="MyGameWorld.Tests.EditMode.ActorLocomotionTests" runstate="Runnable" seed="1230339841" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.003910" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1031" name="Step_Airborne_ClampsGravityAtTerminalSpeed" fullname="MyGameWorld.Tests.EditMode.ActorLocomotionTests.Step_Airborne_ClampsGravityAtTerminalSpeed" methodname="Step_Airborne_ClampsGravityAtTerminalSpeed" classname="MyGameWorld.Tests.EditMode.ActorLocomotionTests" runstate="Runnable" seed="1335777586" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000322" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1034" name="ActorSensorTests" fullname="MyGameWorld.Tests.EditMode.ActorSensorTests" classname="MyGameWorld.Tests.EditMode.ActorSensorTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.003350" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1036" name="PhysicsSensor_SamplesOnlyOnPhysicsTicks" fullname="MyGameWorld.Tests.EditMode.ActorSensorTests.PhysicsSensor_SamplesOnlyOnPhysicsTicks" methodname="PhysicsSensor_SamplesOnlyOnPhysicsTicks" classname="MyGameWorld.Tests.EditMode.ActorSensorTests" runstate="Runnable" seed="959005863" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001779" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1035" name="TickIntervals_RespectsConfiguredFrequencyAndCentralRegistration" fullname="MyGameWorld.Tests.EditMode.ActorSensorTests.TickIntervals_RespectsConfiguredFrequencyAndCentralRegistration" methodname="TickIntervals_RespectsConfiguredFrequencyAndCentralRegistration" classname="MyGameWorld.Tests.EditMode.ActorSensorTests" runstate="Runnable" seed="856643735" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000891" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1037" name="ApplicationSceneCatalogTests" fullname="MyGameWorld.Tests.EditMode.ApplicationSceneCatalogTests" classname="MyGameWorld.Tests.EditMode.ApplicationSceneCatalogTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.002637" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1038" name="TryGetSceneName_RegisteredScene_ReturnsCentralMapping" fullname="MyGameWorld.Tests.EditMode.ApplicationSceneCatalogTests.TryGetSceneName_RegisteredScene_ReturnsCentralMapping" methodname="TryGetSceneName_RegisteredScene_ReturnsCentralMapping" classname="MyGameWorld.Tests.EditMode.ApplicationSceneCatalogTests" runstate="Runnable" seed="56358830" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001334" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1039" name="TryGetSceneName_UnregisteredScene_ReturnsFalse" fullname="MyGameWorld.Tests.EditMode.ApplicationSceneCatalogTests.TryGetSceneName_UnregisteredScene_ReturnsFalse" methodname="TryGetSceneName_UnregisteredScene_ReturnsFalse" classname="MyGameWorld.Tests.EditMode.ApplicationSceneCatalogTests" runstate="Runnable" seed="327171150" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000504" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1040" name="AssetCatalogTests" fullname="MyGameWorld.Tests.EditMode.AssetCatalogTests" classname="MyGameWorld.Tests.EditMode.AssetCatalogTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.004225" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1041" name="AssetId_ZeroValue_Throws" fullname="MyGameWorld.Tests.EditMode.AssetCatalogTests.AssetId_ZeroValue_Throws" methodname="AssetId_ZeroValue_Throws" classname="MyGameWorld.Tests.EditMode.AssetCatalogTests" runstate="Runnable" seed="126678150" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000404" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1042" name="Constructor_DuplicateAssetId_Throws" fullname="MyGameWorld.Tests.EditMode.AssetCatalogTests.Constructor_DuplicateAssetId_Throws" methodname="Constructor_DuplicateAssetId_Throws" classname="MyGameWorld.Tests.EditMode.AssetCatalogTests" runstate="Runnable" seed="613795470" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001929" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1044" name="Contains_KnownAndUnknownIds_ReturnsExpectedResult" fullname="MyGameWorld.Tests.EditMode.AssetCatalogTests.Contains_KnownAndUnknownIds_ReturnsExpectedResult" methodname="Contains_KnownAndUnknownIds_ReturnsExpectedResult" classname="MyGameWorld.Tests.EditMode.AssetCatalogTests" runstate="Runnable" seed="799661352" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000280" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1043" name="Select_KnownCatalogAndSeed_MatchesGoldenSequence" fullname="MyGameWorld.Tests.EditMode.AssetCatalogTests.Select_KnownCatalogAndSeed_MatchesGoldenSequence" methodname="Select_KnownCatalogAndSeed_MatchesGoldenSequence" classname="MyGameWorld.Tests.EditMode.AssetCatalogTests" runstate="Runnable" seed="895733969" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000801" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1045" name="AssetCompatibilityTests" fullname="MyGameWorld.Tests.EditMode.AssetCompatibilityTests" classname="MyGameWorld.Tests.EditMode.AssetCompatibilityTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.002868" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1049" name="AreCompatible_ExcludedTraitPresent_ReturnsFalse" fullname="MyGameWorld.Tests.EditMode.AssetCompatibilityTests.AreCompatible_ExcludedTraitPresent_ReturnsFalse" methodname="AreCompatible_ExcludedTraitPresent_ReturnsFalse" classname="MyGameWorld.Tests.EditMode.AssetCompatibilityTests" runstate="Runnable" seed="894571895" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000620" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1047" name="AreCompatible_MutualRequirementsSatisfied_ReturnsTrue" fullname="MyGameWorld.Tests.EditMode.AssetCompatibilityTests.AreCompatible_MutualRequirementsSatisfied_ReturnsTrue" methodname="AreCompatible_MutualRequirementsSatisfied_ReturnsTrue" classname="MyGameWorld.Tests.EditMode.AssetCompatibilityTests" runstate="Runnable" seed="1628288817" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000132" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1048" name="AreCompatible_RequiredTraitMissing_ReturnsFalse" fullname="MyGameWorld.Tests.EditMode.AssetCompatibilityTests.AreCompatible_RequiredTraitMissing_ReturnsFalse" methodname="AreCompatible_RequiredTraitMissing_ReturnsFalse" classname="MyGameWorld.Tests.EditMode.AssetCompatibilityTests" runstate="Runnable" seed="56195147" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000100" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1046" name="Constructor_SameRequiredAndExcludedTrait_Throws" fullname="MyGameWorld.Tests.EditMode.AssetCompatibilityTests.Constructor_SameRequiredAndExcludedTrait_Throws" methodname="Constructor_SameRequiredAndExcludedTrait_Throws" classname="MyGameWorld.Tests.EditMode.AssetCompatibilityTests" runstate="Runnable" seed="1484000678" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000207" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1050" name="TryGetDescriptor_KnownId_ReturnsCatalogMetadata" fullname="MyGameWorld.Tests.EditMode.AssetCompatibilityTests.TryGetDescriptor_KnownId_ReturnsCatalogMetadata" methodname="TryGetDescriptor_KnownId_ReturnsCatalogMetadata" classname="MyGameWorld.Tests.EditMode.AssetCompatibilityTests" runstate="Runnable" seed="5496171" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000598" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1051" name="AvatarCreationManagerTests" fullname="MyGameWorld.Tests.EditMode.AvatarCreationManagerTests" classname="MyGameWorld.Tests.EditMode.AvatarCreationManagerTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.012086" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1052" name="CreateImmediately_MaterializesSelectedParts_AndReusesAppearance" fullname="MyGameWorld.Tests.EditMode.AvatarCreationManagerTests.CreateImmediately_MaterializesSelectedParts_AndReusesAppearance" methodname="CreateImmediately_MaterializesSelectedParts_AndReusesAppearance" classname="MyGameWorld.Tests.EditMode.AvatarCreationManagerTests" runstate="Runnable" seed="817828135" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.011604" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1053" name="AvatarEnvironmentalStyleTests" fullname="MyGameWorld.Tests.EditMode.AvatarEnvironmentalStyleTests" classname="MyGameWorld.Tests.EditMode.AvatarEnvironmentalStyleTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.002573" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1055" name="Resolve_DifferentBiome_ChangesSilhouetteFamily" fullname="MyGameWorld.Tests.EditMode.AvatarEnvironmentalStyleTests.Resolve_DifferentBiome_ChangesSilhouetteFamily" methodname="Resolve_DifferentBiome_ChangesSilhouetteFamily" classname="MyGameWorld.Tests.EditMode.AvatarEnvironmentalStyleTests" runstate="Runnable" seed="1589587849" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000505" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1056" name="Resolve_RockyTemperateSpawn_SelectsSturdySilhouette" fullname="MyGameWorld.Tests.EditMode.AvatarEnvironmentalStyleTests.Resolve_RockyTemperateSpawn_SelectsSturdySilhouette" methodname="Resolve_RockyTemperateSpawn_SelectsSturdySilhouette" classname="MyGameWorld.Tests.EditMode.AvatarEnvironmentalStyleTests" runstate="Runnable" seed="1723566382" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000270" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1054" name="Resolve_SameSeedAndEnvironment_ProducesSameRecipe" fullname="MyGameWorld.Tests.EditMode.AvatarEnvironmentalStyleTests.Resolve_SameSeedAndEnvironment_ProducesSameRecipe" methodname="Resolve_SameSeedAndEnvironment_ProducesSameRecipe" classname="MyGameWorld.Tests.EditMode.AvatarEnvironmentalStyleTests" runstate="Runnable" seed="779767452" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000814" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1057" name="AvatarFixtureGalleryTests" fullname="MyGameWorld.Tests.EditMode.AvatarFixtureGalleryTests" classname="MyGameWorld.Tests.EditMode.AvatarFixtureGalleryTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.079088" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1059" name="GalleryScene_Exists" fullname="MyGameWorld.Tests.EditMode.AvatarFixtureGalleryTests.GalleryScene_Exists" methodname="GalleryScene_Exists" classname="MyGameWorld.Tests.EditMode.AvatarFixtureGalleryTests" runstate="Runnable" seed="2110886358" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000522" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1058" name="GeneratedCatalogs_ContainAllNormalizedParts_AndGenerateBothFamilies" fullname="MyGameWorld.Tests.EditMode.AvatarFixtureGalleryTests.GeneratedCatalogs_ContainAllNormalizedParts_AndGenerateBothFamilies" methodname="GeneratedCatalogs_ContainAllNormalizedParts_AndGenerateBothFamilies" classname="MyGameWorld.Tests.EditMode.AvatarFixtureGalleryTests" runstate="Runnable" seed="1605241667" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.077641" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1060" name="CameraCollisionResolverTests" fullname="MyGameWorld.Tests.EditMode.CameraCollisionResolverTests" classname="MyGameWorld.Tests.EditMode.CameraCollisionResolverTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.005214" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1062" name="Resolve_ActorColliderAroundPivot_IgnoresTrackedActor" fullname="MyGameWorld.Tests.EditMode.CameraCollisionResolverTests.Resolve_ActorColliderAroundPivot_IgnoresTrackedActor" methodname="Resolve_ActorColliderAroundPivot_IgnoresTrackedActor" classname="MyGameWorld.Tests.EditMode.CameraCollisionResolverTests" runstate="Runnable" seed="988287421" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.002943" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1061" name="Resolve_ObstacleBetweenPivotAndCamera_PullsCameraInFrontOfObstacle" fullname="MyGameWorld.Tests.EditMode.CameraCollisionResolverTests.Resolve_ObstacleBetweenPivotAndCamera_PullsCameraInFrontOfObstacle" methodname="Resolve_ObstacleBetweenPivotAndCamera_PullsCameraInFrontOfObstacle" classname="MyGameWorld.Tests.EditMode.CameraCollisionResolverTests" runstate="Runnable" seed="869909188" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001557" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1063" name="CharacterAppearanceGeneratorTests" fullname="MyGameWorld.Tests.EditMode.CharacterAppearanceGeneratorTests" classname="MyGameWorld.Tests.EditMode.CharacterAppearanceGeneratorTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.004332" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1066" name="Constructor_CategoryDoesNotMatchSlot_Throws" fullname="MyGameWorld.Tests.EditMode.CharacterAppearanceGeneratorTests.Constructor_CategoryDoesNotMatchSlot_Throws" methodname="Constructor_CategoryDoesNotMatchSlot_Throws" classname="MyGameWorld.Tests.EditMode.CharacterAppearanceGeneratorTests" runstate="Runnable" seed="2107341174" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000638" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1065" name="Generate_IncompatiblePart_IsNeverSelected" fullname="MyGameWorld.Tests.EditMode.CharacterAppearanceGeneratorTests.Generate_IncompatiblePart_IsNeverSelected" methodname="Generate_IncompatiblePart_IsNeverSelected" classname="MyGameWorld.Tests.EditMode.CharacterAppearanceGeneratorTests" runstate="Runnable" seed="1517032925" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001716" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1064" name="Generate_SameSeed_ProducesSameAppearance" fullname="MyGameWorld.Tests.EditMode.CharacterAppearanceGeneratorTests.Generate_SameSeed_ProducesSameAppearance" methodname="Generate_SameSeed_ProducesSameAppearance" classname="MyGameWorld.Tests.EditMode.CharacterAppearanceGeneratorTests" runstate="Runnable" seed="939132381" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001020" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1067" name="DeterministicRandomTests" fullname="MyGameWorld.Tests.EditMode.DeterministicRandomTests" classname="MyGameWorld.Tests.EditMode.DeterministicRandomTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001632" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1071" name="Derive_DifferentScope_ProducesDifferentSeed" fullname="MyGameWorld.Tests.EditMode.DeterministicRandomTests.Derive_DifferentScope_ProducesDifferentSeed" methodname="Derive_DifferentScope_ProducesDifferentSeed" classname="MyGameWorld.Tests.EditMode.DeterministicRandomTests" runstate="Runnable" seed="1986492259" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000313" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1069" name="NextUInt64_KnownSeed_MatchesVersionOneGoldenSequence" fullname="MyGameWorld.Tests.EditMode.DeterministicRandomTests.NextUInt64_KnownSeed_MatchesVersionOneGoldenSequence" methodname="NextUInt64_KnownSeed_MatchesVersionOneGoldenSequence" classname="MyGameWorld.Tests.EditMode.DeterministicRandomTests" runstate="Runnable" seed="1140985392" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000173" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1068" name="NextUInt64_SameSeed_ProducesSameSequence" fullname="MyGameWorld.Tests.EditMode.DeterministicRandomTests.NextUInt64_SameSeed_ProducesSameSequence" methodname="NextUInt64_SameSeed_ProducesSameSequence" classname="MyGameWorld.Tests.EditMode.DeterministicRandomTests" runstate="Runnable" seed="1700224170" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000186" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1070" name="NextUInt64_ZeroBound_Throws" fullname="MyGameWorld.Tests.EditMode.DeterministicRandomTests.NextUInt64_ZeroBound_Throws" methodname="NextUInt64_ZeroBound_Throws" classname="MyGameWorld.Tests.EditMode.DeterministicRandomTests" runstate="Runnable" seed="30145045" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000238" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1072" name="DistantWorldArchitectureTests" fullname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" classname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:34Z" duration="6.360976" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1080" name="AssessDetailed_OversizedEagerTerrain_IsRejectedInFavorOfHierarchy" fullname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests.AssessDetailed_OversizedEagerTerrain_IsRejectedInFavorOfHierarchy" methodname="AssessDetailed_OversizedEagerTerrain_IsRejectedInFavorOfHierarchy" classname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" runstate="Runnable" seed="1002273649" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000946" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1079" name="Build_ExclusionBounds_RemovesDetailedWorldTrianglesOnly" fullname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests.Build_ExclusionBounds_RemovesDetailedWorldTrianglesOnly" methodname="Build_ExclusionBounds_RemovesDetailedWorldTrianglesOnly" classname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" runstate="Runnable" seed="1848436521" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.007155" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1077" name="Build_NeighborCells_SharesExactBorderHeights" fullname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests.Build_NeighborCells_SharesExactBorderHeights" methodname="Build_NeighborCells_SharesExactBorderHeights" classname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" runstate="Runnable" seed="683449085" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.003069" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1082" name="GeologicalLandforms_DepressionAndHillRespectPhysicalEnvelopes" fullname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests.GeologicalLandforms_DepressionAndHillRespectPhysicalEnvelopes" methodname="GeologicalLandforms_DepressionAndHillRespectPhysicalEnvelopes" classname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" runstate="Runnable" seed="306684447" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.001801" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1083" name="RenderingQualityProfile_NormalizesMsaaAndPreservesStabilitySettings" fullname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests.RenderingQualityProfile_NormalizesMsaaAndPreservesStabilitySettings" methodname="RenderingQualityProfile_NormalizesMsaaAndPreservesStabilitySettings" classname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" runstate="Runnable" seed="751240632" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000615" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1075" name="Resolve_NearBoundary_UsesHysteresis" fullname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests.Resolve_NearBoundary_UsesHysteresis" methodname="Resolve_NearBoundary_UsesHysteresis" classname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" runstate="Runnable" seed="404091349" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000357" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1074" name="Sample_ProgressiveFrequencyBands_PreserveMacroMountain" fullname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests.Sample_ProgressiveFrequencyBands_PreserveMacroMountain" methodname="Sample_ProgressiveFrequencyBands_PreserveMacroMountain" classname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" runstate="Runnable" seed="697127774" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000201" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1073" name="Sample_SameCoordinateAndBands_IsDeterministic" fullname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests.Sample_SameCoordinateAndBands_IsDeterministic" methodname="Sample_SameCoordinateAndBands_IsDeterministic" classname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" runstate="Runnable" seed="73919425" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:27Z" duration="0.000390" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1081" name="ScalableHighlands_UsesVersionedSharedMacroWorldWithinDetailedLimits" fullname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests.ScalableHighlands_UsesVersionedSharedMacroWorldWithinDetailedLimits" methodname="ScalableHighlands_UsesVersionedSharedMacroWorldWithinDetailedLimits" classname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" runstate="Runnable" seed="456466199" result="Passed" start-time="2026-08-16 16:21:27Z" end-time="2026-08-16 16:21:34Z" duration="6.339977" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1076" name="Select_ViewerAtOrigin_UsesMultipleSpatialScalesWithoutOverlapAtCenters" fullname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests.Select_ViewerAtOrigin_UsesMultipleSpatialScalesWithoutOverlapAtCenters" methodname="Select_ViewerAtOrigin_UsesMultipleSpatialScalesWithoutOverlapAtCenters" classname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" runstate="Runnable" seed="2146120491" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.004334" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1078" name="SharedHeightSource_FullRepresentationMatchesDetailedTerrain" fullname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests.SharedHeightSource_FullRepresentationMatchesDetailedTerrain" methodname="SharedHeightSource_FullRepresentationMatchesDetailedTerrain" classname="MyGameWorld.Tests.EditMode.DistantWorldArchitectureTests" runstate="Runnable" seed="1381840186" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000560" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1084" name="EntityDNATests" fullname="MyGameWorld.Tests.EditMode.EntityDNATests" classname="MyGameWorld.Tests.EditMode.EntityDNATests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001849" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1086" name="EntityId_NonPositiveValue_Throws" fullname="MyGameWorld.Tests.EditMode.EntityDNATests.EntityId_NonPositiveValue_Throws" methodname="EntityId_NonPositiveValue_Throws" classname="MyGameWorld.Tests.EditMode.EntityDNATests" runstate="Runnable" seed="1711876840" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000279" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1085" name="Equals_SameDeterministicInputs_ReturnsTrue" fullname="MyGameWorld.Tests.EditMode.EntityDNATests.Equals_SameDeterministicInputs_ReturnsTrue" methodname="Equals_SameDeterministicInputs_ReturnsTrue" classname="MyGameWorld.Tests.EditMode.EntityDNATests" runstate="Runnable" seed="28338690" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000658" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1089" name="EnvironmentalFrameworkTests" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.013229" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1105" name="CelestialOrbit_OneSolarDayUsesDistinctPhysicalAngularRates" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.CelestialOrbit_OneSolarDayUsesDistinctPhysicalAngularRates" methodname="CelestialOrbit_OneSolarDayUsesDistinctPhysicalAngularRates" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="604310718" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001480" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1107" name="LightingPalette_AdjacentTimesBlendWithoutAbruptColorJumps" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.LightingPalette_AdjacentTimesBlendWithoutAbruptColorJumps" methodname="LightingPalette_AdjacentTimesBlendWithoutAbruptColorJumps" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="1800511189" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001794" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1108" name="LightingPalette_MidnightWrapRemainsContinuous" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.LightingPalette_MidnightWrapRemainsContinuous" methodname="LightingPalette_MidnightWrapRemainsContinuous" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="548720026" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000236" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1092" name="ResolveVfx_UsesBiomeAndActualSurface" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.ResolveVfx_UsesBiomeAndActualSurface" methodname="ResolveVfx_UsesBiomeAndActualSurface" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="1568505546" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000634" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1093" name="ResolveZones_TreeExposesRootTrunkBranchesAndLeavesWithoutRigidbodies" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.ResolveZones_TreeExposesRootTrunkBranchesAndLeavesWithoutRigidbodies" methodname="ResolveZones_TreeExposesRootTrunkBranchesAndLeavesWithoutRigidbodies" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="1368695405" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000950" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1091" name="SampleWind_DifferentWorldPositions_ReceiveLocalVariation" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.SampleWind_DifferentWorldPositions_ReceiveLocalVariation" methodname="SampleWind_DifferentWorldPositions_ReceiveLocalVariation" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="1468877426" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001408" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1090" name="SampleWind_SameSeedTimeAndPosition_IsDeterministic" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.SampleWind_SameSeedTimeAndPosition_IsDeterministic" methodname="SampleWind_SameSeedTimeAndPosition_IsDeterministic" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="1292674050" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000339" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1106" name="ShaderBudget_QualityLayersIncreaseWithoutRemovingBaseLighting" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.ShaderBudget_QualityLayersIncreaseWithoutRemovingBaseLighting" methodname="ShaderBudget_QualityLayersIncreaseWithoutRemovingBaseLighting" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="50709044" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000427" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1104" name="StarDensity_LocalLuminosityScalesContinuouslyUpToThirtyTimes" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.StarDensity_LocalLuminosityScalesContinuouslyUpToThirtyTimes" methodname="StarDensity_LocalLuminosityScalesContinuouslyUpToThirtyTimes" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="776073553" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000724" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1103" name="StarVisibility_DawnReducesPopulationBeforeRemovingAllStars" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.StarVisibility_DawnReducesPopulationBeforeRemovingAllStars" methodname="StarVisibility_DawnReducesPopulationBeforeRemovingAllStars" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="1793857849" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000419" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1102" name="StarVisibility_RevealsHighlightsBeforeFullNightAndHidesDuringDay" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.StarVisibility_RevealsHighlightsBeforeFullNightAndHidesDuringDay" methodname="StarVisibility_RevealsHighlightsBeforeFullNightAndHidesDuringDay" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="945350950" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000658" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1094" name="VfxRule_IntensityUsesContinuousCurve" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.VfxRule_IntensityUsesContinuousCurve" methodname="VfxRule_IntensityUsesContinuousCurve" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="447185560" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000242" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1101" name="WorldTime_TickWrapsNightToDawnWithoutLosingDayIndex" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.WorldTime_TickWrapsNightToDawnWithoutLosingDayIndex" methodname="WorldTime_TickWrapsNightToDawnWithoutLosingDayIndex" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="2024615782" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000361" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1100" name="WorldTimeSnapshot_HourResolvesExpectedPhase" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.WorldTimeSnapshot_HourResolvesExpectedPhase" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001472" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1095" name="WorldTimeSnapshot_HourResolvesExpectedPhase(2.0f,DeepNight)" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.WorldTimeSnapshot_HourResolvesExpectedPhase(2.0f,DeepNight)" methodname="WorldTimeSnapshot_HourResolvesExpectedPhase" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="1396613101" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000330" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1096" name="WorldTimeSnapshot_HourResolvesExpectedPhase(6.0f,Dawn)" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.WorldTimeSnapshot_HourResolvesExpectedPhase(6.0f,Dawn)" methodname="WorldTimeSnapshot_HourResolvesExpectedPhase" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="1205813044" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000097" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1097" name="WorldTimeSnapshot_HourResolvesExpectedPhase(12.0f,Day)" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.WorldTimeSnapshot_HourResolvesExpectedPhase(12.0f,Day)" methodname="WorldTimeSnapshot_HourResolvesExpectedPhase" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="749992626" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000092" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1098" name="WorldTimeSnapshot_HourResolvesExpectedPhase(18.0f,Dusk)" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.WorldTimeSnapshot_HourResolvesExpectedPhase(18.0f,Dusk)" methodname="WorldTimeSnapshot_HourResolvesExpectedPhase" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="94673875" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000065" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1099" name="WorldTimeSnapshot_HourResolvesExpectedPhase(22.0f,Night)" fullname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests.WorldTimeSnapshot_HourResolvesExpectedPhase(22.0f,Night)" methodname="WorldTimeSnapshot_HourResolvesExpectedPhase" classname="MyGameWorld.Tests.EditMode.EnvironmentalFrameworkTests" runstate="Runnable" seed="1175193679" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000080" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+            </test-suite>
+            <test-suite type="TestFixture" id="1087" name="EnvironmentContextSensorTests" fullname="MyGameWorld.Tests.EditMode.EnvironmentContextSensorTests" classname="MyGameWorld.Tests.EditMode.EnvironmentContextSensorTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001521" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1088" name="IntervalSample_Provider_UpdatesActorEnvironmentContext" fullname="MyGameWorld.Tests.EditMode.EnvironmentContextSensorTests.IntervalSample_Provider_UpdatesActorEnvironmentContext" methodname="IntervalSample_Provider_UpdatesActorEnvironmentContext" classname="MyGameWorld.Tests.EditMode.EnvironmentContextSensorTests" runstate="Runnable" seed="606984095" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001076" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1109" name="FirstPersonCameraModeTests" fullname="MyGameWorld.Tests.EditMode.FirstPersonCameraModeTests" classname="MyGameWorld.Tests.EditMode.FirstPersonCameraModeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.010072" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1110" name="LookIntent_FirstPersonMode_RotatesActorAndClampsPitch" fullname="MyGameWorld.Tests.EditMode.FirstPersonCameraModeTests.LookIntent_FirstPersonMode_RotatesActorAndClampsPitch" methodname="LookIntent_FirstPersonMode_RotatesActorAndClampsPitch" classname="MyGameWorld.Tests.EditMode.FirstPersonCameraModeTests" runstate="Runnable" seed="1587884172" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.006036" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1111" name="HearingSensorTests" fullname="MyGameWorld.Tests.EditMode.HearingSensorTests" classname="MyGameWorld.Tests.EditMode.HearingSensorTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.007504" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1112" name="Emit_SoundInRange_IsPerceivedWithoutAudioSource" fullname="MyGameWorld.Tests.EditMode.HearingSensorTests.Emit_SoundInRange_IsPerceivedWithoutAudioSource" methodname="Emit_SoundInRange_IsPerceivedWithoutAudioSource" classname="MyGameWorld.Tests.EditMode.HearingSensorTests" runstate="Runnable" seed="161841917" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.002293" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1113" name="Emit_SoundOutsideRange_IsIgnored" fullname="MyGameWorld.Tests.EditMode.HearingSensorTests.Emit_SoundOutsideRange_IsIgnored" methodname="Emit_SoundOutsideRange_IsIgnored" classname="MyGameWorld.Tests.EditMode.HearingSensorTests" runstate="Runnable" seed="1546921024" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001020" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1114" name="JumpCapabilityTests" fullname="MyGameWorld.Tests.EditMode.JumpCapabilityTests" classname="MyGameWorld.Tests.EditMode.JumpCapabilityTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.008033" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1116" name="Submit_JumpIntent_AirborneLocomotionRejectsImpulse" fullname="MyGameWorld.Tests.EditMode.JumpCapabilityTests.Submit_JumpIntent_AirborneLocomotionRejectsImpulse" methodname="Submit_JumpIntent_AirborneLocomotionRejectsImpulse" classname="MyGameWorld.Tests.EditMode.JumpCapabilityTests" runstate="Runnable" seed="1361466602" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.002283" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1115" name="Submit_JumpIntent_GroundedLocomotionReceivesImpulse" fullname="MyGameWorld.Tests.EditMode.JumpCapabilityTests.Submit_JumpIntent_GroundedLocomotionReceivesImpulse" methodname="Submit_JumpIntent_GroundedLocomotionReceivesImpulse" classname="MyGameWorld.Tests.EditMode.JumpCapabilityTests" runstate="Runnable" seed="1299105025" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000830" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1117" name="KenneyAvatarFixtureValidationTests" fullname="MyGameWorld.Tests.EditMode.KenneyAvatarFixtureValidationTests" classname="MyGameWorld.Tests.EditMode.KenneyAvatarFixtureValidationTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.015559" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1118" name="CharacterMedium_IsRiggedRenderableFixture_AndMaterializesAsBodySlot" fullname="MyGameWorld.Tests.EditMode.KenneyAvatarFixtureValidationTests.CharacterMedium_IsRiggedRenderableFixture_AndMaterializesAsBodySlot" methodname="CharacterMedium_IsRiggedRenderableFixture_AndMaterializesAsBodySlot" classname="MyGameWorld.Tests.EditMode.KenneyAvatarFixtureValidationTests" runstate="Runnable" seed="2123086400" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003505" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1119" name="Fixture_ContainsExpectedSkinsAndAnimationSources" fullname="MyGameWorld.Tests.EditMode.KenneyAvatarFixtureValidationTests.Fixture_ContainsExpectedSkinsAndAnimationSources" methodname="Fixture_ContainsExpectedSkinsAndAnimationSources" classname="MyGameWorld.Tests.EditMode.KenneyAvatarFixtureValidationTests" runstate="Runnable" seed="873877528" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.006762" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1120" name="MockAIControllerTests" fullname="MyGameWorld.Tests.EditMode.MockAIControllerTests" classname="MyGameWorld.Tests.EditMode.MockAIControllerTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.009229" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1121" name="TickDecision_SameWalkRunAndLocomotion_MovesActorWithoutSystemChanges" fullname="MyGameWorld.Tests.EditMode.MockAIControllerTests.TickDecision_SameWalkRunAndLocomotion_MovesActorWithoutSystemChanges" methodname="TickDecision_SameWalkRunAndLocomotion_MovesActorWithoutSystemChanges" classname="MyGameWorld.Tests.EditMode.MockAIControllerTests" runstate="Runnable" seed="1375587130" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.004950" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1122" name="NpcCognitionTests" fullname="MyGameWorld.Tests.EditMode.NpcCognitionTests" classname="MyGameWorld.Tests.EditMode.NpcCognitionTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.006929" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1125" name="Evaluate_InjectedPolicy_OwnsDecisionSemantics" fullname="MyGameWorld.Tests.EditMode.NpcCognitionTests.Evaluate_InjectedPolicy_OwnsDecisionSemantics" methodname="Evaluate_InjectedPolicy_OwnsDecisionSemantics" classname="MyGameWorld.Tests.EditMode.NpcCognitionTests" runstate="Runnable" seed="416183221" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001607" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1123" name="Resolve_HighProfile_UnlocksAdvancedCapabilities" fullname="MyGameWorld.Tests.EditMode.NpcCognitionTests.Resolve_HighProfile_UnlocksAdvancedCapabilities" methodname="Resolve_HighProfile_UnlocksAdvancedCapabilities" classname="MyGameWorld.Tests.EditMode.NpcCognitionTests" runstate="Runnable" seed="1639420268" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000306" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1124" name="Resolve_LowProfile_DoesNotUnlockSocialBehavior" fullname="MyGameWorld.Tests.EditMode.NpcCognitionTests.Resolve_LowProfile_DoesNotUnlockSocialBehavior" methodname="Resolve_LowProfile_DoesNotUnlockSocialBehavior" classname="MyGameWorld.Tests.EditMode.NpcCognitionTests" runstate="Runnable" seed="962838235" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000202" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1126" name="PhysicalBodyTests" fullname="MyGameWorld.Tests.EditMode.PhysicalBodyTests" classname="MyGameWorld.Tests.EditMode.PhysicalBodyTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.009810" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1131" name="AddCapability_Profile_ConfiguresActorCharacterController" fullname="MyGameWorld.Tests.EditMode.PhysicalBodyTests.AddCapability_Profile_ConfiguresActorCharacterController" methodname="AddCapability_Profile_ConfiguresActorCharacterController" classname="MyGameWorld.Tests.EditMode.PhysicalBodyTests" runstate="Runnable" seed="1711106710" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001913" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1130" name="Configure_InteractionLevel_ConfiguresCollider" fullname="MyGameWorld.Tests.EditMode.PhysicalBodyTests.Configure_InteractionLevel_ConfiguresCollider" classname="MyGameWorld.Tests.EditMode.PhysicalBodyTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.006836" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1127" name="Configure_InteractionLevel_ConfiguresCollider(None,False,False)" fullname="MyGameWorld.Tests.EditMode.PhysicalBodyTests.Configure_InteractionLevel_ConfiguresCollider(None,False,False)" methodname="Configure_InteractionLevel_ConfiguresCollider" classname="MyGameWorld.Tests.EditMode.PhysicalBodyTests" runstate="Runnable" seed="365945441" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001595" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1128" name="Configure_InteractionLevel_ConfiguresCollider(Soft,True,True)" fullname="MyGameWorld.Tests.EditMode.PhysicalBodyTests.Configure_InteractionLevel_ConfiguresCollider(Soft,True,True)" methodname="Configure_InteractionLevel_ConfiguresCollider" classname="MyGameWorld.Tests.EditMode.PhysicalBodyTests" runstate="Runnable" seed="865144143" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000495" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1129" name="Configure_InteractionLevel_ConfiguresCollider(Solid,True,False)" fullname="MyGameWorld.Tests.EditMode.PhysicalBodyTests.Configure_InteractionLevel_ConfiguresCollider(Solid,True,False)" methodname="Configure_InteractionLevel_ConfiguresCollider" classname="MyGameWorld.Tests.EditMode.PhysicalBodyTests" runstate="Runnable" seed="1955964240" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000231" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+            </test-suite>
+            <test-suite type="TestFixture" id="1132" name="PlayerActorAssemblyTests" fullname="MyGameWorld.Tests.EditMode.PlayerActorAssemblyTests" classname="MyGameWorld.Tests.EditMode.PlayerActorAssemblyTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.009482" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1133" name="Assemble_CompleteRequest_ComposesPlayerWithoutDuplicatingActorSystems" fullname="MyGameWorld.Tests.EditMode.PlayerActorAssemblyTests.Assemble_CompleteRequest_ComposesPlayerWithoutDuplicatingActorSystems" methodname="Assemble_CompleteRequest_ComposesPlayerWithoutDuplicatingActorSystems" classname="MyGameWorld.Tests.EditMode.PlayerActorAssemblyTests" runstate="Runnable" seed="1044954226" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.005388" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1134" name="PlayerCameraSwitchTests" fullname="MyGameWorld.Tests.EditMode.PlayerCameraSwitchTests" classname="MyGameWorld.Tests.EditMode.PlayerCameraSwitchTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.009377" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1135" name="ChangeCameraIntent_TogglesModesWithoutRecreatingRig" fullname="MyGameWorld.Tests.EditMode.PlayerCameraSwitchTests.ChangeCameraIntent_TogglesModesWithoutRecreatingRig" methodname="ChangeCameraIntent_TogglesModesWithoutRecreatingRig" classname="MyGameWorld.Tests.EditMode.PlayerCameraSwitchTests" runstate="Runnable" seed="791694865" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.004437" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1136" name="PlayerCameraSystemTests" fullname="MyGameWorld.Tests.EditMode.PlayerCameraSystemTests" classname="MyGameWorld.Tests.EditMode.PlayerCameraSystemTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.014828" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1137" name="SetMode_RegisteredStrategies_ExitsPreviousAndEntersNext" fullname="MyGameWorld.Tests.EditMode.PlayerCameraSystemTests.SetMode_RegisteredStrategies_ExitsPreviousAndEntersNext" methodname="SetMode_RegisteredStrategies_ExitsPreviousAndEntersNext" classname="MyGameWorld.Tests.EditMode.PlayerCameraSystemTests" runstate="Runnable" seed="1176206802" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001955" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1138" name="PlayerHudTests" fullname="MyGameWorld.Tests.EditMode.PlayerHudTests" classname="MyGameWorld.Tests.EditMode.PlayerHudTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003155" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1139" name="Presenter_CameraAndPromptChanges_PushesStateWithoutPolling" fullname="MyGameWorld.Tests.EditMode.PlayerHudTests.Presenter_CameraAndPromptChanges_PushesStateWithoutPolling" methodname="Presenter_CameraAndPromptChanges_PushesStateWithoutPolling" classname="MyGameWorld.Tests.EditMode.PlayerHudTests" runstate="Runnable" seed="1582598683" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.002497" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1140" name="PlayerSensoryPresentationTests" fullname="MyGameWorld.Tests.EditMode.PlayerSensoryPresentationTests" classname="MyGameWorld.Tests.EditMode.PlayerSensoryPresentationTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003994" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1141" name="SensorEvents_AreForwardedToPlayerFeedback" fullname="MyGameWorld.Tests.EditMode.PlayerSensoryPresentationTests.SensorEvents_AreForwardedToPlayerFeedback" methodname="SensorEvents_AreForwardedToPlayerFeedback" classname="MyGameWorld.Tests.EditMode.PlayerSensoryPresentationTests" runstate="Runnable" seed="1384096561" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003445" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1142" name="ProceduralGaitMathTests" fullname="MyGameWorld.Tests.EditMode.ProceduralGaitMathTests" classname="MyGameWorld.Tests.EditMode.ProceduralGaitMathTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.002697" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1143" name="Evaluate_OppositeLegs_ProducesAlternatingHipMotion" fullname="MyGameWorld.Tests.EditMode.ProceduralGaitMathTests.Evaluate_OppositeLegs_ProducesAlternatingHipMotion" methodname="Evaluate_OppositeLegs_ProducesAlternatingHipMotion" classname="MyGameWorld.Tests.EditMode.ProceduralGaitMathTests" runstate="Runnable" seed="1054173445" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000973" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1144" name="Evaluate_Running_FlexesElbowsMoreThanWalking" fullname="MyGameWorld.Tests.EditMode.ProceduralGaitMathTests.Evaluate_Running_FlexesElbowsMoreThanWalking" methodname="Evaluate_Running_FlexesElbowsMoreThanWalking" classname="MyGameWorld.Tests.EditMode.ProceduralGaitMathTests" runstate="Runnable" seed="934990695" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000312" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1145" name="Evaluate_SwingPhase_FlexesKneeForFootClearance" fullname="MyGameWorld.Tests.EditMode.ProceduralGaitMathTests.Evaluate_SwingPhase_FlexesKneeForFootClearance" methodname="Evaluate_SwingPhase_FlexesKneeForFootClearance" classname="MyGameWorld.Tests.EditMode.ProceduralGaitMathTests" runstate="Runnable" seed="1730181760" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000209" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1146" name="ResolveCycleFrequency_Running_IsFasterButBounded" fullname="MyGameWorld.Tests.EditMode.ProceduralGaitMathTests.ResolveCycleFrequency_Running_IsFasterButBounded" methodname="ResolveCycleFrequency_Running_IsFasterButBounded" classname="MyGameWorld.Tests.EditMode.ProceduralGaitMathTests" runstate="Runnable" seed="2777036" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000304" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1147" name="ProceduralGeneratorTests" fullname="MyGameWorld.Tests.EditMode.ProceduralGeneratorTests" classname="MyGameWorld.Tests.EditMode.ProceduralGeneratorTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.002305" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1149" name="Generate_MismatchedVersion_Throws" fullname="MyGameWorld.Tests.EditMode.ProceduralGeneratorTests.Generate_MismatchedVersion_Throws" methodname="Generate_MismatchedVersion_Throws" classname="MyGameWorld.Tests.EditMode.ProceduralGeneratorTests" runstate="Runnable" seed="793863385" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001137" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1148" name="Generate_SameContext_ProducesSameResult" fullname="MyGameWorld.Tests.EditMode.ProceduralGeneratorTests.Generate_SameContext_ProducesSameResult" methodname="Generate_SameContext_ProducesSameResult" classname="MyGameWorld.Tests.EditMode.ProceduralGeneratorTests" runstate="Runnable" seed="1672983969" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000388" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1150" name="ProceduralRuntimeGeometryTests" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" testcasecount="22" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.108205" total="22" passed="22" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="ParameterizedMethod" id="1166" name="Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.032080" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1162" name="Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots(Flower)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots(Flower)" methodname="Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="1961475817" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.010529" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1163" name="Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots(FlowerCluster)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots(FlowerCluster)" methodname="Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="480751817" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.011485" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1164" name="Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots(Mushroom)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots(Mushroom)" methodname="Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="673380033" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003044" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1165" name="Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots(MushroomCluster)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots(MushroomCluster)" methodname="Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="882304324" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.006367" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="ParameterizedMethod" id="1171" name="Build_GroundFloraHighLod_HasMoreGeometryThanLowLod" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_GroundFloraHighLod_HasMoreGeometryThanLowLod" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.002245" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1167" name="Build_GroundFloraHighLod_HasMoreGeometryThanLowLod(Flower)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_GroundFloraHighLod_HasMoreGeometryThanLowLod(Flower)" methodname="Build_GroundFloraHighLod_HasMoreGeometryThanLowLod" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="1126203223" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000684" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1168" name="Build_GroundFloraHighLod_HasMoreGeometryThanLowLod(FlowerCluster)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_GroundFloraHighLod_HasMoreGeometryThanLowLod(FlowerCluster)" methodname="Build_GroundFloraHighLod_HasMoreGeometryThanLowLod" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="856428185" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000506" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1169" name="Build_GroundFloraHighLod_HasMoreGeometryThanLowLod(Mushroom)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_GroundFloraHighLod_HasMoreGeometryThanLowLod(Mushroom)" methodname="Build_GroundFloraHighLod_HasMoreGeometryThanLowLod" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="1319409275" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000146" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1170" name="Build_GroundFloraHighLod_HasMoreGeometryThanLowLod(MushroomCluster)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_GroundFloraHighLod_HasMoreGeometryThanLowLod(MushroomCluster)" methodname="Build_GroundFloraHighLod_HasMoreGeometryThanLowLod" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="701222594" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000343" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="ParameterizedMethod" id="1158" name="Build_LowerLod_ReducesGeometry" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_LowerLod_ReducesGeometry" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003205" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1155" name="Build_LowerLod_ReducesGeometry(Tree)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_LowerLod_ReducesGeometry(Tree)" methodname="Build_LowerLod_ReducesGeometry" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="736535921" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001561" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1156" name="Build_LowerLod_ReducesGeometry(Rock)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_LowerLod_ReducesGeometry(Rock)" methodname="Build_LowerLod_ReducesGeometry" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="398259531" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000533" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1157" name="Build_LowerLod_ReducesGeometry(Bush)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_LowerLod_ReducesGeometry(Bush)" methodname="Build_LowerLod_ReducesGeometry" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="1560367149" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000566" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="ParameterizedMethod" id="1175" name="Build_NaturalCluster_IsOneDeterministicMeshWithLodReduction" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_NaturalCluster_IsOneDeterministicMeshWithLodReduction" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.044917" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1172" name="Build_NaturalCluster_IsOneDeterministicMeshWithLodReduction(TreeCluster)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_NaturalCluster_IsOneDeterministicMeshWithLodReduction(TreeCluster)" methodname="Build_NaturalCluster_IsOneDeterministicMeshWithLodReduction" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="218798319" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.030861" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1173" name="Build_NaturalCluster_IsOneDeterministicMeshWithLodReduction(RockCluster)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_NaturalCluster_IsOneDeterministicMeshWithLodReduction(RockCluster)" methodname="Build_NaturalCluster_IsOneDeterministicMeshWithLodReduction" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="1440593736" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.007858" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1174" name="Build_NaturalCluster_IsOneDeterministicMeshWithLodReduction(BushCluster)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_NaturalCluster_IsOneDeterministicMeshWithLodReduction(BushCluster)" methodname="Build_NaturalCluster_IsOneDeterministicMeshWithLodReduction" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="925400750" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.005658" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1161" name="Build_RockFamilies_ProduceDistinctThreeToneGeometry" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_RockFamilies_ProduceDistinctThreeToneGeometry" methodname="Build_RockFamilies_ProduceDistinctThreeToneGeometry" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="1043190406" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000936" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1154" name="Build_SameKey_ProducesIdenticalGeometry" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_SameKey_ProducesIdenticalGeometry" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.008324" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1151" name="Build_SameKey_ProducesIdenticalGeometry(Tree)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_SameKey_ProducesIdenticalGeometry(Tree)" methodname="Build_SameKey_ProducesIdenticalGeometry" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="2123835935" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.005484" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1152" name="Build_SameKey_ProducesIdenticalGeometry(Rock)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_SameKey_ProducesIdenticalGeometry(Rock)" methodname="Build_SameKey_ProducesIdenticalGeometry" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="1981584675" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001842" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1153" name="Build_SameKey_ProducesIdenticalGeometry(Bush)" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_SameKey_ProducesIdenticalGeometry(Bush)" methodname="Build_SameKey_ProducesIdenticalGeometry" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="1753700296" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000539" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1159" name="Build_TreeArchetypes_ProduceDistinctDeterministicSilhouettes" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Build_TreeArchetypes_ProduceDistinctDeterministicSilhouettes" methodname="Build_TreeArchetypes_ProduceDistinctDeterministicSilhouettes" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="1933715132" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001391" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1177" name="Request_RegisteredPrefabAsset_UsesFiniteMeshWithoutTakingOwnership" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Request_RegisteredPrefabAsset_UsesFiniteMeshWithoutTakingOwnership" methodname="Request_RegisteredPrefabAsset_UsesFiniteMeshWithoutTakingOwnership" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="243904909" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.011429" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1160" name="Resolve_TreeAtSandboxOverview_PreservesHighLod" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.Resolve_TreeAtSandboxOverview_PreservesHighLod" methodname="Resolve_TreeAtSandboxOverview_PreservesHighLod" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="787139849" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000530" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1176" name="ResolveTerrainArt_FlatTrianglesReceiveDeterministicUniformFaceColor" fullname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests.ResolveTerrainArt_FlatTrianglesReceiveDeterministicUniformFaceColor" methodname="ResolveTerrainArt_FlatTrianglesReceiveDeterministicUniformFaceColor" classname="MyGameWorld.Tests.EditMode.ProceduralRuntimeGeometryTests" runstate="Runnable" seed="51444224" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001545" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1178" name="ProprioceptionSensorTests" fullname="MyGameWorld.Tests.EditMode.ProprioceptionSensorTests" classname="MyGameWorld.Tests.EditMode.ProprioceptionSensorTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.005287" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1180" name="ConsecutiveTicks_ChangesVelocityAndRotation_DerivesRates" fullname="MyGameWorld.Tests.EditMode.ProprioceptionSensorTests.ConsecutiveTicks_ChangesVelocityAndRotation_DerivesRates" methodname="ConsecutiveTicks_ChangesVelocityAndRotation_DerivesRates" classname="MyGameWorld.Tests.EditMode.ProprioceptionSensorTests" runstate="Runnable" seed="746568141" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003534" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1179" name="PhysicsTick_LocomotionState_ProducesCompleteSnapshot" fullname="MyGameWorld.Tests.EditMode.ProprioceptionSensorTests.PhysicsTick_LocomotionState_ProducesCompleteSnapshot" methodname="PhysicsTick_LocomotionState_ProducesCompleteSnapshot" classname="MyGameWorld.Tests.EditMode.ProprioceptionSensorTests" runstate="Runnable" seed="1059997440" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000931" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1181" name="RunCapabilityTests" fullname="MyGameWorld.Tests.EditMode.RunCapabilityTests" classname="MyGameWorld.Tests.EditMode.RunCapabilityTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003439" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1183" name="Disable_RunCapability_RestoresWalkingSpeed" fullname="MyGameWorld.Tests.EditMode.RunCapabilityTests.Disable_RunCapability_RestoresWalkingSpeed" methodname="Disable_RunCapability_RestoresWalkingSpeed" classname="MyGameWorld.Tests.EditMode.RunCapabilityTests" runstate="Runnable" seed="369389292" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001324" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1185" name="Resolve_AdditiveAndMultiplicativeSources_UsesStablePipeline" fullname="MyGameWorld.Tests.EditMode.RunCapabilityTests.Resolve_AdditiveAndMultiplicativeSources_UsesStablePipeline" methodname="Resolve_AdditiveAndMultiplicativeSources_UsesStablePipeline" classname="MyGameWorld.Tests.EditMode.RunCapabilityTests" runstate="Runnable" seed="547382306" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000339" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1184" name="Resolve_MultipleSources_ComposesWithoutCategoryKnowledge" fullname="MyGameWorld.Tests.EditMode.RunCapabilityTests.Resolve_MultipleSources_ComposesWithoutCategoryKnowledge" methodname="Resolve_MultipleSources_ComposesWithoutCategoryKnowledge" classname="MyGameWorld.Tests.EditMode.RunCapabilityTests" runstate="Runnable" seed="211121556" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000223" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1182" name="Submit_RunIntent_AppliesAndRemovesOwnedSpeedModifier" fullname="MyGameWorld.Tests.EditMode.RunCapabilityTests.Submit_RunIntent_AppliesAndRemovesOwnedSpeedModifier" methodname="Submit_RunIntent_AppliesAndRemovesOwnedSpeedModifier" classname="MyGameWorld.Tests.EditMode.RunCapabilityTests" runstate="Runnable" seed="1846646264" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000682" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1186" name="SmellSensorTests" fullname="MyGameWorld.Tests.EditMode.SmellSensorTests" classname="MyGameWorld.Tests.EditMode.SmellSensorTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.004400" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1187" name="IntervalSample_NearScent_DetectsThroughSharedField" fullname="MyGameWorld.Tests.EditMode.SmellSensorTests.IntervalSample_NearScent_DetectsThroughSharedField" methodname="IntervalSample_NearScent_DetectsThroughSharedField" classname="MyGameWorld.Tests.EditMode.SmellSensorTests" runstate="Runnable" seed="1503800885" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003851" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1188" name="SurfaceInteractionTests" fullname="MyGameWorld.Tests.EditMode.SurfaceInteractionTests" classname="MyGameWorld.Tests.EditMode.SurfaceInteractionTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001942" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1189" name="Sample_GroundColliderWithDescriptor_ReturnsSurfaceId" fullname="MyGameWorld.Tests.EditMode.SurfaceInteractionTests.Sample_GroundColliderWithDescriptor_ReturnsSurfaceId" methodname="Sample_GroundColliderWithDescriptor_ReturnsSurfaceId" classname="MyGameWorld.Tests.EditMode.SurfaceInteractionTests" runstate="Runnable" seed="1381429973" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001384" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1190" name="SystemG6ModularAvatarValidationTests" fullname="MyGameWorld.Tests.EditMode.SystemG6ModularAvatarValidationTests" classname="MyGameWorld.Tests.EditMode.SystemG6ModularAvatarValidationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.004828" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="ParameterizedMethod" id="1193" name="NormalizedFixture_PreservesSeparateSkinnedParts" fullname="MyGameWorld.Tests.EditMode.SystemG6ModularAvatarValidationTests.NormalizedFixture_PreservesSeparateSkinnedParts" classname="MyGameWorld.Tests.EditMode.SystemG6ModularAvatarValidationTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003200" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1191" name="NormalizedFixture_PreservesSeparateSkinnedParts(&quot;male&quot;,30)" fullname="MyGameWorld.Tests.EditMode.SystemG6ModularAvatarValidationTests.NormalizedFixture_PreservesSeparateSkinnedParts(&quot;male&quot;,30)" methodname="NormalizedFixture_PreservesSeparateSkinnedParts" classname="MyGameWorld.Tests.EditMode.SystemG6ModularAvatarValidationTests" runstate="Runnable" seed="676140540" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001934" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1192" name="NormalizedFixture_PreservesSeparateSkinnedParts(&quot;female&quot;,24)" fullname="MyGameWorld.Tests.EditMode.SystemG6ModularAvatarValidationTests.NormalizedFixture_PreservesSeparateSkinnedParts(&quot;female&quot;,24)" methodname="NormalizedFixture_PreservesSeparateSkinnedParts" classname="MyGameWorld.Tests.EditMode.SystemG6ModularAvatarValidationTests" runstate="Runnable" seed="847856238" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001006" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1194" name="NormalizedMaleFixture_ContainsExpectedSwapCategories" fullname="MyGameWorld.Tests.EditMode.SystemG6ModularAvatarValidationTests.NormalizedMaleFixture_ContainsExpectedSwapCategories" methodname="NormalizedMaleFixture_ContainsExpectedSwapCategories" classname="MyGameWorld.Tests.EditMode.SystemG6ModularAvatarValidationTests" runstate="Runnable" seed="1881455001" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001037" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1195" name="TasteSensorTests" fullname="MyGameWorld.Tests.EditMode.TasteSensorTests" classname="MyGameWorld.Tests.EditMode.TasteSensorTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001288" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1196" name="Sense_ExplicitStimulus_PublishesWithoutScheduler" fullname="MyGameWorld.Tests.EditMode.TasteSensorTests.Sense_ExplicitStimulus_PublishesWithoutScheduler" methodname="Sense_ExplicitStimulus_PublishesWithoutScheduler" classname="MyGameWorld.Tests.EditMode.TasteSensorTests" runstate="Runnable" seed="1902850689" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000848" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1197" name="ThirdPersonCameraModeTests" fullname="MyGameWorld.Tests.EditMode.ThirdPersonCameraModeTests" classname="MyGameWorld.Tests.EditMode.ThirdPersonCameraModeTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.002934" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1198" name="EnterAndLook_ThirdPersonMode_FollowsAndOrbitsActor" fullname="MyGameWorld.Tests.EditMode.ThirdPersonCameraModeTests.EnterAndLook_ThirdPersonMode_FollowsAndOrbitsActor" methodname="EnterAndLook_ThirdPersonMode_FollowsAndOrbitsActor" classname="MyGameWorld.Tests.EditMode.ThirdPersonCameraModeTests" runstate="Runnable" seed="1502446053" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.002366" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1199" name="TouchSensorTests" fullname="MyGameWorld.Tests.EditMode.TouchSensorTests" classname="MyGameWorld.Tests.EditMode.TouchSensorTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.002840" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1200" name="PhysicalContact_Event_ProducesTouchEventWithoutPolling" fullname="MyGameWorld.Tests.EditMode.TouchSensorTests.PhysicalContact_Event_ProducesTouchEventWithoutPolling" methodname="PhysicalContact_Event_ProducesTouchEventWithoutPolling" classname="MyGameWorld.Tests.EditMode.TouchSensorTests" runstate="Runnable" seed="555843753" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.002287" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1201" name="UnityAssetRegistryTests" fullname="MyGameWorld.Tests.EditMode.UnityAssetRegistryTests" classname="MyGameWorld.Tests.EditMode.UnityAssetRegistryTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.004806" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1203" name="Constructor_DuplicateId_Throws" fullname="MyGameWorld.Tests.EditMode.UnityAssetRegistryTests.Constructor_DuplicateId_Throws" methodname="Constructor_DuplicateId_Throws" classname="MyGameWorld.Tests.EditMode.UnityAssetRegistryTests" runstate="Runnable" seed="482582794" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.002197" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1204" name="Constructor_MissingUnityObject_Throws" fullname="MyGameWorld.Tests.EditMode.UnityAssetRegistryTests.Constructor_MissingUnityObject_Throws" methodname="Constructor_MissingUnityObject_Throws" classname="MyGameWorld.Tests.EditMode.UnityAssetRegistryTests" runstate="Runnable" seed="450146048" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000694" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1205" name="Constructor_ZeroAssetId_Throws" fullname="MyGameWorld.Tests.EditMode.UnityAssetRegistryTests.Constructor_ZeroAssetId_Throws" methodname="Constructor_ZeroAssetId_Throws" classname="MyGameWorld.Tests.EditMode.UnityAssetRegistryTests" runstate="Runnable" seed="1966653364" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000291" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1202" name="TryResolve_KnownId_ReturnsUnityObject" fullname="MyGameWorld.Tests.EditMode.UnityAssetRegistryTests.TryResolve_KnownId_ReturnsUnityObject" methodname="TryResolve_KnownId_ReturnsUnityObject" classname="MyGameWorld.Tests.EditMode.UnityAssetRegistryTests" runstate="Runnable" seed="633572211" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000260" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1206" name="VisionSensorTests" fullname="MyGameWorld.Tests.EditMode.VisionSensorTests" classname="MyGameWorld.Tests.EditMode.VisionSensorTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.005438" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1207" name="IntervalSample_TargetAhead_DetectsWithoutCamera" fullname="MyGameWorld.Tests.EditMode.VisionSensorTests.IntervalSample_TargetAhead_DetectsWithoutCamera" methodname="IntervalSample_TargetAhead_DetectsWithoutCamera" classname="MyGameWorld.Tests.EditMode.VisionSensorTests" runstate="Runnable" seed="1081128600" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003813" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1208" name="IntervalSample_TargetBehind_IsOutsideFieldOfView" fullname="MyGameWorld.Tests.EditMode.VisionSensorTests.IntervalSample_TargetBehind_IsOutsideFieldOfView" methodname="IntervalSample_TargetBehind_IsOutsideFieldOfView" classname="MyGameWorld.Tests.EditMode.VisionSensorTests" runstate="Runnable" seed="1816762996" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000890" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1209" name="WalkCapabilityTests" fullname="MyGameWorld.Tests.EditMode.WalkCapabilityTests" classname="MyGameWorld.Tests.EditMode.WalkCapabilityTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003105" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1210" name="AddCapability_WithoutLocomotion_IsRejectedAndRolledBack" fullname="MyGameWorld.Tests.EditMode.WalkCapabilityTests.AddCapability_WithoutLocomotion_IsRejectedAndRolledBack" methodname="AddCapability_WithoutLocomotion_IsRejectedAndRolledBack" classname="MyGameWorld.Tests.EditMode.WalkCapabilityTests" runstate="Runnable" seed="561343774" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000874" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1211" name="Submit_MoveIntent_WalksRelativeToActorOrientation" fullname="MyGameWorld.Tests.EditMode.WalkCapabilityTests.Submit_MoveIntent_WalksRelativeToActorOrientation" methodname="Submit_MoveIntent_WalksRelativeToActorOrientation" classname="MyGameWorld.Tests.EditMode.WalkCapabilityTests" runstate="Runnable" seed="360120820" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000800" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1212" name="Submit_ZeroMoveIntent_DeceleratesUntilStopped" fullname="MyGameWorld.Tests.EditMode.WalkCapabilityTests.Submit_ZeroMoveIntent_DeceleratesUntilStopped" methodname="Submit_ZeroMoveIntent_DeceleratesUntilStopped" classname="MyGameWorld.Tests.EditMode.WalkCapabilityTests" runstate="Runnable" seed="497262227" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000650" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1213" name="WorldEntityFoundationTests" fullname="MyGameWorld.Tests.EditMode.WorldEntityFoundationTests" classname="MyGameWorld.Tests.EditMode.WorldEntityFoundationTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.003304" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1217" name="Lifecycle_InvalidTransition_IsRejected" fullname="MyGameWorld.Tests.EditMode.WorldEntityFoundationTests.Lifecycle_InvalidTransition_IsRejected" methodname="Lifecycle_InvalidTransition_IsRejected" classname="MyGameWorld.Tests.EditMode.WorldEntityFoundationTests" runstate="Runnable" seed="918078777" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000230" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1214" name="Lifecycle_SpawnActivateDespawn_RegistersAndUnregistersEntity" fullname="MyGameWorld.Tests.EditMode.WorldEntityFoundationTests.Lifecycle_SpawnActivateDespawn_RegistersAndUnregistersEntity" methodname="Lifecycle_SpawnActivateDespawn_RegistersAndUnregistersEntity" classname="MyGameWorld.Tests.EditMode.WorldEntityFoundationTests" runstate="Runnable" seed="1741192908" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.001088" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1215" name="Presence_RebasePreservesGlobalPositionAndUpdatesUnityLocalPosition" fullname="MyGameWorld.Tests.EditMode.WorldEntityFoundationTests.Presence_RebasePreservesGlobalPositionAndUpdatesUnityLocalPosition" methodname="Presence_RebasePreservesGlobalPositionAndUpdatesUnityLocalPosition" classname="MyGameWorld.Tests.EditMode.WorldEntityFoundationTests" runstate="Runnable" seed="211559005" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000682" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1216" name="Registry_DuplicateStableIdentity_IsRejected" fullname="MyGameWorld.Tests.EditMode.WorldEntityFoundationTests.Registry_DuplicateStableIdentity_IsRejected" methodname="Registry_DuplicateStableIdentity_IsRejected" classname="MyGameWorld.Tests.EditMode.WorldEntityFoundationTests" runstate="Runnable" seed="1394840114" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000580" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1218" name="WorldGenerationTests" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:41Z" duration="6.953694" total="12" passed="12" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1230" name="ClassifyLiquid_SameSubstanceUsesQuantityShapeAndFlowToResolveForm" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests.ClassifyLiquid_SameSubstanceUsesQuantityShapeAndFlowToResolveForm" methodname="ClassifyLiquid_SameSubstanceUsesQuantityShapeAndFlowToResolveForm" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" seed="233793204" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000654" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1219" name="Constructor_DefaultBudget_ResolvesExpectedGeometryCounts" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests.Constructor_DefaultBudget_ResolvesExpectedGeometryCounts" methodname="Constructor_DefaultBudget_ResolvesExpectedGeometryCounts" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" seed="365935384" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.000349" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1224" name="Generate_AdjacentSmoothChunks_ShareIdenticalBorder" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests.Generate_AdjacentSmoothChunks_ShareIdenticalBorder" methodname="Generate_AdjacentSmoothChunks_ShareIdenticalBorder" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" seed="1136674511" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:34Z" duration="0.430404" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1226" name="Generate_Decorations_RespectMinimumDistanceAndTerrainRules" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests.Generate_Decorations_RespectMinimumDistanceAndTerrainRules" methodname="Generate_Decorations_RespectMinimumDistanceAndTerrainRules" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" seed="1377275919" result="Passed" start-time="2026-08-16 16:21:34Z" end-time="2026-08-16 16:21:35Z" duration="0.925238" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1222" name="Generate_DefaultSandboxSeed_MatchesVersionFourGoldenFingerprint" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests.Generate_DefaultSandboxSeed_MatchesVersionFourGoldenFingerprint" methodname="Generate_DefaultSandboxSeed_MatchesVersionFourGoldenFingerprint" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" seed="615947692" result="Passed" start-time="2026-08-16 16:21:35Z" end-time="2026-08-16 16:21:36Z" duration="0.533861" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1221" name="Generate_DifferentSeed_ProducesDifferentFingerprint" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests.Generate_DifferentSeed_ProducesDifferentFingerprint" methodname="Generate_DifferentSeed_ProducesDifferentFingerprint" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" seed="457747362" result="Passed" start-time="2026-08-16 16:21:36Z" end-time="2026-08-16 16:21:37Z" duration="0.992976" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1227" name="Generate_ElementsHaveIndependentIdentitySeedVersionAndBounds" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests.Generate_ElementsHaveIndependentIdentitySeedVersionAndBounds" methodname="Generate_ElementsHaveIndependentIdentitySeedVersionAndBounds" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" seed="1134893765" result="Passed" start-time="2026-08-16 16:21:37Z" end-time="2026-08-16 16:21:37Z" duration="0.498558" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1223" name="Generate_FlatShading_ProducesBudgetedValidTopology" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests.Generate_FlatShading_ProducesBudgetedValidTopology" methodname="Generate_FlatShading_ProducesBudgetedValidTopology" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" seed="2125162998" result="Passed" start-time="2026-08-16 16:21:37Z" end-time="2026-08-16 16:21:38Z" duration="1.121380" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1220" name="Generate_SameSeed_ProducesSameFingerprintAndPlacements" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests.Generate_SameSeed_ProducesSameFingerprintAndPlacements" methodname="Generate_SameSeed_ProducesSameFingerprintAndPlacements" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" seed="2003626579" result="Passed" start-time="2026-08-16 16:21:38Z" end-time="2026-08-16 16:21:39Z" duration="0.977964" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1225" name="Generate_TemperateGrassland_ContainsLandformAndPathVariation" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests.Generate_TemperateGrassland_ContainsLandformAndPathVariation" methodname="Generate_TemperateGrassland_ContainsLandformAndPathVariation" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" seed="1448692229" result="Passed" start-time="2026-08-16 16:21:39Z" end-time="2026-08-16 16:21:40Z" duration="0.489009" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1228" name="Generate_VersionFour_ContainsSingularAndGroupedNaturalObjects" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests.Generate_VersionFour_ContainsSingularAndGroupedNaturalObjects" methodname="Generate_VersionFour_ContainsSingularAndGroupedNaturalObjects" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" seed="1940087643" result="Passed" start-time="2026-08-16 16:21:40Z" end-time="2026-08-16 16:21:40Z" duration="0.497335" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1229" name="ResolveTerrainContact_ReturnsSurfaceAndInfluencingFeature" fullname="MyGameWorld.Tests.EditMode.WorldGenerationTests.ResolveTerrainContact_ReturnsSurfaceAndInfluencingFeature" methodname="ResolveTerrainContact_ReturnsSurfaceAndInfluencingFeature" classname="MyGameWorld.Tests.EditMode.WorldGenerationTests" runstate="Runnable" seed="2040389769" result="Passed" start-time="2026-08-16 16:21:40Z" end-time="2026-08-16 16:21:41Z" duration="0.483862" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1231" name="WorldObserverTests" fullname="MyGameWorld.Tests.EditMode.WorldObserverTests" classname="MyGameWorld.Tests.EditMode.WorldObserverTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-08-16 16:21:41Z" end-time="2026-08-16 16:21:41Z" duration="0.003345" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1232" name="Initialize_PlayerObserver_RegistersRelevanceWithoutLoadingWorld" fullname="MyGameWorld.Tests.EditMode.WorldObserverTests.Initialize_PlayerObserver_RegistersRelevanceWithoutLoadingWorld" methodname="Initialize_PlayerObserver_RegistersRelevanceWithoutLoadingWorld" classname="MyGameWorld.Tests.EditMode.WorldObserverTests" runstate="Runnable" seed="1815792581" result="Passed" start-time="2026-08-16 16:21:41Z" end-time="2026-08-16 16:21:41Z" duration="0.002469" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: C:/Users/mario/AppData/LocalLow/DefaultCompany/My Game World\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

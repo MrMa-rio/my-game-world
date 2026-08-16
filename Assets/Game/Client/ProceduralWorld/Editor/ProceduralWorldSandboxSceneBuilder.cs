@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using MyGameWorld.Client.ApplicationFlow;
+using UnityEngine.InputSystem;
+using MyGameWorld.Client.AssetResolution;
+using MyGameWorld.Client.CharacterRuntime;
 
 namespace MyGameWorld.Client.ProceduralWorld.Editor
 {
@@ -49,6 +53,24 @@ namespace MyGameWorld.Client.ProceduralWorld.Editor
             sun.shadowStrength = 0.78f;
             lightObject.transform.rotation = Quaternion.Euler(48f, -32f, 0f);
 
+            ApplicationSceneCatalog sceneCatalog = AssetDatabase.LoadAssetAtPath<ApplicationSceneCatalog>(
+                "Assets/Game/Client/ApplicationFlow/Configuration/ApplicationSceneCatalog.asset");
+            if (sceneCatalog != null)
+            {
+                GameObject navigation = new GameObject("Sandbox Navigation");
+                SandboxReturnToMenu returnToMenu = navigation.AddComponent<SandboxReturnToMenu>();
+                returnToMenu.Configure(sceneCatalog);
+            }
+
+            GameObject playerIntegration = new GameObject("Procedural Player Integration");
+            ProceduralWorldPlayerCoordinator playerCoordinator = playerIntegration.AddComponent<ProceduralWorldPlayerCoordinator>();
+            playerCoordinator.Configure(
+                AssetDatabase.LoadAssetAtPath<InputActionAsset>("Assets/InputSystem_Actions.inputactions"),
+                Vector2.zero,
+                AssetDatabase.LoadAssetAtPath<UnityAssetCatalog>("Assets/Game/Content/AvatarValidation/SystemG6UnityAssetCatalog.asset"),
+                AssetDatabase.LoadAssetAtPath<AvatarPartCatalog>("Assets/Game/Content/AvatarValidation/SystemG6AvatarPartCatalog.asset"),
+                AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(HumanBasicMotionsIntegrator.ControllerPath));
+
             ConfigureEnvironment(sun);
             EditorSceneManager.MarkSceneDirty(scene);
             if (!EditorSceneManager.SaveScene(scene, ScenePath))
@@ -56,11 +78,10 @@ namespace MyGameWorld.Client.ProceduralWorld.Editor
                 throw new InvalidOperationException($"Could not save {ScenePath}.");
             }
 
-            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             Selection.activeGameObject = world;
-            Debug.Log($"Built {ScenePath} and set it as the startup scene.");
+            Debug.Log($"Built {ScenePath}. Application startup remains owned by the application flow builder.");
         }
 
         private static RenderingQualityProfile[] CreateRenderingProfiles()

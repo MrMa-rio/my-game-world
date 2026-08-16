@@ -244,6 +244,8 @@ O primeiro recorte implementado é a [Procedural World Sandbox](PROCEDURAL_WORLD
 
 A materialização visual da sandbox é centralizada pelo [Procedural Runtime Manager](PROCEDURAL_RUNTIME_MANAGER.md). Definições existentes entram como requests e o adapter cliente resolve estilo, LOD, geometria mínima, cache, instancing, budget e lifetime sem transferir decisões visuais ao domínio compartilhado.
 
+O fluxo oficial do cliente é coordenado pela camada [Application Flow](APPLICATION_FLOW.md): `Bootstrap -> MainMenu -> DeveloperMenu -> ProceduralWorldSandbox`. A sandbox permanece autocontida para execução direta no Editor; navegação e resolução de scenes ficam fora do runtime procedural.
+
 ---
 
 ## 10. Simulation LOD

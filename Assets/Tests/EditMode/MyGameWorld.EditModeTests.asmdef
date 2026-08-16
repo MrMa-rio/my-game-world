@@ -13,6 +13,7 @@
     "MyGameWorld.Client.ActorRuntime",
     "MyGameWorld.Client.PlayerRuntime",
     "MyGameWorld.Client.CharacterRuntime",
+    "MyGameWorld.Client.ApplicationFlow",
     "Unity.InputSystem"
   ],
   "optionalUnityReferences": [
