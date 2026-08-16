@@ -123,6 +123,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             if (keyboard.f9Key.wasPressedThisFrame) _sandbox.ToggleWorldTimePause();
             if (keyboard.f10Key.wasPressedThisFrame) _sandbox.SpawnShootingStar();
             if (keyboard.f11Key.wasPressedThisFrame) _sandbox.SpawnMeteor();
+            if (keyboard.f12Key.wasPressedThisFrame) _sandbox.CycleShaderQuality();
         }
 
         private static float ReadAxis(KeyControl negative, KeyControl positive)

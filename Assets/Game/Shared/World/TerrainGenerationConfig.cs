@@ -109,5 +109,18 @@ namespace MyGameWorld.Shared.World
                 chunkCountZ: 10,
                 shadingMode: TerrainShadingMode.Flat);
         }
+
+        public static TerrainGenerationConfig CreateLargeSandboxDefault()
+        {
+            return new TerrainGenerationConfig(
+                width: 5000f,
+                depth: 5000f,
+                requestedResolution: 401,
+                maxHeight: 120f,
+                targetTriangleBudget: 320000,
+                chunkCountX: 20,
+                chunkCountZ: 20,
+                shadingMode: TerrainShadingMode.Flat);
+        }
     }
 }

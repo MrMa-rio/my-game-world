@@ -9,6 +9,7 @@ namespace MyGameWorld.Client.ProceduralWorld
     {
         [SerializeField] private WindProfile _wind = new WindProfile();
         [SerializeField] private WorldTimeProfile _time = new WorldTimeProfile();
+        [SerializeField] private ProceduralShaderProfile _shaderProfile = new ProceduralShaderProfile();
         [SerializeField] private EnvironmentalBiomeKind _debugBiome = EnvironmentalBiomeKind.Grassland;
         [SerializeField, Range(0f, 2f)] private float _vfxDensity = 1f;
         [SerializeField, Min(1)] private int _physicalUpdatesPerFrame = 64;
@@ -23,6 +24,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         private CelestialCycleSystem _celestialCycle;
         private CelestialEventSystem _celestialEvents;
         private ProceduralStarFieldSystem _starField;
+        private ProceduralShaderManager _shaderManager;
         private bool _initialized;
 
         public WindSystem Wind => _windSystem;
@@ -38,12 +40,16 @@ namespace MyGameWorld.Client.ProceduralWorld
         public float StarDensityMultiplier => _starField != null ? _starField.DensityMultiplier : 1f;
         public int EstimatedVisibleStars => _starField != null ? _starField.EstimatedVisibleCount : 0;
         public float NebulaVisibility => _starField != null ? _starField.NebulaVisibility : 0f;
+        public ProceduralShaderQuality ShaderQuality => _shaderManager != null ? _shaderManager.Quality : ProceduralShaderQuality.Low;
+        public ProceduralShaderBudget ShaderBudget => _shaderManager != null ? _shaderManager.Budget : default;
+        public void CycleShaderQuality() => _shaderManager?.CycleQuality();
         public bool SpawnCelestialEvent(CelestialEventKind kind) => _celestialEvents != null && _celestialEvents.Spawn(kind, Camera.main);
 
         public void Initialize(ZoneGenerationResult zone, ProceduralWorldMaterialLibrary materials, ProceduralRuntimeManager runtime)
         {
             _materials = materials; _windSystem = new WindSystem(_wind, zone.DNA.Seed);
             _timeSystem = new WorldTimeSystem(_time); _celestialCycle = new CelestialCycleSystem(transform);
+            _shaderManager = new ProceduralShaderManager(_shaderProfile);
             _starField = new ProceduralStarFieldSystem(transform, zone.DNA.Seed);
             _celestialEvents = new CelestialEventSystem(transform, zone.DNA.Seed);
             _physicalResponses = new EnvironmentalPhysicalResponseSystem(); runtime.SetEnvironmentalResponses(_physicalResponses);
@@ -56,6 +62,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             if (!_initialized) return;
             _windSystem.Tick(Time.deltaTime);
             _timeSystem.Tick(Time.unscaledDeltaTime); _celestialCycle.Apply(_timeSystem.Snapshot);
+            _shaderManager.Apply(_timeSystem.Snapshot, _celestialCycle.Sun, _celestialCycle.Moon);
             Camera camera = Camera.main;
             _starField.Tick(_timeSystem.Snapshot, camera, _celestialCycle.Orbit.StellarRotation);
             _celestialEvents.Tick(Time.unscaledDeltaTime, _timeSystem.Snapshot, camera);
@@ -64,7 +71,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             _vfx.Tick(Time.unscaledTime, camera, _windSystem);
         }
 
-        private void OnDestroy() { _vfx?.Dispose(); _celestialEvents?.Dispose(); _starField?.Dispose(); _celestialCycle?.Dispose(); }
+        private void OnDestroy() { _vfx?.Dispose(); _celestialEvents?.Dispose(); _starField?.Dispose(); _shaderManager?.Dispose(); _celestialCycle?.Dispose(); }
 
         private void OnDrawGizmosSelected()
         {

@@ -13,29 +13,29 @@ namespace MyGameWorld.Client.ProceduralWorld
     {
         [Header("Zone DNA")]
         [SerializeField, Min(1)]
-        private long _zoneId = 2;
+        private long _zoneId = 3;
 
         [SerializeField]
-        private long _zoneSeed = 829173;
+        private long _zoneSeed = 829174;
 
         [Header("Terrain Geometry")]
         [SerializeField, Min(10f)]
-        private float _width = 1000f;
+        private float _width = 5000f;
 
         [SerializeField, Min(10f)]
-        private float _depth = 1000f;
+        private float _depth = 5000f;
 
         [SerializeField, Min(2)]
-        private int _requestedResolution = 257;
+        private int _requestedResolution = 401;
 
         [SerializeField, Min(1f)]
-        private float _maxHeight = 40f;
+        private float _maxHeight = 120f;
 
         [SerializeField, Min(2)]
-        private int _targetTriangleBudget = 80000;
+        private int _targetTriangleBudget = 320000;
 
         [SerializeField, Min(1)]
-        private int _chunkCountPerAxis = 10;
+        private int _chunkCountPerAxis = 20;
 
         [SerializeField]
         private TerrainShadingMode _shadingMode = TerrainShadingMode.Flat;
@@ -109,6 +109,8 @@ namespace MyGameWorld.Client.ProceduralWorld
         public float StarDensityMultiplier => _environmentalManager != null ? _environmentalManager.StarDensityMultiplier : 1f;
         public int EstimatedVisibleStars => _environmentalManager != null ? _environmentalManager.EstimatedVisibleStars : 0;
         public float NebulaVisibility => _environmentalManager != null ? _environmentalManager.NebulaVisibility : 0f;
+        public ProceduralShaderQuality ShaderQuality => _environmentalManager != null ? _environmentalManager.ShaderQuality : ProceduralShaderQuality.Low;
+        public ProceduralShaderBudget ShaderBudget => _environmentalManager != null ? _environmentalManager.ShaderBudget : default;
 
         public bool IsHudVisible { get; private set; } = true;
 
@@ -189,6 +191,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         }
         public void SpawnShootingStar() => _environmentalManager?.SpawnCelestialEvent(CelestialEventKind.ShootingStar);
         public void SpawnMeteor() => _environmentalManager?.SpawnCelestialEvent(CelestialEventKind.Meteor);
+        public void CycleShaderQuality() => _environmentalManager?.CycleShaderQuality();
 
         public void Generate()
         {
@@ -210,7 +213,7 @@ namespace MyGameWorld.Client.ProceduralWorld
                 TerrainProfileId.RollingLowPoly,
                 TerrainGeneratorV4.GeneratorVersion,
                 new AssetCatalogVersion(3));
-            ZoneGeneratorV4 generator = new ZoneGeneratorV4(config, biome);
+            ZoneGeneratorV4 generator = new ZoneGeneratorV4(config, biome, WorldGenerationLimits.LargeSandbox);
             ZoneGenerationResult nextResult = generator.Generate(dna);
 
             DestroyRuntime();
