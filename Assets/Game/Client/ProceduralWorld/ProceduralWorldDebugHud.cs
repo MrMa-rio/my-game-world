@@ -49,7 +49,7 @@ namespace MyGameWorld.Client.ProceduralWorld
 
             Color previousColor = GUI.color;
             GUI.color = new Color(0.045f, 0.075f, 0.06f, 0.88f);
-            GUI.Box(new Rect(16f, 16f, 370f, 385f), GUIContent.none, _boxStyle);
+            GUI.Box(new Rect(16f, 16f, 410f, 468f), GUIContent.none, _boxStyle);
             GUI.color = previousColor;
 
             Vector3 cameraPosition = _developmentCamera != null
@@ -94,12 +94,23 @@ namespace MyGameWorld.Client.ProceduralWorld
                 .Append(metrics.VisibleTriangles).AppendLine(" triangles");
             _text.Append("Estimated renderer passes: ").Append(metrics.EstimatedDrawCalls).AppendLine();
             _text.Append("Runtime generation: ").Append(metrics.LastFrameGenerationMilliseconds.ToString("0.00")).AppendLine(" ms");
+            WindSample wind = _sandbox.Wind;
+            _text.Append("Wind: ").Append(wind.EffectiveStrength.ToString("0.00"))
+                .Append(" @ ").Append(wind.Speed.ToString("0.0")).Append(" m/s | Gust ").Append(wind.Gust.ToString("0.00")).AppendLine();
+            _text.Append("Environment: ").Append(_sandbox.DebugEnvironmentalBiome)
+                .Append(" | Active VFX chunks: ").Append(_sandbox.ActiveEnvironmentalVfxChunks).AppendLine();
+            WorldTimeSnapshot worldTime = _sandbox.WorldTime;
+            _text.Append("Time: ").Append(worldTime.Hour.ToString("00.00")).Append("h | ").Append(worldTime.Phase)
+                .Append(" | Celestial events: ").Append(_sandbox.ActiveCelestialEvents).AppendLine();
             _text.AppendLine();
             _text.AppendLine("WASD move | Q/E down/up | RMB look");
             _text.AppendLine("Shift fast | Scroll speed");
             _text.AppendLine("F1 HUD | F2 wire | F3 same | F4 next seed");
+            _text.AppendLine("F5 wind | F6 biome | F7 VFX density");
+            _text.AppendLine("F8 +3 hours | F9 pause time");
+            _text.AppendLine("F10 shooting star | F11 meteor");
 
-            GUI.Label(new Rect(20f, 20f, 362f, 377f), _text.ToString(), _textStyle);
+            GUI.Label(new Rect(20f, 20f, 402f, 460f), _text.ToString(), _textStyle);
         }
     }
 }

@@ -49,6 +49,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         private GameObject _runtimeRoot;
         private ProceduralWorldMaterialLibrary _materials;
         private ProceduralRuntimeManager _runtimeManager;
+        private EnvironmentalManager _environmentalManager;
         private ZoneGenerationResult _result;
         private bool _wireframeVisible;
 
@@ -97,6 +98,11 @@ namespace MyGameWorld.Client.ProceduralWorld
         public int BushClusterCount => _runtimeManager != null ? _runtimeManager.Count(DecorationKind.BushCluster) : 0;
 
         public ProceduralRuntimeMetrics RuntimeMetrics => _runtimeManager != null ? _runtimeManager.Metrics : default;
+        public WindSample Wind => _environmentalManager?.Wind != null ? _environmentalManager.Wind.GlobalSample : default;
+        public int ActiveEnvironmentalVfxChunks => _environmentalManager != null ? _environmentalManager.ActiveVfxChunks : 0;
+        public EnvironmentalBiomeKind DebugEnvironmentalBiome => _environmentalManager != null ? _environmentalManager.DebugBiome : EnvironmentalBiomeKind.Grassland;
+        public WorldTimeSnapshot WorldTime => _environmentalManager?.TimeSystem != null ? _environmentalManager.TimeSystem.Snapshot : default;
+        public int ActiveCelestialEvents => _environmentalManager != null ? _environmentalManager.ActiveCelestialEvents : 0;
 
         public bool IsHudVisible { get; private set; } = true;
 
@@ -147,6 +153,37 @@ namespace MyGameWorld.Client.ProceduralWorld
             Debug.Log($"Generated next seed {_zoneSeed}. Fingerprint: {Fingerprint:X16}");
         }
 
+        public void CycleWindStrength()
+        {
+            if (_environmentalManager?.Wind == null) return;
+            float current = _environmentalManager.Wind.Profile.Strength;
+            _environmentalManager.Wind.Profile.Strength = current < 0.3f ? 0.5f : current < 0.7f ? 0.9f : 0.15f;
+        }
+
+        public void CycleEnvironmentalBiome()
+        {
+            if (_environmentalManager == null) return;
+            int next = ((int)_environmentalManager.DebugBiome % 4) + 1;
+            _environmentalManager.DebugBiome = (EnvironmentalBiomeKind)next;
+        }
+
+        public void CycleVfxDensity()
+        {
+            if (_environmentalManager == null) return;
+            float current = _environmentalManager.VfxDensity;
+            _environmentalManager.VfxDensity = current < 0.75f ? 1f : current < 1.5f ? 2f : 0.25f;
+        }
+
+        public void AdvanceWorldTime() => _environmentalManager?.TimeSystem?.AdvanceHours(3f);
+        public void SetWorldHour(float hour) => _environmentalManager?.TimeSystem?.SetHour(hour);
+        public void ToggleWorldTimePause()
+        {
+            if (_environmentalManager?.TimeSystem == null) return;
+            _environmentalManager.TimeSystem.Profile.Paused = !_environmentalManager.TimeSystem.Profile.Paused;
+        }
+        public void SpawnShootingStar() => _environmentalManager?.SpawnCelestialEvent(CelestialEventKind.ShootingStar);
+        public void SpawnMeteor() => _environmentalManager?.SpawnCelestialEvent(CelestialEventKind.Meteor);
+
         public void Generate()
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
@@ -174,6 +211,8 @@ namespace MyGameWorld.Client.ProceduralWorld
             _runtimeRoot = new GameObject($"Zone TEST_{_zoneId:000} Runtime");
             _runtimeRoot.transform.SetParent(transform, false);
             _runtimeManager.SetInstanceParent(_runtimeRoot.transform);
+            _environmentalManager = _runtimeRoot.AddComponent<EnvironmentalManager>();
+            _environmentalManager.Initialize(nextResult, _materials, _runtimeManager);
             for (int index = 0; index < nextResult.Terrain.Chunks.Count; index++)
             {
                 UnityTerrainChunkRuntime chunk = _runtimeManager.MaterializeTerrainChunk(
@@ -237,6 +276,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             {
                 Destroy(_runtimeRoot);
                 _runtimeRoot = null;
+                _environmentalManager = null;
             }
 
             _result = null;

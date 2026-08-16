@@ -11,6 +11,7 @@ namespace MyGameWorld.Client.ProceduralWorld
 
         public ProceduralWorldMaterialLibrary()
         {
+            Shader.SetGlobalVector("_WorldTimeTint", Vector4.one);
             _shader = Shader.Find("MyGameWorld/Procedural World/Vertex Color Lit");
             if (_shader == null)
             {
@@ -34,7 +35,16 @@ namespace MyGameWorld.Client.ProceduralWorld
             MushroomCapLight = Create("Mushroom Cap Light", new Color(0.92f, 0.42f, 0.18f));
             Water = Create("Water", new Color(0.18f, 0.58f, 0.82f));
             Lava = Create("Lava", new Color(1f, 0.24f, 0.035f));
-            TreeMaterials = new[] { Trunk, Leaves, LeavesLight };
+            Branch = Create("Branch", new Color(0.34f, 0.18f, 0.08f));
+            EnvironmentVfx = Create("Environmental VFX", Color.white);
+            SetWindResponse(Trunk, PhysicalResponseCatalog.Resolve(PhysicalResponseZone.Trunk).ShaderResponse, 0.25f);
+            SetWindResponse(Branch, PhysicalResponseCatalog.Resolve(PhysicalResponseZone.LargeBranch).ShaderResponse, 0.18f);
+            float leafResponse = PhysicalResponseCatalog.Resolve(PhysicalResponseZone.Leaves).ShaderResponse;
+            SetWindResponse(Leaves, leafResponse, 0.05f); SetWindResponse(LeavesLight, leafResponse, 0.05f);
+            float flexibleResponse = PhysicalResponseCatalog.Resolve(PhysicalResponseZone.FlexibleSurface).ShaderResponse;
+            SetWindResponse(FlowerStem, flexibleResponse * 0.55f, 0.02f);
+            SetWindResponse(FlowerPetal, flexibleResponse, 0f); SetWindResponse(FlowerPetalLight, flexibleResponse, 0f);
+            TreeMaterials = new[] { Trunk, Leaves, LeavesLight, Branch };
             BushMaterials = new[] { Leaves, LeavesLight };
             BushLowMaterials = new[] { Leaves };
             RockMaterials = new[] { Rock, RockLight, RockDark };
@@ -66,6 +76,8 @@ namespace MyGameWorld.Client.ProceduralWorld
         public Material MushroomCapLight { get; }
         public Material Water { get; }
         public Material Lava { get; }
+        public Material Branch { get; }
+        public Material EnvironmentVfx { get; }
         public Material[] TreeMaterials { get; }
         public Material[] BushMaterials { get; }
         public Material[] BushLowMaterials { get; }
@@ -99,6 +111,11 @@ namespace MyGameWorld.Client.ProceduralWorld
             material.SetColor("_InstanceColor", Color.white);
             _materials.Add(material);
             return material;
+        }
+
+        private static void SetWindResponse(Material material, float response, float heightStart)
+        {
+            material.SetFloat("_WindResponse", response); material.SetFloat("_WindHeightStart", heightStart);
         }
     }
 }

@@ -115,6 +115,14 @@ namespace MyGameWorld.Client.ProceduralWorld
             {
                 _sandbox.GenerateNextSeed();
             }
+
+            if (keyboard.f5Key.wasPressedThisFrame) _sandbox.CycleWindStrength();
+            if (keyboard.f6Key.wasPressedThisFrame) _sandbox.CycleEnvironmentalBiome();
+            if (keyboard.f7Key.wasPressedThisFrame) _sandbox.CycleVfxDensity();
+            if (keyboard.f8Key.wasPressedThisFrame) _sandbox.AdvanceWorldTime();
+            if (keyboard.f9Key.wasPressedThisFrame) _sandbox.ToggleWorldTimePause();
+            if (keyboard.f10Key.wasPressedThisFrame) _sandbox.SpawnShootingStar();
+            if (keyboard.f11Key.wasPressedThisFrame) _sandbox.SpawnMeteor();
         }
 
         private static float ReadAxis(KeyControl negative, KeyControl positive)

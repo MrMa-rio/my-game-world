@@ -64,7 +64,7 @@ namespace MyGameWorld.Tests.EditMode
                     ProceduralMeshKey key = new ProceduralMeshKey(DecorationKind.Tree,
                         WorldVisualAssetIds.TemperateTree.Value, ProceduralVisualLod.High, variation, style.StyleVersion);
                     meshes[variation] = provider.Build(key, style, lodResolver).Mesh;
-                    Assert.That(meshes[variation].subMeshCount, Is.EqualTo(3));
+                    Assert.That(meshes[variation].subMeshCount, Is.EqualTo(4));
                     Assert.That(meshes[variation].bounds.size.y, Is.GreaterThan(3f));
                     Assert.That(HasOutwardFacingTriangle(meshes[variation], Vector3.back), Is.True);
                 }

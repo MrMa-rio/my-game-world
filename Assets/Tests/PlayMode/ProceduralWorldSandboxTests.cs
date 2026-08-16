@@ -32,6 +32,15 @@ namespace MyGameWorld.Tests.PlayMode
             Assert.That(sandbox.RuntimeMetrics.QueueCount, Is.Zero);
             Assert.That(sandbox.RuntimeMetrics.CachedMeshes, Is.LessThan(sandbox.DecorationCount));
             Assert.That(sandbox.RuntimeMetrics.CacheHits, Is.GreaterThan(0));
+            EnvironmentalManager environment = UnityEngine.Object.FindAnyObjectByType<EnvironmentalManager>();
+            Assert.That(environment, Is.Not.Null);
+            Assert.That(environment.PhysicalResponses.RegisteredCount, Is.GreaterThan(0));
+            Assert.That(UnityEngine.Object.FindObjectsByType<Rigidbody>().Length, Is.Zero);
+            Assert.That(UnityEngine.Object.FindObjectsByType<ParticleSystem>().Length, Is.LessThanOrEqualTo(12));
+            Assert.That(environment.TimeSystem.Snapshot.Hour, Is.InRange(0f, 24f));
+            Assert.That(RenderSettings.sun, Is.Not.Null);
+            Assert.That(GameObject.Find("Moon"), Is.Not.Null);
+            Assert.That(environment.GetComponentsInChildren<TrailRenderer>(true).Length, Is.EqualTo(4));
             Assert.That(sandbox.SingularTerrainFeatureCount, Is.EqualTo(33));
             WorldElementRuntimeIdentity[] identities = UnityEngine.Object.FindObjectsByType<WorldElementRuntimeIdentity>();
             Assert.That(identities.Length, Is.EqualTo(sandbox.DecorationCount + sandbox.ChunkCount + 1));
@@ -61,11 +70,17 @@ namespace MyGameWorld.Tests.PlayMode
 
             if (System.Environment.GetEnvironmentVariable("MY_GAME_WORLD_CAPTURE_SANDBOX") == "1")
             {
-                CaptureSandbox();
+                string requestedHour = System.Environment.GetEnvironmentVariable("MY_GAME_WORLD_CAPTURE_HOUR");
+                if (float.TryParse(requestedHour, System.Globalization.NumberStyles.Float,
+                    System.Globalization.CultureInfo.InvariantCulture, out float hour))
+                {
+                    sandbox.SetWorldHour(hour); yield return null;
+                }
+                CaptureSandbox(sandbox);
             }
         }
 
-        private static void CaptureSandbox()
+        private static void CaptureSandbox(ProceduralWorldSandbox sandbox)
         {
             const int width = 1280;
             const int height = 720;
@@ -83,7 +98,8 @@ namespace MyGameWorld.Tests.PlayMode
                 RenderTexture.active = renderTexture;
                 screenshot.ReadPixels(new Rect(0f, 0f, width, height), 0, 0);
                 screenshot.Apply();
-                string outputPath = Path.GetFullPath(Path.Combine(Application.dataPath, "..", "Logs", "ProceduralWorldSandbox.png"));
+                string suffix = sandbox.WorldTime.Hour.ToString("00.0", System.Globalization.CultureInfo.InvariantCulture).Replace('.', '-');
+                string outputPath = Path.GetFullPath(Path.Combine(Application.dataPath, "..", "Logs", $"ProceduralWorldSandbox-{suffix}h.png"));
                 Directory.CreateDirectory(Path.GetDirectoryName(outputPath));
                 File.WriteAllBytes(outputPath, screenshot.EncodeToPNG());
                 Debug.Log($"Captured procedural world sandbox to {outputPath}.");

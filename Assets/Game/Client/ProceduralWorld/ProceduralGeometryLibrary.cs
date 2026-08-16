@@ -324,13 +324,13 @@ namespace MyGameWorld.Client.ProceduralWorld
             int branchSegments = Mathf.Max(4, segments - 2);
             if (lod != ProceduralVisualLod.Low)
             {
-                draft.AddTaperedBranch(lower * 0.82f, crownBase + new Vector3(-1.05f * widthScale, 0.2f, 0.22f), 0.15f, 0.055f, branchSegments, 0, 0.045f, random);
-                draft.AddTaperedBranch(lower * 0.9f, crownBase + new Vector3(0.96f * widthScale, 0.35f, -0.18f), 0.145f, 0.05f, branchSegments, 0, 0.045f, random);
+                draft.AddTaperedBranch(lower * 0.82f, crownBase + new Vector3(-1.05f * widthScale, 0.2f, 0.22f), 0.15f, 0.055f, branchSegments, 3, 0.045f, random);
+                draft.AddTaperedBranch(lower * 0.9f, crownBase + new Vector3(0.96f * widthScale, 0.35f, -0.18f), 0.145f, 0.05f, branchSegments, 3, 0.045f, random);
             }
             if (lod == ProceduralVisualLod.High)
             {
-                draft.AddTaperedBranch(crownBase * 0.78f, crownBase + new Vector3(-0.32f, 0.9f * heightScale, -0.72f * widthScale), 0.11f, 0.04f, branchSegments, 0, 0.04f, random);
-                draft.AddTaperedBranch(crownBase * 0.82f, crownBase + new Vector3(0.46f, 1.08f * heightScale, 0.66f * widthScale), 0.1f, 0.035f, branchSegments, 0, 0.04f, random);
+                draft.AddTaperedBranch(crownBase * 0.78f, crownBase + new Vector3(-0.32f, 0.9f * heightScale, -0.72f * widthScale), 0.11f, 0.04f, branchSegments, 3, 0.04f, random);
+                draft.AddTaperedBranch(crownBase * 0.82f, crownBase + new Vector3(0.46f, 1.08f * heightScale, 0.66f * widthScale), 0.1f, 0.035f, branchSegments, 3, 0.04f, random);
             }
 
             AddOrganicCrown(draft, crownBase + new Vector3(0f, 0.66f * heightScale, 0f), 1.78f * widthScale, 1.5f * heightScale, 1, 1, irregularity, random);

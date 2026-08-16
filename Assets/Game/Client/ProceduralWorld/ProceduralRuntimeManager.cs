@@ -36,6 +36,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         private int _cacheMisses;
         private float _lastFrameMilliseconds;
         private bool _initialized;
+        private EnvironmentalPhysicalResponseSystem _environmentalResponses;
 
         public ProceduralRuntimeMetrics Metrics
         {
@@ -69,6 +70,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         }
 
         public void SetInstanceParent(Transform parent) => _instanceParent = parent;
+        public void SetEnvironmentalResponses(EnvironmentalPhysicalResponseSystem responses) => _environmentalResponses = responses;
 
         public void RegisterGeometryProvider(IProceduralGeometryProvider provider)
         {
@@ -193,6 +195,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             ConfigureCollider(instance);
             ApplyColorVariation(instance);
             root.SetActive(true); instance.Active = true;
+            _environmentalResponses?.Register(root, definition.Kind);
             return instance;
         }
 
@@ -308,6 +311,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         private void Release(RuntimeInstance instance)
         {
             if (!instance.Active) return;
+            _environmentalResponses?.Unregister(instance.Root);
             instance.Active = false; instance.LodQueued = false; instance.Root.SetActive(false);
             instance.Root.transform.SetParent(transform, false);
             Stack<GameObject> pool;

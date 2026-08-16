@@ -4,6 +4,8 @@ Shader "MyGameWorld/Procedural World/Vertex Color Lit"
     {
         _BaseColor("Base Color", Color) = (1, 1, 1, 1)
         _InstanceColor("Instance Color", Color) = (1, 1, 1, 1)
+        _WindResponse("Wind Response", Range(0, 1)) = 0
+        _WindHeightStart("Wind Height Start", Range(0, 1)) = 0
     }
 
     SubShader
@@ -35,11 +37,18 @@ Shader "MyGameWorld/Procedural World/Vertex Color Lit"
 
             CBUFFER_START(UnityPerMaterial)
                 half4 _BaseColor;
+                half _WindResponse;
+                half _WindHeightStart;
             CBUFFER_END
 
             UNITY_INSTANCING_BUFFER_START(ProceduralPerInstance)
                 UNITY_DEFINE_INSTANCED_PROP(float4, _InstanceColor)
             UNITY_INSTANCING_BUFFER_END(ProceduralPerInstance)
+
+            float4 _WorldWindDirectionStrength;
+            float4 _WorldWindParameters;
+            float4 _WorldTimeTint;
+            float4 _WorldTimeRimColor;
 
             struct Attributes
             {
@@ -62,7 +71,17 @@ Shader "MyGameWorld/Procedural World/Vertex Color Lit"
             {
                 Varyings output;
                 UNITY_SETUP_INSTANCE_ID(input);
-                VertexPositionInputs positionInputs = GetVertexPositionInputs(input.positionOS.xyz);
+                float3 baseWS = TransformObjectToWorld(input.positionOS.xyz);
+                float heightWeight = saturate(input.positionOS.y - _WindHeightStart);
+                float spatialA = sin(dot(baseWS.xz, float2(0.071, 0.113)) + _WorldWindParameters.w * (1.7 + _WorldWindParameters.x * 0.08));
+                float spatialB = sin(dot(baseWS.xz, float2(-0.137, 0.053)) - _WorldWindParameters.w * 2.31);
+                float organic = spatialA * 0.65 + spatialB * 0.35;
+                float response = _WindResponse * heightWeight * _WorldWindDirectionStrength.w;
+                float3 displacedWS = baseWS + _WorldWindDirectionStrength.xyz * response * (0.12 + _WorldWindParameters.x * 0.055) * organic;
+                displacedWS.y += abs(organic) * response * _WorldWindParameters.y * 0.08;
+                VertexPositionInputs positionInputs = (VertexPositionInputs)0;
+                positionInputs.positionWS = displacedWS;
+                positionInputs.positionCS = TransformWorldToHClip(displacedWS);
                 VertexNormalInputs normalInputs = GetVertexNormalInputs(input.normalOS);
                 output.positionCS = positionInputs.positionCS;
                 output.positionWS = positionInputs.positionWS;
@@ -83,7 +102,10 @@ Shader "MyGameWorld/Procedural World/Vertex Color Lit"
                 half3 ambient = max(SampleSH(normalWS) * 0.85h, 0.32h);
                 half3 lighting = ambient + mainLight.color * (0.2h + halfLambert * 0.68h) * shadow;
                 half facetTone = lerp(0.88h, 1.12h, saturate(normalWS.y * 0.5h + 0.5h));
-                half3 color = input.color.rgb * min(lighting, 1.35h) * facetTone;
+                half3 color = input.color.rgb * min(lighting, 1.35h) * facetTone * _WorldTimeTint.rgb * _WorldTimeTint.a;
+                half3 viewDirection = SafeNormalize(_WorldSpaceCameraPos.xyz - input.positionWS);
+                half rim = pow(saturate(1.0h - abs(dot(normalWS, viewDirection))), 2.6h);
+                color += _WorldTimeRimColor.rgb * rim * _WorldTimeRimColor.a;
                 color = MixFog(color, input.fogFactor);
                 return half4(color, input.color.a);
             }
