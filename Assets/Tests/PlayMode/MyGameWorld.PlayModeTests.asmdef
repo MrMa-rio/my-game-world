@@ -3,6 +3,10 @@
   "rootNamespace": "MyGameWorld.Tests.PlayMode",
   "references": [
     "MyGameWorld.Client.ProceduralWorld",
+    "MyGameWorld.Client.EntityRuntime",
+    "MyGameWorld.Client.ActorRuntime",
+    "MyGameWorld.Client.PlayerRuntime",
+    "Unity.InputSystem",
     "MyGameWorld.Shared.World"
   ],
   "optionalUnityReferences": [

@@ -1,0 +1,9 @@
+{
+  "name": "MyGameWorld.Client.EntityRuntime",
+  "rootNamespace": "MyGameWorld.Client.EntityRuntime",
+  "references": [
+    "MyGameWorld.Shared.Core",
+    "MyGameWorld.Shared.World"
+  ],
+  "autoReferenced": true
+}

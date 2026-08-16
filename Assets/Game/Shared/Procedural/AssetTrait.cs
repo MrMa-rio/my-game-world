@@ -16,6 +16,8 @@ namespace MyGameWorld.Shared.Procedural
         HandSocket = 1UL << 7,
         TwoHanded = 1UL << 8,
         Exterior = 1UL << 9,
-        Interior = 1UL << 10
+        Interior = 1UL << 10,
+        MasculineFrame = 1UL << 11,
+        FeminineFrame = 1UL << 12
     }
 }

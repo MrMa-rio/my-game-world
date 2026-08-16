@@ -1,0 +1,199 @@
+{
+  "armature": "human_male",
+  "bone_count": 43,
+  "parts": [
+    {
+      "file": "human_male_body_default.fbx",
+      "name": "human_male_body_default",
+      "triangles": 884,
+      "vertices": 464
+    },
+    {
+      "file": "human_male_feet_default.fbx",
+      "name": "human_male_feet_default",
+      "triangles": 404,
+      "vertices": 212
+    },
+    {
+      "file": "human_male_hair_1.fbx",
+      "name": "human_male_hair_1",
+      "triangles": 120,
+      "vertices": 72
+    },
+    {
+      "file": "human_male_hair_2.fbx",
+      "name": "human_male_hair_2",
+      "triangles": 278,
+      "vertices": 151
+    },
+    {
+      "file": "human_male_hair_3.fbx",
+      "name": "human_male_hair_3",
+      "triangles": 148,
+      "vertices": 91
+    },
+    {
+      "file": "human_male_hair_4.fbx",
+      "name": "human_male_hair_4",
+      "triangles": 294,
+      "vertices": 151
+    },
+    {
+      "file": "human_male_hair_5.fbx",
+      "name": "human_male_hair_5",
+      "triangles": 148,
+      "vertices": 91
+    },
+    {
+      "file": "human_male_hair_6.fbx",
+      "name": "human_male_hair_6",
+      "triangles": 148,
+      "vertices": 91
+    },
+    {
+      "file": "human_male_hands_default.fbx",
+      "name": "human_male_hands_default",
+      "triangles": 740,
+      "vertices": 380
+    },
+    {
+      "file": "human_male_head_2.fbx",
+      "name": "human_male_head_2",
+      "triangles": 488,
+      "vertices": 254
+    },
+    {
+      "file": "human_male_head_3.fbx",
+      "name": "human_male_head_3",
+      "triangles": 488,
+      "vertices": 254
+    },
+    {
+      "file": "human_male_head_4.fbx",
+      "name": "human_male_head_4",
+      "triangles": 488,
+      "vertices": 254
+    },
+    {
+      "file": "human_male_head_5.fbx",
+      "name": "human_male_head_5",
+      "triangles": 488,
+      "vertices": 254
+    },
+    {
+      "file": "human_male_head_6.fbx",
+      "name": "human_male_head_6",
+      "triangles": 488,
+      "vertices": 254
+    },
+    {
+      "file": "human_male_head_default.fbx",
+      "name": "human_male_head_default",
+      "triangles": 488,
+      "vertices": 254
+    },
+    {
+      "file": "human_male_heavy_armor.fbx",
+      "name": "human_male_heavy_armor",
+      "triangles": 1448,
+      "vertices": 758
+    },
+    {
+      "file": "human_male_heavy_boots.fbx",
+      "name": "human_male_heavy_boots",
+      "triangles": 332,
+      "vertices": 176
+    },
+    {
+      "file": "human_male_heavy_gloves.fbx",
+      "name": "human_male_heavy_gloves",
+      "triangles": 804,
+      "vertices": 412
+    },
+    {
+      "file": "human_male_heavy_helmet.fbx",
+      "name": "human_male_heavy_helmet",
+      "triangles": 408,
+      "vertices": 206
+    },
+    {
+      "file": "human_male_light_armor.fbx",
+      "name": "human_male_light_armor",
+      "triangles": 1060,
+      "vertices": 563
+    },
+    {
+      "file": "human_male_light_armor_2.fbx",
+      "name": "human_male_light_armor_2",
+      "triangles": 884,
+      "vertices": 464
+    },
+    {
+      "file": "human_male_light_armor_3.fbx",
+      "name": "human_male_light_armor_3",
+      "triangles": 1028,
+      "vertices": 545
+    },
+    {
+      "file": "human_male_light_armor_4.fbx",
+      "name": "human_male_light_armor_4",
+      "triangles": 1118,
+      "vertices": 592
+    },
+    {
+      "file": "human_male_light_boots.fbx",
+      "name": "human_male_light_boots",
+      "triangles": 404,
+      "vertices": 212
+    },
+    {
+      "file": "human_male_light_boots_2.fbx",
+      "name": "human_male_light_boots_2",
+      "triangles": 404,
+      "vertices": 212
+    },
+    {
+      "file": "human_male_light_gloves.fbx",
+      "name": "human_male_light_gloves",
+      "triangles": 740,
+      "vertices": 380
+    },
+    {
+      "file": "human_male_light_gloves_3.fbx",
+      "name": "human_male_light_gloves_3",
+      "triangles": 740,
+      "vertices": 380
+    },
+    {
+      "file": "human_male_light_helmet.fbx",
+      "name": "human_male_light_helmet",
+      "triangles": 264,
+      "vertices": 134
+    },
+    {
+      "file": "human_male_medium_armor.fbx",
+      "name": "human_male_medium_armor",
+      "triangles": 1404,
+      "vertices": 733
+    },
+    {
+      "file": "human_male_medium_boots.fbx",
+      "name": "human_male_medium_boots",
+      "triangles": 420,
+      "vertices": 220
+    },
+    {
+      "file": "human_male_medium_gloves.fbx",
+      "name": "human_male_medium_gloves",
+      "triangles": 836,
+      "vertices": 428
+    },
+    {
+      "file": "human_male_medium_helmet.fbx",
+      "name": "human_male_medium_helmet",
+      "triangles": 456,
+      "vertices": 230
+    }
+  ],
+  "source": "C:\\Users\\mario\\my-game-world\\Assets\\ia assets\\avatar-reference\\system-g6\\modular_rpg_characters\\human_male.blend"
+}

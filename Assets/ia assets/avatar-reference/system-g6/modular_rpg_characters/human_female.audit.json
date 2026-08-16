@@ -1,0 +1,431 @@
+{
+  "actions": [
+    "human_female_cast_dual_wield_melee",
+    "human_female_cast_dual_wield_melee_2",
+    "human_female_cast_dual_wield_melee_3",
+    "human_female_cast_dual_wield_melee_4",
+    "human_female_cast_main_hand_melee",
+    "human_female_cast_main_hand_melee_2",
+    "human_female_cast_main_hand_melee_3",
+    "human_female_cast_main_hand_wand",
+    "human_female_cast_off_hand_shield",
+    "human_female_cast_two_handed_bow",
+    "human_female_cast_two_handed_bow_2",
+    "human_female_cast_two_handed_crossbow",
+    "human_female_cast_two_handed_melee",
+    "human_female_cast_two_handed_melee_2",
+    "human_female_cast_two_handed_melee_3",
+    "human_female_cast_two_handed_melee_4",
+    "human_female_cast_two_handed_melee_5",
+    "human_female_cast_two_handed_staff",
+    "human_female_cast_unarmed_magic",
+    "human_female_cast_unarmed_magic_2",
+    "human_female_channel_dual_wield_melee",
+    "human_female_channel_main_hand_melee",
+    "human_female_channel_main_hand_wand",
+    "human_female_channel_two_handed_bow",
+    "human_female_channel_two_handed_bow_2",
+    "human_female_channel_two_handed_crossbow",
+    "human_female_channel_two_handed_melee",
+    "human_female_channel_two_handed_staff",
+    "human_female_channel_unarmed_magic",
+    "human_female_death",
+    "human_female_drink_potion",
+    "human_female_gathering",
+    "human_female_idle",
+    "human_female_idle_combat_dual_wield_melee",
+    "human_female_idle_combat_main_hand_melee",
+    "human_female_idle_combat_main_hand_wand",
+    "human_female_idle_combat_two_handed_bow",
+    "human_female_idle_combat_two_handed_crossbow",
+    "human_female_idle_combat_two_handed_melee",
+    "human_female_idle_combat_two_handed_staff",
+    "human_female_idle_combat_unarmed",
+    "human_female_jump",
+    "human_female_power_up",
+    "human_female_power_up_2",
+    "human_female_power_up_3",
+    "human_female_pray",
+    "human_female_run"
+  ],
+  "blender_version": "2.79 (sub 0)",
+  "objects": [
+    {
+      "hidden": false,
+      "name": "Point",
+      "parent": null,
+      "type": "LAMP"
+    },
+    {
+      "bones": 43,
+      "hidden": false,
+      "name": "human_female",
+      "parent": null,
+      "type": "ARMATURE"
+    },
+    {
+      "armature_modifiers": [
+        "human_female"
+      ],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_body_1"
+      ],
+      "name": "human_female_body_default",
+      "parent": "human_female",
+      "triangles": 932,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 488
+    },
+    {
+      "armature_modifiers": [
+        "human_female"
+      ],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_feet_1"
+      ],
+      "name": "human_female_feet_default",
+      "parent": "human_female",
+      "triangles": 404,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 212
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_hair_1"
+      ],
+      "name": "human_female_hair_1",
+      "parent": null,
+      "triangles": 368,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 205
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_hair_2"
+      ],
+      "name": "human_female_hair_2",
+      "parent": null,
+      "triangles": 236,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 135
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_hair_3"
+      ],
+      "name": "human_female_hair_3",
+      "parent": null,
+      "triangles": 334,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 177
+    },
+    {
+      "armature_modifiers": [
+        "human_female"
+      ],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_hands_1"
+      ],
+      "name": "human_female_hands_default",
+      "parent": "human_female",
+      "triangles": 740,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 380
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_head_2"
+      ],
+      "name": "human_female_head_2",
+      "parent": null,
+      "triangles": 488,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 254
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_head_3"
+      ],
+      "name": "human_female_head_3",
+      "parent": null,
+      "triangles": 488,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 254
+    },
+    {
+      "armature_modifiers": [
+        "human_female"
+      ],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_head_1"
+      ],
+      "name": "human_female_head_default",
+      "parent": "human_female",
+      "triangles": 488,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 254
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_heavy_armor"
+      ],
+      "name": "human_female_heavy_armor",
+      "parent": null,
+      "triangles": 1448,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 758
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_heavy_boots"
+      ],
+      "name": "human_female_heavy_boots",
+      "parent": null,
+      "triangles": 332,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 176
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_heavy_gloves"
+      ],
+      "name": "human_female_heavy_gloves",
+      "parent": null,
+      "triangles": 804,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 412
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_heavy_helmet"
+      ],
+      "name": "human_female_heavy_helmet",
+      "parent": null,
+      "triangles": 408,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 206
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_light_armor",
+        "mat_human_female_light_armor_skirt"
+      ],
+      "name": "human_female_light_armor",
+      "parent": null,
+      "triangles": 1108,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 587
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_light_armor_2"
+      ],
+      "name": "human_female_light_armor_2",
+      "parent": null,
+      "triangles": 932,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 488
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_light_armor_3",
+        "mat_human_female_light_armor_3_skirt"
+      ],
+      "name": "human_female_light_armor_3",
+      "parent": null,
+      "triangles": 1076,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 569
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_light_armor_4",
+        "mat_human_female_light_armor_4_skirt"
+      ],
+      "name": "human_female_light_armor_4",
+      "parent": null,
+      "triangles": 1166,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 616
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_light_boots"
+      ],
+      "name": "human_female_light_boots",
+      "parent": null,
+      "triangles": 404,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 212
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_light_boots_2"
+      ],
+      "name": "human_female_light_boots_2",
+      "parent": null,
+      "triangles": 404,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 212
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_light_gloves"
+      ],
+      "name": "human_female_light_gloves",
+      "parent": null,
+      "triangles": 740,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 380
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_light_gloves_3"
+      ],
+      "name": "human_female_light_gloves_3",
+      "parent": null,
+      "triangles": 740,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 380
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_light_helmet"
+      ],
+      "name": "human_female_light_helmet",
+      "parent": null,
+      "triangles": 264,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 134
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_medium_armor",
+        "mat_human_female_medium_armor_skirt"
+      ],
+      "name": "human_female_medium_armor",
+      "parent": null,
+      "triangles": 1404,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 733
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_medium_boots"
+      ],
+      "name": "human_female_medium_boots",
+      "parent": null,
+      "triangles": 420,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 220
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_medium_gloves"
+      ],
+      "name": "human_female_medium_gloves",
+      "parent": null,
+      "triangles": 836,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 428
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_human_female_medium_helmet"
+      ],
+      "name": "human_female_medium_helmet",
+      "parent": null,
+      "triangles": 456,
+      "type": "MESH",
+      "vertex_groups": 41,
+      "vertices": 230
+    },
+    {
+      "armature_modifiers": [],
+      "hidden": false,
+      "materials": [
+        "mat_training_dummy"
+      ],
+      "name": "training_dummy",
+      "parent": null,
+      "triangles": 252,
+      "type": "MESH",
+      "vertex_groups": 0,
+      "vertices": 134
+    }
+  ],
+  "source": "C:\\Users\\mario\\my-game-world\\Assets\\ia assets\\avatar-reference\\system-g6\\modular_rpg_characters\\human_female.blend"
+}

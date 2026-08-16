@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MyGameWorld.Shared.World;
+using MyGameWorld.Client.EntityRuntime;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -39,6 +40,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             renderer.receiveShadows = true;
             renderer.lightProbeUsage = LightProbeUsage.BlendProbes;
             collider.sharedMesh = _terrainMesh;
+            _root.AddComponent<PhysicalSurfaceDescriptor>().Configure((int)EnvironmentalSurfaceKind.Grass);
 
             _wireframe = new GameObject("Debug Wireframe");
             _wireframe.transform.SetParent(_root.transform, false);
