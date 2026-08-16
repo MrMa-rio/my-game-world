@@ -58,6 +58,12 @@ Cada entrada pode carregar um `AssetDescriptor` com categoria, traits e uma regr
 
 `MyGameWorld.Client.AssetResolution` é o primeiro adapter de engine. `UnityAssetCatalog` permite autoria como `ScriptableObject`, enquanto `UnityAssetRegistry` valida e copia os bindings de `AssetId` para `UnityEngine.Object`. Nenhuma dessas classes participa das regras autoritativas ou altera o catálogo procedural compartilhado.
 
+## Primeira materialização de mundo
+
+`MyGameWorld.Shared.World` acrescenta o primeiro domínio procedural concreto sem alterar as dependências da fundação. Ele define `ZoneDNA`, biome, configuração geométrica, noise V1, height field, mesh data por chunk, placements e fingerprints. `MyGameWorld.Client.ProceduralWorld` converte esses resultados neutros em representação Unity descartável através de um manager central com budget, LOD, cache, pooling e providers geométricos.
+
+A geração matemática da malha de terrain é uma exceção explícita à regra de assets visuais finitos: ela produz geometria de representação a partir de dados compactos e versionados, não conteúdo artístico pesado ou autoridade de gameplay. Árvores, pedras e arbustos matemáticos são placeholders da sandbox e permanecem atrás da fronteira de materialização, preparados para substituição pelo `AssetRegistry`.
+
 ## Cognição e escala
 
 `IntelligenceCapabilityResolverV1` transforma `IntelligenceDNA` em um bitset sem allocations por capability. Os valores numéricos do enum são IDs persistentes e não podem ser reordenados. Novas regras incompatíveis devem entrar em outro resolver versionado.

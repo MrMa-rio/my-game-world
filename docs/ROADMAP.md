@@ -276,14 +276,27 @@ Criar primeira zona procedural.
 
 ### Implementar
 
-- [ ] `ZoneDNA`;
-- [ ] zone seed;
-- [ ] biome;
-- [ ] terrain;
-- [ ] vegetation;
+- [x] `ZoneDNA`;
+- [x] zone seed;
+- [x] biome inicial;
+- [x] terrain low-poly por chunks;
+- [x] vegetation e rochas de laboratório;
 - [ ] spawn points;
 - [ ] basic structures;
-- [ ] deterministic placement.
+- [x] deterministic placement.
+- [x] manager central de materialização procedural;
+- [x] fila e budget de geração runtime;
+- [x] LOD, cache e pooling do vertical slice ambiental;
+- [x] zona V2 de 1.000 × 1.000 m com 100 chunks;
+- [x] relevo regional e distribuição ambiental por habitat;
+- [x] `AssetId` visual com resolução por registry e fallback procedural;
+- [x] framework ambiental V1 com vento espacial, resposta física por perfil, VFX contextual, LOD e pooling;
+- [x] relógio ambiental e ciclo celeste V1 com sol, lua, estrelas e eventos pooled;
+- [ ] extensões ambientais registradas em [Environmental Future Pending](ENVIRONMENTAL_FUTURE_PENDING.md);
+
+### Estado da fase
+
+A [Procedural World Sandbox](PROCEDURAL_WORLD_SANDBOX.md) prova a geração determinística de uma zona visual, budget geométrico, chunks, biome, decoração e fingerprint. Spawn points, estruturas e integração com `WorldDelta` permanecem fora deste recorte.
 
 ### Resultado
 

@@ -240,6 +240,10 @@ Responsabilidades:
 - descarregar regiões;
 - controlar simulation LOD.
 
+O primeiro recorte implementado é a [Procedural World Sandbox](PROCEDURAL_WORLD_SANDBOX.md). O domínio `MyGameWorld.Shared.World` gera `ZoneDNA`, height field, chunks, mesh data e placements sem depender de Unity; `MyGameWorld.Client.ProceduralWorld` materializa essa descrição no cliente.
+
+A materialização visual da sandbox é centralizada pelo [Procedural Runtime Manager](PROCEDURAL_RUNTIME_MANAGER.md). Definições existentes entram como requests e o adapter cliente resolve estilo, LOD, geometria mínima, cache, instancing, budget e lifetime sem transferir decisões visuais ao domínio compartilhado.
+
 ---
 
 ## 10. Simulation LOD
