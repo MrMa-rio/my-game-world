@@ -13,29 +13,29 @@ namespace MyGameWorld.Client.ProceduralWorld
     {
         [Header("Zone DNA")]
         [SerializeField, Min(1)]
-        private long _zoneId = 3;
+        private long _zoneId = 10;
 
         [SerializeField]
-        private long _zoneSeed = 829174;
+        private long _zoneSeed = 48151623;
 
         [Header("Terrain Geometry")]
         [SerializeField, Min(10f)]
-        private float _width = 5000f;
+        private float _width = 1000f;
 
         [SerializeField, Min(10f)]
-        private float _depth = 5000f;
+        private float _depth = 1000f;
 
         [SerializeField, Min(2)]
-        private int _requestedResolution = 401;
+        private int _requestedResolution = 257;
 
         [SerializeField, Min(1f)]
-        private float _maxHeight = 120f;
+        private float _maxHeight = 420f;
 
         [SerializeField, Min(2)]
-        private int _targetTriangleBudget = 320000;
+        private int _targetTriangleBudget = 80000;
 
         [SerializeField, Min(1)]
-        private int _chunkCountPerAxis = 20;
+        private int _chunkCountPerAxis = 10;
 
         [SerializeField]
         private TerrainShadingMode _shadingMode = TerrainShadingMode.Flat;
@@ -50,6 +50,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         private ProceduralWorldMaterialLibrary _materials;
         private ProceduralRuntimeManager _runtimeManager;
         private EnvironmentalManager _environmentalManager;
+        private DistantWorldRenderer _distantWorld;
         private ZoneGenerationResult _result;
         private bool _wireframeVisible;
 
@@ -57,7 +58,7 @@ namespace MyGameWorld.Client.ProceduralWorld
 
         public long ZoneSeed => _zoneSeed;
 
-        public ushort GeneratorVersion => TerrainGeneratorV4.GeneratorVersion.Value;
+        public ushort GeneratorVersion => TerrainGeneratorV6.GeneratorVersion.Value;
 
         public ulong Fingerprint => _result != null ? _result.Fingerprint : 0UL;
 
@@ -111,6 +112,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         public float NebulaVisibility => _environmentalManager != null ? _environmentalManager.NebulaVisibility : 0f;
         public ProceduralShaderQuality ShaderQuality => _environmentalManager != null ? _environmentalManager.ShaderQuality : ProceduralShaderQuality.Low;
         public ProceduralShaderBudget ShaderBudget => _environmentalManager != null ? _environmentalManager.ShaderBudget : default;
+        public DistantWorldMetrics DistantMetrics => _distantWorld != null ? _distantWorld.Metrics : default;
 
         public bool IsHudVisible { get; private set; } = true;
 
@@ -192,6 +194,9 @@ namespace MyGameWorld.Client.ProceduralWorld
         public void SpawnShootingStar() => _environmentalManager?.SpawnCelestialEvent(CelestialEventKind.ShootingStar);
         public void SpawnMeteor() => _environmentalManager?.SpawnCelestialEvent(CelestialEventKind.Meteor);
         public void CycleShaderQuality() => _environmentalManager?.CycleShaderQuality();
+        public void ToggleDistantLodDebug() { if (_distantWorld != null) _distantWorld.DebugLodColors = !_distantWorld.DebugLodColors; }
+        public void ToggleDistantQuadtreeDebug() { if (_distantWorld != null) _distantWorld.DrawQuadtree = !_distantWorld.DrawQuadtree; }
+        public void ToggleMaximumVisibility() { if (_distantWorld != null) _distantWorld.MaximumVisibility = !_distantWorld.MaximumVisibility; }
 
         public void Generate()
         {
@@ -205,15 +210,17 @@ namespace MyGameWorld.Client.ProceduralWorld
                 _chunkCountPerAxis,
                 _chunkCountPerAxis,
                 _shadingMode);
+            TerrainScalabilityPolicy.EnsureDetailedSupported(config);
             BiomeDefinition biome = BiomeDefinition.CreateExpandedTemperateGrassland();
+            LargeScaleTerrainProfile largeScale = LargeScaleTerrainProfile.CreateGeologicalHighlands();
             ZoneDNA dna = new ZoneDNA(
                 new ZoneId(_zoneId),
                 _zoneSeed,
                 BiomeId.TemperateGrassland,
                 TerrainProfileId.RollingLowPoly,
-                TerrainGeneratorV4.GeneratorVersion,
+                TerrainGeneratorV6.GeneratorVersion,
                 new AssetCatalogVersion(3));
-            ZoneGeneratorV4 generator = new ZoneGeneratorV4(config, biome, WorldGenerationLimits.LargeSandbox);
+            ZoneGeneratorV6 generator = new ZoneGeneratorV6(config, biome, largeScale, WorldGenerationLimits.ScalableHighlands);
             ZoneGenerationResult nextResult = generator.Generate(dna);
 
             DestroyRuntime();
@@ -222,6 +229,10 @@ namespace MyGameWorld.Client.ProceduralWorld
             _runtimeManager.SetInstanceParent(_runtimeRoot.transform);
             _environmentalManager = _runtimeRoot.AddComponent<EnvironmentalManager>();
             _environmentalManager.Initialize(nextResult, _materials, _runtimeManager);
+            _distantWorld = _runtimeRoot.AddComponent<DistantWorldRenderer>();
+            HeightFieldGeneratorV2 sharedHeightSource = new HeightFieldGeneratorV2(nextResult.DNA, config, biome, nextResult.Features, largeScale);
+            _distantWorld.Initialize(sharedHeightSource, biome, config, _zoneSeed, TerrainGeneratorV6.GeneratorVersion.Value,
+                _materials.Terrain, Camera.main != null ? Camera.main.transform : null);
             for (int index = 0; index < nextResult.Terrain.Chunks.Count; index++)
             {
                 UnityTerrainChunkRuntime chunk = _runtimeManager.MaterializeTerrainChunk(
@@ -286,6 +297,7 @@ namespace MyGameWorld.Client.ProceduralWorld
                 Destroy(_runtimeRoot);
                 _runtimeRoot = null;
                 _environmentalManager = null;
+                _distantWorld = null;
             }
 
             _result = null;

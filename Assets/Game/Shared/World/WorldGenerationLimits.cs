@@ -35,6 +35,14 @@ namespace MyGameWorld.Shared.World
             maxLandformAmplitude: 75f,
             boundaryPadding: 60f);
 
+        public static WorldGenerationLimits ScalableHighlands => new WorldGenerationLimits(
+            maxLandforms: 96,
+            maxPaths: 24,
+            maxDecorations: 3600,
+            maxLandformRadius: 360f,
+            maxLandformAmplitude: 75f,
+            boundaryPadding: 60f);
+
         public static WorldGenerationLimits LegacySandbox => new WorldGenerationLimits();
     }
 }
