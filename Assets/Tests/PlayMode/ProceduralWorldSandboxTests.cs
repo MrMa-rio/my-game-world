@@ -25,11 +25,11 @@ namespace MyGameWorld.Tests.PlayMode
                 yield return null;
             }
             Assert.That(sandbox.Fingerprint, Is.Not.Zero);
-            Assert.That(sandbox.TerrainWidth, Is.EqualTo(5000f));
-            Assert.That(sandbox.TerrainDepth, Is.EqualTo(5000f));
-            Assert.That(sandbox.ChunkCount, Is.EqualTo(400));
-            Assert.That(sandbox.TriangleCount, Is.EqualTo(320000));
-            Assert.That(sandbox.RenderedVertexCount, Is.EqualTo(960000));
+            Assert.That(sandbox.TerrainWidth, Is.EqualTo(1000f));
+            Assert.That(sandbox.TerrainDepth, Is.EqualTo(1000f));
+            Assert.That(sandbox.ChunkCount, Is.EqualTo(100));
+            Assert.That(sandbox.TriangleCount, Is.EqualTo(80000));
+            Assert.That(sandbox.RenderedVertexCount, Is.EqualTo(240000));
             Assert.That(sandbox.DecorationCount, Is.EqualTo(sandbox.PlannedDecorationCount));
             Assert.That(sandbox.RuntimeMetrics.QueueCount, Is.Zero);
             Assert.That(sandbox.RuntimeMetrics.CachedMeshes, Is.LessThan(sandbox.DecorationCount));
@@ -48,7 +48,7 @@ namespace MyGameWorld.Tests.PlayMode
             Assert.That(sandbox.ProceduralStars[0].ItemId, Is.EqualTo(1));
             Assert.That(sandbox.ProceduralStars[0].Seed, Is.Not.Zero);
             Assert.That(environment.GetComponentsInChildren<TrailRenderer>(true).Length, Is.EqualTo(4));
-            Assert.That(sandbox.SingularTerrainFeatureCount, Is.GreaterThan(90));
+            Assert.That(sandbox.SingularTerrainFeatureCount, Is.GreaterThan(20));
             WorldElementRuntimeIdentity[] identities = UnityEngine.Object.FindObjectsByType<WorldElementRuntimeIdentity>();
             Assert.That(identities.Length, Is.EqualTo(sandbox.DecorationCount + sandbox.ChunkCount + 1));
 

@@ -49,7 +49,7 @@ namespace MyGameWorld.Client.ProceduralWorld
 
             Color previousColor = GUI.color;
             GUI.color = new Color(0.045f, 0.075f, 0.06f, 0.88f);
-            GUI.Box(new Rect(16f, 16f, 410f, 468f), GUIContent.none, _boxStyle);
+            GUI.Box(new Rect(16f, 16f, 440f, 590f), GUIContent.none, _boxStyle);
             GUI.color = previousColor;
 
             Vector3 cameraPosition = _developmentCamera != null
@@ -94,6 +94,18 @@ namespace MyGameWorld.Client.ProceduralWorld
                 .Append(metrics.VisibleTriangles).AppendLine(" triangles");
             _text.Append("Estimated renderer passes: ").Append(metrics.EstimatedDrawCalls).AppendLine();
             _text.Append("Runtime generation: ").Append(metrics.LastFrameGenerationMilliseconds.ToString("0.00")).AppendLine(" ms");
+            DistantWorldMetrics distant = _sandbox.DistantMetrics;
+            _text.AppendLine("<b>DISTANT WORLD</b>");
+            _text.Append("Cells: ").Append(distant.ActiveCells)
+                .Append(" | N/M/F/D/H: ").Append(distant.Count(MyGameWorld.Shared.World.WorldRepresentationKind.Near)).Append('/')
+                .Append(distant.Count(MyGameWorld.Shared.World.WorldRepresentationKind.Medium)).Append('/')
+                .Append(distant.Count(MyGameWorld.Shared.World.WorldRepresentationKind.Far)).Append('/')
+                .Append(distant.Count(MyGameWorld.Shared.World.WorldRepresentationKind.Distant)).Append('/')
+                .Append(distant.Count(MyGameWorld.Shared.World.WorldRepresentationKind.Horizon)).AppendLine();
+            _text.Append("Triangles: ").Append(distant.TerrainTriangles).Append(" | Forest proxies: ").Append(distant.ForestProxies)
+                .Append(" | Jobs: ").Append(distant.PendingJobs).AppendLine();
+            _text.Append("Streaming select/commit: ").Append(distant.SelectionMilliseconds.ToString("0.00")).Append('/')
+                .Append(distant.CommitMilliseconds.ToString("0.00")).AppendLine(" ms");
             ProceduralShaderBudget shaderBudget = _sandbox.ShaderBudget;
             _text.Append("Shader: ").Append(_sandbox.ShaderQuality).Append(" | Layers: ").Append(shaderBudget.Layers)
                 .Append(" | Bands: ").Append(shaderBudget.DiffuseBands).Append('/').Append(shaderBudget.ShadowBands).AppendLine();
@@ -118,8 +130,9 @@ namespace MyGameWorld.Client.ProceduralWorld
             _text.AppendLine("F8 +3 hours | F9 pause time");
             _text.AppendLine("F10 shooting star | F11 meteor");
             _text.AppendLine("F12 shader quality");
+            _text.AppendLine("Home LOD colors | End quadtree | Insert clear atmosphere");
 
-            GUI.Label(new Rect(20f, 20f, 402f, 460f), _text.ToString(), _textStyle);
+            GUI.Label(new Rect(20f, 20f, 432f, 582f), _text.ToString(), _textStyle);
         }
     }
 }

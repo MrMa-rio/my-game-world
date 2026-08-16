@@ -27,11 +27,11 @@ namespace MyGameWorld.Client.ProceduralWorld.Editor
             Camera camera = cameraObject.AddComponent<Camera>();
             cameraObject.AddComponent<AudioListener>();
             cameraObject.AddComponent<DevelopmentFreeCamera>();
-            camera.transform.position = new Vector3(0f, 210f, -330f);
-            camera.transform.rotation = Quaternion.Euler(12f, 0f, 0f);
+            camera.transform.position = new Vector3(0f, 260f, -330f);
+            camera.transform.rotation = Quaternion.Euler(14f, 0f, 0f);
             camera.clearFlags = CameraClearFlags.Skybox;
             camera.nearClipPlane = 0.1f;
-            camera.farClipPlane = 1800f;
+            camera.farClipPlane = 52500f;
             camera.fieldOfView = 62f;
             camera.allowHDR = true;
 
@@ -101,8 +101,8 @@ namespace MyGameWorld.Client.ProceduralWorld.Editor
             RenderSettings.fog = true;
             RenderSettings.fogMode = FogMode.Linear;
             RenderSettings.fogColor = new Color(0.61f, 0.75f, 0.82f);
-            RenderSettings.fogStartDistance = 450f;
-            RenderSettings.fogEndDistance = 1250f;
+            RenderSettings.fogStartDistance = 30000f;
+            RenderSettings.fogEndDistance = 50000f;
         }
     }
 }

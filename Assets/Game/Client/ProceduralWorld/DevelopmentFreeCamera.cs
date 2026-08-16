@@ -124,6 +124,9 @@ namespace MyGameWorld.Client.ProceduralWorld
             if (keyboard.f10Key.wasPressedThisFrame) _sandbox.SpawnShootingStar();
             if (keyboard.f11Key.wasPressedThisFrame) _sandbox.SpawnMeteor();
             if (keyboard.f12Key.wasPressedThisFrame) _sandbox.CycleShaderQuality();
+            if (keyboard.homeKey.wasPressedThisFrame) _sandbox.ToggleDistantLodDebug();
+            if (keyboard.endKey.wasPressedThisFrame) _sandbox.ToggleDistantQuadtreeDebug();
+            if (keyboard.insertKey.wasPressedThisFrame) _sandbox.ToggleMaximumVisibility();
         }
 
         private static float ReadAxis(KeyControl negative, KeyControl positive)

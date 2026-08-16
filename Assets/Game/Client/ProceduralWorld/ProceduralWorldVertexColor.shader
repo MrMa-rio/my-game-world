@@ -59,6 +59,8 @@ Shader "MyGameWorld/Procedural World/Vertex Color Lit"
             float4 _ProceduralReflectionColor;
             float4 _ProceduralShadowColor;
             float4 _ProceduralShadowParameters;
+            float _WorldAtmosphericVisibility;
+            float _WorldAtmosphereDisabled;
 
             half SmoothToonBand(half value, half bandCount, half softness)
             {
@@ -86,6 +88,7 @@ Shader "MyGameWorld/Procedural World/Vertex Color Lit"
                 half3 normalWS : TEXCOORD1;
                 half4 color : COLOR;
                 half fogFactor : TEXCOORD2;
+                float cameraDistance : TEXCOORD3;
             };
 
             Varyings Vert(Attributes input)
@@ -109,6 +112,7 @@ Shader "MyGameWorld/Procedural World/Vertex Color Lit"
                 output.normalWS = NormalizeNormalPerVertex(normalInputs.normalWS);
                 output.color = input.color * _BaseColor * UNITY_ACCESS_INSTANCED_PROP(ProceduralPerInstance, _InstanceColor);
                 output.fogFactor = ComputeFogFactor(positionInputs.positionCS.z);
+                output.cameraDistance = distance(_WorldSpaceCameraPos.xyz, displacedWS);
                 return output;
             }
 
@@ -147,6 +151,11 @@ Shader "MyGameWorld/Procedural World/Vertex Color Lit"
                 half litReflection = saturate(ndotl * 1.4h) * shadow;
                 color += _ProceduralReflectionColor.rgb * (toonSpecular * 0.72h + fresnel * 0.18h) * reflectionResponse * litReflection;
                 color = MixFog(color, input.fogFactor);
+                // Geometry remains rendered independently of weather visibility. This is a presentation layer,
+                // intentionally disabled by the clear-atmosphere debug mode.
+                half atmosphericAmount = (half)(1.0 - exp(-input.cameraDistance / max(1.0, _WorldAtmosphericVisibility)));
+                atmosphericAmount *= (half)(1.0 - saturate(_WorldAtmosphereDisabled));
+                color = lerp(color, unity_FogColor.rgb, atmosphericAmount * 0.82h);
                 return half4(color, input.color.a);
             }
             ENDHLSL
