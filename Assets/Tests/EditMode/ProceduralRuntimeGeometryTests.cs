@@ -93,6 +93,128 @@ namespace MyGameWorld.Tests.EditMode
             Assert.That(lod, Is.EqualTo(ProceduralVisualLod.High));
         }
 
+        [Test]
+        public void Build_RockFamilies_ProduceDistinctThreeToneGeometry()
+        {
+            NaturalDecorationGeometryProvider provider = new NaturalDecorationGeometryProvider();
+            ProceduralStyleProfile style = new ProceduralStyleProfile();
+            ProceduralLodResolver lodResolver = new ProceduralLodResolver();
+            Mesh[] meshes = new Mesh[4];
+            try
+            {
+                for (byte variation = 0; variation < meshes.Length; variation++)
+                {
+                    ProceduralMeshKey key = new ProceduralMeshKey(DecorationKind.Rock,
+                        WorldVisualAssetIds.TemperateRock.Value, ProceduralVisualLod.High, variation, style.StyleVersion);
+                    ProceduralMeshResource resource = provider.Build(key, style, lodResolver);
+                    meshes[variation] = resource.Mesh;
+                    Assert.That(resource.Mesh.subMeshCount, Is.EqualTo(3));
+                    Assert.That(resource.TriangleCount, Is.InRange(80, 300));
+                }
+                for (int left = 0; left < meshes.Length; left++)
+                    for (int right = left + 1; right < meshes.Length; right++)
+                        Assert.That(meshes[right].vertices, Is.Not.EqualTo(meshes[left].vertices));
+            }
+            finally
+            {
+                for (int index = 0; index < meshes.Length; index++)
+                    if (meshes[index] != null) Object.DestroyImmediate(meshes[index]);
+            }
+        }
+
+        [TestCase(DecorationKind.Flower)]
+        [TestCase(DecorationKind.FlowerCluster)]
+        [TestCase(DecorationKind.Mushroom)]
+        [TestCase(DecorationKind.MushroomCluster)]
+        public void Build_GroundFlora_IsDeterministicAndUsesThreeToneMaterialSlots(DecorationKind kind)
+        {
+            NaturalDecorationGeometryProvider provider = new NaturalDecorationGeometryProvider();
+            ProceduralStyleProfile style = new ProceduralStyleProfile();
+            ProceduralLodResolver lodResolver = new ProceduralLodResolver();
+            ProceduralMeshKey key = new ProceduralMeshKey(kind, WorldVisualAssetIds.ForDecoration(kind).Value,
+                ProceduralVisualLod.High, 2, style.StyleVersion);
+            ProceduralMeshResource first = provider.Build(key, style, lodResolver);
+            ProceduralMeshResource second = provider.Build(key, style, lodResolver);
+            try
+            {
+                Assert.That(first.Mesh.vertices, Is.EqualTo(second.Mesh.vertices));
+                Assert.That(first.Mesh.triangles, Is.EqualTo(second.Mesh.triangles));
+                Assert.That(first.Mesh.subMeshCount, Is.EqualTo(3));
+                Assert.That(first.VertexCount, Is.GreaterThan(0));
+            }
+            finally
+            {
+                Object.DestroyImmediate(first.Mesh);
+                Object.DestroyImmediate(second.Mesh);
+            }
+        }
+
+        [TestCase(DecorationKind.Flower)]
+        [TestCase(DecorationKind.FlowerCluster)]
+        [TestCase(DecorationKind.Mushroom)]
+        [TestCase(DecorationKind.MushroomCluster)]
+        public void Build_GroundFloraHighLod_HasMoreGeometryThanLowLod(DecorationKind kind)
+        {
+            NaturalDecorationGeometryProvider provider = new NaturalDecorationGeometryProvider();
+            ProceduralStyleProfile style = new ProceduralStyleProfile();
+            ProceduralLodResolver lodResolver = new ProceduralLodResolver();
+            ProceduralMeshResource high = provider.Build(new ProceduralMeshKey(kind, WorldVisualAssetIds.ForDecoration(kind).Value,
+                ProceduralVisualLod.High, 1, style.StyleVersion), style, lodResolver);
+            ProceduralMeshResource low = provider.Build(new ProceduralMeshKey(kind, WorldVisualAssetIds.ForDecoration(kind).Value,
+                ProceduralVisualLod.Low, 1, style.StyleVersion), style, lodResolver);
+            try { Assert.That(high.VertexCount, Is.GreaterThan(low.VertexCount)); }
+            finally { Object.DestroyImmediate(high.Mesh); Object.DestroyImmediate(low.Mesh); }
+        }
+
+        [TestCase(DecorationKind.TreeCluster)]
+        [TestCase(DecorationKind.RockCluster)]
+        [TestCase(DecorationKind.BushCluster)]
+        public void Build_NaturalCluster_IsOneDeterministicMeshWithLodReduction(DecorationKind kind)
+        {
+            NaturalDecorationGeometryProvider provider = new NaturalDecorationGeometryProvider();
+            ProceduralStyleProfile style = new ProceduralStyleProfile();
+            ProceduralLodResolver resolver = new ProceduralLodResolver();
+            ProceduralMeshKey highKey = new ProceduralMeshKey(kind, WorldVisualAssetIds.ForDecoration(kind).Value,
+                ProceduralVisualLod.High, 2, style.StyleVersion);
+            ProceduralMeshResource first = provider.Build(highKey, style, resolver);
+            ProceduralMeshResource second = provider.Build(highKey, style, resolver);
+            ProceduralMeshResource low = provider.Build(new ProceduralMeshKey(kind, WorldVisualAssetIds.ForDecoration(kind).Value,
+                ProceduralVisualLod.Low, 2, style.StyleVersion), style, resolver);
+            try
+            {
+                Assert.That(first.Mesh.vertices, Is.EqualTo(second.Mesh.vertices));
+                Assert.That(first.Mesh.triangles, Is.EqualTo(second.Mesh.triangles));
+                Assert.That(first.VertexCount, Is.GreaterThan(low.VertexCount));
+                Assert.That(first.Mesh.bounds.size.x, Is.GreaterThan(1.5f));
+            }
+            finally
+            {
+                Object.DestroyImmediate(first.Mesh); Object.DestroyImmediate(second.Mesh); Object.DestroyImmediate(low.Mesh);
+            }
+        }
+
+        [Test]
+        public void ResolveTerrainArt_FlatTrianglesReceiveDeterministicUniformFaceColor()
+        {
+            WorldVector3[] vertices =
+            {
+                new WorldVector3(0,0,0), new WorldVector3(0,0,1), new WorldVector3(1,0,0),
+                new WorldVector3(1,0,0), new WorldVector3(0,0,1), new WorldVector3(1,0,1)
+            };
+            WorldVector3[] normals = { new WorldVector3(0,1,0), new WorldVector3(0,1,0), new WorldVector3(0,1,0), new WorldVector3(0,1,0), new WorldVector3(0,1,0), new WorldVector3(0,1,0) };
+            WorldColor[] source = { new WorldColor(.2f,.5f,.2f), new WorldColor(.3f,.6f,.2f), new WorldColor(.2f,.55f,.25f), new WorldColor(.3f,.6f,.2f), new WorldColor(.2f,.55f,.25f), new WorldColor(.35f,.65f,.25f) };
+            TerrainChunkData data = new TerrainChunkData(2, 3, vertices, normals, source, new[] { 0, 1, 2, 3, 4, 5 });
+
+            Color[] first = ProceduralTerrainSurfaceArtResolver.Resolve(data, 6);
+            Color[] second = ProceduralTerrainSurfaceArtResolver.Resolve(data, 6);
+
+            Assert.That(first, Is.EqualTo(second));
+            Assert.That(first[0], Is.EqualTo(first[1]));
+            Assert.That(first[1], Is.EqualTo(first[2]));
+            Assert.That(first[3], Is.EqualTo(first[4]));
+            Assert.That(first[4], Is.EqualTo(first[5]));
+        }
+
         private static bool HasOutwardFacingTriangle(Mesh mesh, Vector3 viewDirection)
         {
             Vector3[] normals = mesh.normals;

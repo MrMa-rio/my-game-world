@@ -42,11 +42,11 @@ namespace MyGameWorld.Tests.EditMode
         }
 
         [Test]
-        public void Generate_DefaultSandboxSeed_MatchesVersionTwoGoldenFingerprint()
+        public void Generate_DefaultSandboxSeed_MatchesVersionFourGoldenFingerprint()
         {
             ZoneGenerationResult result = Generate(829172);
 
-            Assert.That(result.Fingerprint, Is.EqualTo(0xD182ABC90DEBAE26UL));
+            Assert.That(result.Fingerprint, Is.EqualTo(0x9B330B8968E0830EUL));
         }
 
         [Test]
@@ -167,6 +167,12 @@ namespace MyGameWorld.Tests.EditMode
                 Assert.That(feature.Bounds.Radius, Is.GreaterThan(0f));
             }
             foreach (PathDNA path in result.Features.Paths) Assert.That(ids.Add(path.ElementId.Value), Is.True);
+            foreach (LiquidBodyDNA liquid in result.Features.Liquids)
+            {
+                Assert.That(ids.Add(liquid.ElementId.Value), Is.True);
+                Assert.That(liquid.Volume, Is.GreaterThan(0f));
+                Assert.That(liquid.Substance, Is.EqualTo(LiquidSubstance.Water));
+            }
             foreach (DecorationPlacement decoration in result.Decorations)
             {
                 Assert.That(ids.Add(decoration.ElementId.Value), Is.True);
@@ -180,6 +186,22 @@ namespace MyGameWorld.Tests.EditMode
         }
 
         [Test]
+        public void Generate_VersionFour_ContainsSingularAndGroupedNaturalObjects()
+        {
+            ZoneGenerationResult result = Generate(829172);
+            HashSet<DecorationKind> kinds = new HashSet<DecorationKind>();
+            foreach (DecorationPlacement decoration in result.Decorations) kinds.Add(decoration.Kind);
+
+            Assert.That(kinds, Does.Contain(DecorationKind.Flower));
+            Assert.That(kinds, Does.Contain(DecorationKind.FlowerCluster));
+            Assert.That(kinds, Does.Contain(DecorationKind.Mushroom));
+            Assert.That(kinds, Does.Contain(DecorationKind.MushroomCluster));
+            Assert.That(kinds, Does.Contain(DecorationKind.TreeCluster));
+            Assert.That(kinds, Does.Contain(DecorationKind.RockCluster));
+            Assert.That(kinds, Does.Contain(DecorationKind.BushCluster));
+        }
+
+        [Test]
         public void ResolveTerrainContact_ReturnsSurfaceAndInfluencingFeature()
         {
             ZoneGenerationResult result = Generate(100);
@@ -187,6 +209,16 @@ namespace MyGameWorld.Tests.EditMode
             IReadOnlyList<WorldElementDNA> contact = result.ResolveTerrainContact(feature.Bounds.CenterX, feature.Bounds.CenterZ);
             Assert.That(contact[0], Is.SameAs(result.Features.Terrain));
             Assert.That(contact, Does.Contain(feature));
+        }
+
+        [Test]
+        public void ClassifyLiquid_SameSubstanceUsesQuantityShapeAndFlowToResolveForm()
+        {
+            Assert.That(LiquidBodyClassifier.ResolveForm(10f, 0f, 2f, 2f), Is.EqualTo(LiquidBodyForm.Puddle));
+            Assert.That(LiquidBodyClassifier.ResolveForm(100f, 0f, 4f, 3f), Is.EqualTo(LiquidBodyForm.Pond));
+            Assert.That(LiquidBodyClassifier.ResolveForm(20000f, 0f, 30f, 24f), Is.EqualTo(LiquidBodyForm.Lake));
+            Assert.That(LiquidBodyClassifier.ResolveForm(1000f, 0.4f, 20f, 2f), Is.EqualTo(LiquidBodyForm.Stream));
+            Assert.That(LiquidBodyClassifier.ResolveForm(30000f, 0.4f, 80f, 8f), Is.EqualTo(LiquidBodyForm.River));
         }
 
         private static ZoneGenerationResult Generate(long seed, TerrainGenerationConfig config = null)
@@ -198,9 +230,9 @@ namespace MyGameWorld.Tests.EditMode
                 seed,
                 BiomeId.TemperateGrassland,
                 TerrainProfileId.RollingLowPoly,
-                TerrainGeneratorV2.GeneratorVersion,
-                new AssetCatalogVersion(1));
-            return new ZoneGeneratorV2(resolvedConfig, biome).Generate(dna);
+                TerrainGeneratorV4.GeneratorVersion,
+                new AssetCatalogVersion(3));
+            return new ZoneGeneratorV4(resolvedConfig, biome).Generate(dna);
         }
 
         private static TerrainGenerationConfig CreateConfig(TerrainShadingMode shadingMode)

@@ -25,6 +25,7 @@ namespace MyGameWorld.Shared.World
             ulong fingerprint = GenerationFingerprint.AddElement(terrain.Fingerprint, Features.Terrain);
             for (int index = 0; index < Features.Landforms.Count; index++) fingerprint = GenerationFingerprint.AddElement(fingerprint, Features.Landforms[index]);
             for (int index = 0; index < Features.Paths.Count; index++) fingerprint = GenerationFingerprint.AddElement(fingerprint, Features.Paths[index]);
+            for (int index = 0; index < Features.Liquids.Count; index++) fingerprint = GenerationFingerprint.AddLiquid(fingerprint, Features.Liquids[index]);
             for (int index = 0; index < decorations.Count; index++)
             {
                 _decorations[index] = decorations[index];

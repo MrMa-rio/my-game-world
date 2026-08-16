@@ -100,6 +100,13 @@ namespace MyGameWorld.Shared.World
                 case DecorationKind.Rock: return WorldElementKind.Rock;
                 case DecorationKind.Bush: return WorldElementKind.Bush;
                 case DecorationKind.ScaleMarker: return WorldElementKind.ScaleMarker;
+                case DecorationKind.Flower: return WorldElementKind.Flower;
+                case DecorationKind.FlowerCluster: return WorldElementKind.FlowerCluster;
+                case DecorationKind.Mushroom: return WorldElementKind.Mushroom;
+                case DecorationKind.MushroomCluster: return WorldElementKind.MushroomCluster;
+                case DecorationKind.TreeCluster: return WorldElementKind.TreeCluster;
+                case DecorationKind.RockCluster: return WorldElementKind.RockCluster;
+                case DecorationKind.BushCluster: return WorldElementKind.BushCluster;
                 default: throw new ArgumentOutOfRangeException(nameof(kind));
             }
         }

@@ -18,7 +18,8 @@ namespace MyGameWorld.Client.ProceduralWorld
             Transform parent,
             Material terrainMaterial,
             Material wireframeMaterial,
-            TerrainSurfaceDNA terrainIdentity)
+            TerrainSurfaceDNA terrainIdentity,
+            int styleVersion)
         {
             if (data == null)
             {
@@ -31,7 +32,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             MeshFilter filter = _root.AddComponent<MeshFilter>();
             MeshRenderer renderer = _root.AddComponent<MeshRenderer>();
             MeshCollider collider = _root.AddComponent<MeshCollider>();
-            _terrainMesh = BuildTerrainMesh(data);
+            _terrainMesh = BuildTerrainMesh(data, styleVersion);
             filter.sharedMesh = _terrainMesh;
             renderer.sharedMaterial = terrainMaterial;
             collider.sharedMesh = _terrainMesh;
@@ -68,7 +69,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             }
         }
 
-        private static Mesh BuildTerrainMesh(TerrainChunkData data)
+        private static Mesh BuildTerrainMesh(TerrainChunkData data, int styleVersion)
         {
             Mesh mesh = new Mesh
             {
@@ -77,7 +78,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             };
             mesh.vertices = ConvertVectors(data.Vertices);
             mesh.normals = ConvertVectors(data.Normals);
-            mesh.colors = ConvertColors(data.Colors);
+            mesh.colors = ProceduralTerrainSurfaceArtResolver.Resolve(data, styleVersion);
             mesh.triangles = data.Triangles;
             mesh.RecalculateBounds();
             return mesh;

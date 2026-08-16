@@ -79,7 +79,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         public UnityTerrainChunkRuntime MaterializeTerrainChunk(TerrainChunkData data, TerrainSurfaceDNA identity, Material wireframeMaterial)
         {
             EnsureInitialized();
-            return new UnityTerrainChunkRuntime(data, _instanceParent, _materials.Terrain, wireframeMaterial, identity);
+            return new UnityTerrainChunkRuntime(data, _instanceParent, _materials.Terrain, wireframeMaterial, identity, _style.StyleVersion);
         }
 
         public void Request(ProceduralGenerationRequest request)
@@ -184,7 +184,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             root.transform.SetParent(_instanceParent, false);
             root.transform.localPosition = new Vector3(definition.Position.X, definition.Position.Y, definition.Position.Z);
             Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, request.Environment.SurfaceNormal);
-            float slopeInfluence = definition.Kind == DecorationKind.Rock ? 0.9f : definition.Kind == DecorationKind.Bush ? 0.3f : 0f;
+            float slopeInfluence = ResolveSlopeInfluence(definition.Kind);
             root.transform.localRotation = Quaternion.Slerp(Quaternion.identity, slopeRotation, slopeInfluence) * Quaternion.Euler(0f, definition.YawDegrees, 0f);
             root.transform.localScale = new Vector3(definition.Scale * definition.ShapeA, definition.Scale * definition.ShapeB, definition.Scale * definition.ShapeC);
             root.GetComponent<WorldElementRuntimeIdentity>().Initialize(definition);
@@ -222,9 +222,32 @@ namespace MyGameWorld.Client.ProceduralWorld
             switch (kind)
             {
                 case DecorationKind.Tree: return _materials.TreeMaterials;
+                case DecorationKind.TreeCluster: return _materials.TreeMaterials;
                 case DecorationKind.Bush: return count == 2 ? _materials.BushMaterials : _materials.BushLowMaterials;
                 case DecorationKind.Rock: return _materials.RockMaterials;
+                case DecorationKind.RockCluster: return _materials.RockMaterials;
+                case DecorationKind.BushCluster: return count == 2 ? _materials.BushMaterials : _materials.BushLowMaterials;
+                case DecorationKind.Flower:
+                case DecorationKind.FlowerCluster: return _materials.FlowerMaterials;
+                case DecorationKind.Mushroom:
+                case DecorationKind.MushroomCluster: return _materials.MushroomMaterials;
                 default: return _materials.MarkerMaterials;
+            }
+        }
+
+        private static float ResolveSlopeInfluence(DecorationKind kind)
+        {
+            switch (kind)
+            {
+                case DecorationKind.Rock: return 0.9f;
+                case DecorationKind.RockCluster: return 0.75f;
+                case DecorationKind.Bush: return 0.3f;
+                case DecorationKind.BushCluster: return 0.25f;
+                case DecorationKind.Mushroom:
+                case DecorationKind.MushroomCluster: return 0.2f;
+                case DecorationKind.Flower:
+                case DecorationKind.FlowerCluster: return 0.1f;
+                default: return 0f;
             }
         }
 
@@ -239,8 +262,19 @@ namespace MyGameWorld.Client.ProceduralWorld
             }
             else if (instance.Definition.Kind != DecorationKind.ScaleMarker)
             {
-                box.enabled = true; box.center = new Vector3(0f, 0.5f, 0f);
-                box.size = instance.Definition.Kind == DecorationKind.Rock ? new Vector3(1.7f, 1.2f, 1.5f) : new Vector3(1.8f, 1.4f, 1.5f);
+                box.enabled = true;
+                switch (instance.Definition.Kind)
+                {
+                    case DecorationKind.Rock: box.center = new Vector3(0f, 0.5f, 0f); box.size = new Vector3(1.7f, 1.2f, 1.5f); break;
+                    case DecorationKind.TreeCluster: box.center = new Vector3(0f, 2f, 0f); box.size = new Vector3(6f, 4.5f, 5f); break;
+                    case DecorationKind.RockCluster: box.center = new Vector3(0f, 0.5f, 0f); box.size = new Vector3(3.8f, 1.4f, 3.2f); break;
+                    case DecorationKind.BushCluster: box.center = new Vector3(0f, 0.5f, 0f); box.size = new Vector3(3.2f, 1.3f, 2.8f); break;
+                    case DecorationKind.Flower: box.center = new Vector3(0f, 0.4f, 0f); box.size = new Vector3(0.45f, 0.85f, 0.45f); break;
+                    case DecorationKind.FlowerCluster: box.center = new Vector3(0f, 0.4f, 0f); box.size = new Vector3(1.4f, 0.9f, 1.4f); break;
+                    case DecorationKind.Mushroom: box.center = new Vector3(0f, 0.32f, 0f); box.size = new Vector3(0.55f, 0.7f, 0.55f); break;
+                    case DecorationKind.MushroomCluster: box.center = new Vector3(0f, 0.38f, 0f); box.size = new Vector3(1.3f, 0.8f, 1.3f); break;
+                    default: box.center = new Vector3(0f, 0.5f, 0f); box.size = new Vector3(1.8f, 1.4f, 1.5f); break;
+                }
             }
         }
 

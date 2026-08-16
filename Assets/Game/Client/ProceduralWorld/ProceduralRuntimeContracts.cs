@@ -62,7 +62,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         [SerializeField, Range(0f, 1f)] private float _silhouetteVariation = 0.28f;
         [SerializeField, Range(0f, 1f)] private float _colorVariation = 0.12f;
         [SerializeField, Min(1)] private int _geometryVariantsPerKind = 4;
-        [SerializeField, Min(1)] private int _styleVersion = 5;
+        [SerializeField, Min(1)] private int _styleVersion = 7;
 
         public float Angularity => _angularity;
         public float Asymmetry => _asymmetry;

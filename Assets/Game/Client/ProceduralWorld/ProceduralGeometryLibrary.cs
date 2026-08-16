@@ -72,7 +72,10 @@ namespace MyGameWorld.Client.ProceduralWorld
 
     public sealed class NaturalDecorationGeometryProvider : IProceduralGeometryProvider
     {
-        public bool Supports(DecorationKind kind) => kind == DecorationKind.Tree || kind == DecorationKind.Rock || kind == DecorationKind.Bush || kind == DecorationKind.ScaleMarker;
+        public bool Supports(DecorationKind kind) => kind == DecorationKind.Tree || kind == DecorationKind.Rock || kind == DecorationKind.Bush ||
+            kind == DecorationKind.Flower || kind == DecorationKind.FlowerCluster || kind == DecorationKind.Mushroom ||
+            kind == DecorationKind.MushroomCluster || kind == DecorationKind.TreeCluster || kind == DecorationKind.RockCluster ||
+            kind == DecorationKind.BushCluster || kind == DecorationKind.ScaleMarker;
 
         public ProceduralMeshResource Build(ProceduralMeshKey key, ProceduralStyleProfile style, ProceduralLodResolver lodResolver)
         {
@@ -84,21 +87,19 @@ namespace MyGameWorld.Client.ProceduralWorld
             switch (key.Kind)
             {
                 case DecorationKind.Tree: ProceduralTreeGeometryBuilder.Build(draft, segments, key.Lod, key.Variation, style, random); break;
-                case DecorationKind.Rock: BuildRock(draft, segments, key.Variation, style, random); break;
+                case DecorationKind.Rock: ProceduralRockGeometryBuilder.Build(draft, key.Lod, key.Variation, style, random); break;
                 case DecorationKind.Bush: BuildBush(draft, segments, key.Lod, key.Variation, style, random); break;
+                case DecorationKind.Flower: ProceduralGroundFloraGeometryBuilder.BuildFlower(draft, key.Lod, key.Variation, random); break;
+                case DecorationKind.FlowerCluster: ProceduralGroundFloraGeometryBuilder.BuildFlowerCluster(draft, key.Lod, key.Variation, random); break;
+                case DecorationKind.Mushroom: ProceduralGroundFloraGeometryBuilder.BuildMushroom(draft, key.Lod, key.Variation, random); break;
+                case DecorationKind.MushroomCluster: ProceduralGroundFloraGeometryBuilder.BuildMushroomCluster(draft, key.Lod, key.Variation, random); break;
+                case DecorationKind.TreeCluster: ProceduralNaturalClusterGeometryBuilder.BuildTreeCluster(draft, segments, key.Lod, key.Variation, style, random); break;
+                case DecorationKind.RockCluster: ProceduralNaturalClusterGeometryBuilder.BuildRockCluster(draft, key.Lod, key.Variation, style, random); break;
+                case DecorationKind.BushCluster: ProceduralNaturalClusterGeometryBuilder.BuildBushCluster(draft, key.Lod, key.Variation, style, random); break;
                 case DecorationKind.ScaleMarker: BuildMarker(draft, segments); break;
                 default: throw new ArgumentOutOfRangeException(nameof(key));
             }
             return new ProceduralMeshResource(draft.CreateMesh($"Procedural {key}"), key);
-        }
-
-        private static void BuildRock(LowPolyMeshDraft draft, int segments, byte variation, ProceduralStyleProfile style, DeterministicRandom random)
-        {
-            float radius = variation == 0 ? 1.22f : variation == 2 ? 0.82f : 1.05f;
-            float height = variation == 1 ? 1.35f : variation == 3 ? 0.62f : 0.95f;
-            draft.AddIrregularVolume(new Vector3(0f, height * 0.42f, 0f), radius, height, segments, 0, style.Asymmetry, random);
-            if (variation == 2)
-                draft.AddIrregularVolume(new Vector3(0.62f, 0.22f, 0.18f), 0.48f, 0.42f, Mathf.Max(3, segments - 1), 0, style.Asymmetry, random);
         }
 
         private static void BuildBush(LowPolyMeshDraft draft, int segments, ProceduralVisualLod lod, byte variation, ProceduralStyleProfile style, DeterministicRandom random)
@@ -117,6 +118,164 @@ namespace MyGameWorld.Client.ProceduralWorld
             DeterministicRandom random = new DeterministicRandom(1);
             draft.AddPrism(Vector3.zero, 1.55f, 0.17f, 0.17f, segments, 0, 0f, random);
             draft.AddBipyramid(new Vector3(0f, 1.78f, 0f), 0.25f, 0.25f, 0.22f, segments, 0, 0f, random);
+        }
+    }
+
+    internal static class ProceduralGroundFloraGeometryBuilder
+    {
+        public static void BuildFlower(LowPolyMeshDraft draft, ProceduralVisualLod lod, byte variation, DeterministicRandom random)
+        {
+            float height = 0.72f + (variation % 3) * 0.09f;
+            BuildFlowerAt(draft, Vector3.zero, height, 1f, lod, random);
+        }
+
+        public static void BuildFlowerCluster(LowPolyMeshDraft draft, ProceduralVisualLod lod, byte variation, DeterministicRandom random)
+        {
+            int count = lod == ProceduralVisualLod.High ? 7 : lod == ProceduralVisualLod.Medium ? 5 : 3;
+            for (int index = 0; index < count; index++)
+            {
+                float angle = index * 2.399963f + variation * 0.31f;
+                float radius = index == 0 ? 0f : 0.18f + index * 0.055f;
+                Vector3 offset = new Vector3(Mathf.Cos(angle) * radius, 0f, Mathf.Sin(angle) * radius);
+                float scale = 0.72f + (float)random.NextUnitDouble() * 0.35f;
+                BuildFlowerAt(draft, offset, 0.62f + scale * 0.22f, scale, lod, random);
+            }
+        }
+
+        public static void BuildMushroom(LowPolyMeshDraft draft, ProceduralVisualLod lod, byte variation, DeterministicRandom random)
+        {
+            BuildMushroomAt(draft, Vector3.zero, 0.72f + (variation % 3) * 0.1f, 1f, lod, random);
+        }
+
+        public static void BuildMushroomCluster(LowPolyMeshDraft draft, ProceduralVisualLod lod, byte variation, DeterministicRandom random)
+        {
+            int count = lod == ProceduralVisualLod.High ? 6 : lod == ProceduralVisualLod.Medium ? 4 : 3;
+            for (int index = 0; index < count; index++)
+            {
+                float angle = index * 2.399963f + variation * 0.47f;
+                float radius = index == 0 ? 0f : 0.16f + index * 0.07f;
+                Vector3 offset = new Vector3(Mathf.Cos(angle) * radius, 0f, Mathf.Sin(angle) * radius);
+                float scale = 0.65f + (float)random.NextUnitDouble() * 0.5f;
+                BuildMushroomAt(draft, offset, 0.58f + scale * 0.18f, scale, lod, random);
+            }
+        }
+
+        private static void BuildFlowerAt(LowPolyMeshDraft draft, Vector3 offset, float height, float scale,
+            ProceduralVisualLod lod, DeterministicRandom random)
+        {
+            int stemSegments = lod == ProceduralVisualLod.High ? 6 : 4;
+            Vector3 top = offset + new Vector3(0.035f * scale, height * scale, -0.02f * scale);
+            draft.AddTaperedBranch(offset, top, 0.045f * scale, 0.025f * scale, stemSegments, 0, 0.04f, random);
+            int petals = lod == ProceduralVisualLod.Low ? 4 : 6;
+            for (int petal = 0; petal < petals; petal++)
+            {
+                float angle = petal * Mathf.PI * 2f / petals;
+                Vector3 center = top + new Vector3(Mathf.Cos(angle) * 0.13f, 0f, Mathf.Sin(angle) * 0.13f) * scale;
+                draft.AddIrregularIcosphere(center, new Vector3(0.14f, 0.055f, 0.1f) * scale, 0,
+                    1 + petal % 2, 0.08f, random);
+            }
+            draft.AddIrregularIcosphere(top + Vector3.up * 0.015f, Vector3.one * 0.085f * scale, 0, 2, 0.04f, random);
+        }
+
+        private static void BuildMushroomAt(LowPolyMeshDraft draft, Vector3 offset, float height, float scale,
+            ProceduralVisualLod lod, DeterministicRandom random)
+        {
+            int stemSegments = lod == ProceduralVisualLod.High ? 7 : lod == ProceduralVisualLod.Medium ? 5 : 4;
+            float stemHeight = height * scale * 0.62f;
+            Vector3 capCenter = offset + Vector3.up * stemHeight;
+            draft.AddTaperedBranch(offset, capCenter, 0.105f * scale, 0.075f * scale, stemSegments, 0, 0.06f, random);
+            int detail = lod == ProceduralVisualLod.High ? 1 : 0;
+            draft.AddIrregularIcosphere(capCenter + Vector3.up * 0.07f * scale,
+                new Vector3(0.34f, 0.18f, 0.34f) * scale, detail, 1, 0.1f, random, 2);
+        }
+    }
+
+    internal static class ProceduralRockGeometryBuilder
+    {
+        public static void Build(LowPolyMeshDraft draft, ProceduralVisualLod lod, byte variation,
+            ProceduralStyleProfile style, DeterministicRandom random)
+        {
+            int detail = lod == ProceduralVisualLod.High ? 1 : 0;
+            float irregularity = Mathf.Lerp(0.16f, 0.34f, style.Asymmetry);
+            switch (variation % 4)
+            {
+                case 0:
+                    AddRock(draft, new Vector3(0f, 0.48f, 0f), new Vector3(1.25f, 0.78f, 1.02f), detail, irregularity, random);
+                    break;
+                case 1:
+                    AddRock(draft, new Vector3(-0.06f, 0.76f, 0.02f), new Vector3(0.78f, 1.38f, 0.7f), detail, irregularity, random);
+                    if (lod == ProceduralVisualLod.High)
+                        AddRock(draft, new Vector3(0.42f, 0.24f, 0.18f), new Vector3(0.56f, 0.4f, 0.5f), 0, irregularity, random);
+                    break;
+                case 2:
+                    AddRock(draft, new Vector3(-0.34f, 0.34f, 0.05f), new Vector3(0.86f, 0.62f, 0.78f), detail, irregularity, random);
+                    AddRock(draft, new Vector3(0.48f, 0.28f, -0.16f), new Vector3(0.7f, 0.5f, 0.62f), lod == ProceduralVisualLod.High ? 1 : 0, irregularity, random);
+                    if (lod != ProceduralVisualLod.Low)
+                        AddRock(draft, new Vector3(0.08f, 0.22f, 0.58f), new Vector3(0.52f, 0.38f, 0.48f), 0, irregularity, random);
+                    break;
+                default:
+                    AddRock(draft, new Vector3(0f, 0.27f, 0f), new Vector3(1.42f, 0.46f, 0.94f), detail, irregularity * 0.72f, random);
+                    if (lod == ProceduralVisualLod.High)
+                        AddRock(draft, new Vector3(-0.18f, 0.55f, -0.04f), new Vector3(0.92f, 0.28f, 0.68f), 0, irregularity, random);
+                    break;
+            }
+        }
+
+        private static void AddRock(LowPolyMeshDraft draft, Vector3 center, Vector3 radii, int subdivisions,
+            float irregularity, DeterministicRandom random)
+        {
+            draft.AddIrregularIcosphere(center, radii, subdivisions, 0, irregularity, random, 3);
+        }
+    }
+
+    internal static class ProceduralNaturalClusterGeometryBuilder
+    {
+        public static void BuildTreeCluster(LowPolyMeshDraft draft, int segments, ProceduralVisualLod lod, byte variation,
+            ProceduralStyleProfile style, DeterministicRandom random)
+        {
+            int count = lod == ProceduralVisualLod.High ? 5 : lod == ProceduralVisualLod.Medium ? 4 : 3;
+            for (int index = 0; index < count; index++)
+            {
+                float angle = variation * 0.41f + index * 2.399963f;
+                float radius = index == 0 ? 0f : 1.35f + index * 0.34f;
+                Vector3 offset = new Vector3(Mathf.Cos(angle) * radius, 0f, Mathf.Sin(angle) * radius * 0.72f);
+                float scale = 0.68f + (float)random.NextUnitDouble() * 0.42f;
+                LowPolyMeshDraft member = new LowPolyMeshDraft();
+                ProceduralTreeGeometryBuilder.Build(member, segments, lod, (byte)((variation + index) % 4), style, random);
+                draft.Append(member, offset, scale, angle * Mathf.Rad2Deg + 23f);
+            }
+        }
+
+        public static void BuildRockCluster(LowPolyMeshDraft draft, ProceduralVisualLod lod, byte variation,
+            ProceduralStyleProfile style, DeterministicRandom random)
+        {
+            int count = lod == ProceduralVisualLod.High ? 6 : lod == ProceduralVisualLod.Medium ? 4 : 3;
+            for (int index = 0; index < count; index++)
+            {
+                float angle = variation * 0.33f + index * 2.399963f;
+                float radius = index == 0 ? 0f : 0.72f + index * 0.18f;
+                LowPolyMeshDraft member = new LowPolyMeshDraft();
+                ProceduralRockGeometryBuilder.Build(member, lod, (byte)((variation + index) % 4), style, random);
+                float scale = 0.48f + (float)random.NextUnitDouble() * 0.46f;
+                draft.Append(member, new Vector3(Mathf.Cos(angle) * radius, 0f, Mathf.Sin(angle) * radius * 0.7f), scale,
+                    angle * Mathf.Rad2Deg);
+            }
+        }
+
+        public static void BuildBushCluster(LowPolyMeshDraft draft, ProceduralVisualLod lod, byte variation,
+            ProceduralStyleProfile style, DeterministicRandom random)
+        {
+            int count = lod == ProceduralVisualLod.High ? 7 : lod == ProceduralVisualLod.Medium ? 5 : 3;
+            int detail = lod == ProceduralVisualLod.High ? 1 : 0;
+            for (int index = 0; index < count; index++)
+            {
+                float angle = variation * 0.29f + index * 2.399963f;
+                float radius = index == 0 ? 0f : 0.48f + index * 0.12f;
+                Vector3 center = new Vector3(Mathf.Cos(angle) * radius, 0.45f, Mathf.Sin(angle) * radius * 0.72f);
+                float scale = 0.56f + (float)random.NextUnitDouble() * 0.38f;
+                draft.AddIrregularIcosphere(center, new Vector3(0.82f, 0.62f, 0.76f) * scale, detail,
+                    index % 2, Mathf.Lerp(0.08f, style.Asymmetry, style.SilhouetteVariation), random);
+            }
         }
     }
 
@@ -201,6 +360,26 @@ namespace MyGameWorld.Client.ProceduralWorld
         private readonly List<Color> _colors = new List<Color>();
         private readonly List<List<int>> _submeshes = new List<List<int>>();
 
+        public void Append(LowPolyMeshDraft source, Vector3 offset, float scale, float yawDegrees)
+        {
+            if (source == null) throw new ArgumentNullException(nameof(source));
+            Quaternion rotation = Quaternion.Euler(0f, yawDegrees, 0f);
+            int vertexOffset = _vertices.Count;
+            for (int index = 0; index < source._vertices.Count; index++)
+            {
+                _vertices.Add(offset + rotation * (source._vertices[index] * scale));
+                _normals.Add(rotation * source._normals[index]);
+                _colors.Add(source._colors[index]);
+            }
+            for (int slot = 0; slot < source._submeshes.Count; slot++)
+            {
+                while (_submeshes.Count <= slot) _submeshes.Add(new List<int>());
+                List<int> sourceTriangles = source._submeshes[slot];
+                for (int index = 0; index < sourceTriangles.Count; index++)
+                    _submeshes[slot].Add(vertexOffset + sourceTriangles[index]);
+            }
+        }
+
         public void AddPrism(Vector3 center, float height, float bottomRadius, float topRadius, int segments, int materialSlot, float irregularity, DeterministicRandom random)
         {
             Vector3[] bottom = CreateRing(center, bottomRadius, segments, irregularity, random, 0f);
@@ -269,7 +448,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         }
 
         public void AddIrregularIcosphere(Vector3 center, Vector3 radii, int subdivisions, int materialSlot,
-            float irregularity, DeterministicRandom random)
+            float irregularity, DeterministicRandom random, int materialVariationSlots = 1)
         {
             float golden = (1f + Mathf.Sqrt(5f)) * 0.5f;
             List<Vector3> points = new List<Vector3>
@@ -308,7 +487,10 @@ namespace MyGameWorld.Client.ProceduralWorld
                 points[index] = center + Vector3.Scale(direction, radii) * variation;
             }
             for (int face = 0; face < faces.Count; face += 3)
-                AddTriangle(points[faces[face]], points[faces[face + 1]], points[faces[face + 2]], materialSlot);
+            {
+                int slot = materialSlot + ((face / 3) % Mathf.Max(1, materialVariationSlots));
+                AddTriangle(points[faces[face]], points[faces[face + 1]], points[faces[face + 2]], slot);
+            }
         }
 
         private static int GetMidpoint(List<Vector3> points, Dictionary<long, int> cache, int left, int right)

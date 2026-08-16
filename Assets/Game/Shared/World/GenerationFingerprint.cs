@@ -57,6 +57,18 @@ namespace MyGameWorld.Shared.World
             return Add(hash, BitConverter.SingleToInt32Bits(element.Bounds.Radius));
         }
 
+        public static ulong AddLiquid(ulong hash, LiquidBodyDNA liquid)
+        {
+            hash = AddElement(hash, liquid);
+            hash = Add(hash, (int)liquid.Substance);
+            hash = Add(hash, liquid.VisualAssetId.Value);
+            hash = Add(hash, BitConverter.SingleToInt32Bits(liquid.Volume));
+            hash = Add(hash, BitConverter.SingleToInt32Bits(liquid.SurfaceLevel));
+            hash = Add(hash, BitConverter.SingleToInt32Bits(liquid.RadiusX));
+            hash = Add(hash, BitConverter.SingleToInt32Bits(liquid.RadiusZ));
+            return Add(hash, BitConverter.SingleToInt32Bits(liquid.FlowRate));
+        }
+
         private static ulong Add(ulong hash, long value)
         {
             ulong unsigned = unchecked((ulong)value);

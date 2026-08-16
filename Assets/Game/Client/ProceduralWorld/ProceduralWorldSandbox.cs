@@ -45,6 +45,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         private bool _generateOnStart = true;
 
         private readonly List<UnityTerrainChunkRuntime> _terrainChunks = new List<UnityTerrainChunkRuntime>();
+        private readonly List<UnityLiquidBodyRuntime> _liquidBodies = new List<UnityLiquidBodyRuntime>();
         private GameObject _runtimeRoot;
         private ProceduralWorldMaterialLibrary _materials;
         private ProceduralRuntimeManager _runtimeManager;
@@ -55,7 +56,7 @@ namespace MyGameWorld.Client.ProceduralWorld
 
         public long ZoneSeed => _zoneSeed;
 
-        public ushort GeneratorVersion => TerrainGeneratorV2.GeneratorVersion.Value;
+        public ushort GeneratorVersion => TerrainGeneratorV4.GeneratorVersion.Value;
 
         public ulong Fingerprint => _result != null ? _result.Fingerprint : 0UL;
 
@@ -86,6 +87,14 @@ namespace MyGameWorld.Client.ProceduralWorld
         public int RockCount => _runtimeManager != null ? _runtimeManager.Count(DecorationKind.Rock) : 0;
 
         public int BushCount => _runtimeManager != null ? _runtimeManager.Count(DecorationKind.Bush) : 0;
+
+        public int FlowerCount => _runtimeManager != null ? _runtimeManager.Count(DecorationKind.Flower) : 0;
+        public int FlowerClusterCount => _runtimeManager != null ? _runtimeManager.Count(DecorationKind.FlowerCluster) : 0;
+        public int MushroomCount => _runtimeManager != null ? _runtimeManager.Count(DecorationKind.Mushroom) : 0;
+        public int MushroomClusterCount => _runtimeManager != null ? _runtimeManager.Count(DecorationKind.MushroomCluster) : 0;
+        public int TreeClusterCount => _runtimeManager != null ? _runtimeManager.Count(DecorationKind.TreeCluster) : 0;
+        public int RockClusterCount => _runtimeManager != null ? _runtimeManager.Count(DecorationKind.RockCluster) : 0;
+        public int BushClusterCount => _runtimeManager != null ? _runtimeManager.Count(DecorationKind.BushCluster) : 0;
 
         public ProceduralRuntimeMetrics RuntimeMetrics => _runtimeManager != null ? _runtimeManager.Metrics : default;
 
@@ -156,9 +165,9 @@ namespace MyGameWorld.Client.ProceduralWorld
                 _zoneSeed,
                 BiomeId.TemperateGrassland,
                 TerrainProfileId.RollingLowPoly,
-                TerrainGeneratorV2.GeneratorVersion,
-                new AssetCatalogVersion(1));
-            ZoneGeneratorV2 generator = new ZoneGeneratorV2(config, biome);
+                TerrainGeneratorV4.GeneratorVersion,
+                new AssetCatalogVersion(3));
+            ZoneGeneratorV4 generator = new ZoneGeneratorV4(config, biome);
             ZoneGenerationResult nextResult = generator.Generate(dna);
 
             DestroyRuntime();
@@ -192,6 +201,12 @@ namespace MyGameWorld.Client.ProceduralWorld
                 _runtimeManager.Request(new ProceduralGenerationRequest(definition, environment, lod, priority));
             }
             _result = nextResult;
+            for (int index = 0; index < nextResult.Features.Liquids.Count; index++)
+            {
+                LiquidBodyDNA liquid = nextResult.Features.Liquids[index];
+                Material material = liquid.Substance == LiquidSubstance.Lava ? _materials.Lava : _materials.Water;
+                _liquidBodies.Add(new UnityLiquidBodyRuntime(liquid, _runtimeRoot.transform, material));
+            }
             stopwatch.Stop();
             GenerationMilliseconds = (float)stopwatch.Elapsed.TotalMilliseconds;
             Debug.Log(
@@ -216,6 +231,8 @@ namespace MyGameWorld.Client.ProceduralWorld
             }
 
             _terrainChunks.Clear();
+            for (int index = 0; index < _liquidBodies.Count; index++) _liquidBodies[index].Dispose();
+            _liquidBodies.Clear();
             if (_runtimeRoot != null)
             {
                 Destroy(_runtimeRoot);

@@ -32,9 +32,9 @@ namespace MyGameWorld.Tests.PlayMode
             Assert.That(sandbox.RuntimeMetrics.QueueCount, Is.Zero);
             Assert.That(sandbox.RuntimeMetrics.CachedMeshes, Is.LessThan(sandbox.DecorationCount));
             Assert.That(sandbox.RuntimeMetrics.CacheHits, Is.GreaterThan(0));
-            Assert.That(sandbox.SingularTerrainFeatureCount, Is.EqualTo(32));
+            Assert.That(sandbox.SingularTerrainFeatureCount, Is.EqualTo(33));
             WorldElementRuntimeIdentity[] identities = UnityEngine.Object.FindObjectsByType<WorldElementRuntimeIdentity>();
-            Assert.That(identities.Length, Is.EqualTo(sandbox.DecorationCount + sandbox.ChunkCount));
+            Assert.That(identities.Length, Is.EqualTo(sandbox.DecorationCount + sandbox.ChunkCount + 1));
 
             MeshFilter[] filters = UnityEngine.Object.FindObjectsByType<MeshFilter>();
             HashSet<Mesh> decorationMeshes = new HashSet<Mesh>();
@@ -42,7 +42,7 @@ namespace MyGameWorld.Tests.PlayMode
             for (int index = 0; index < filters.Length; index++)
             {
                 WorldElementRuntimeIdentity identity = filters[index].GetComponent<WorldElementRuntimeIdentity>();
-                if (identity == null || identity.Kind == WorldElementKind.TerrainSurface) continue;
+                if (identity == null || identity.Kind == WorldElementKind.TerrainSurface || identity.Kind == WorldElementKind.LiquidBody) continue;
                 proceduralRenderers++;
                 decorationMeshes.Add(filters[index].sharedMesh);
                 Assert.That(filters[index].GetComponent<MeshCollider>(), Is.Null);

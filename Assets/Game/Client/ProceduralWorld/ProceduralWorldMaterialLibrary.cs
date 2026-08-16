@@ -17,18 +17,30 @@ namespace MyGameWorld.Client.ProceduralWorld
                 throw new InvalidOperationException("Procedural world shader was not found.");
             }
 
-            Terrain = Create("Terrain", Color.white);
+            Terrain = Create("Terrain", new Color(0.8f, 0.84f, 0.76f));
             Wireframe = Create("Wireframe", new Color(0.06f, 0.08f, 0.07f));
             Trunk = Create("Trunk", new Color(0.34f, 0.18f, 0.08f));
             Leaves = Create("Leaves", new Color(0.18f, 0.58f, 0.22f));
             LeavesLight = Create("Leaves Light", new Color(0.32f, 0.72f, 0.28f));
-            Rock = Create("Rock", new Color(0.42f, 0.45f, 0.43f));
+            Rock = Create("Rock", new Color(0.43f, 0.45f, 0.42f));
+            RockLight = Create("Rock Light", new Color(0.55f, 0.56f, 0.50f));
+            RockDark = Create("Rock Dark", new Color(0.30f, 0.33f, 0.31f));
             Marker = Create("Scale Marker", new Color(0.95f, 0.48f, 0.08f));
+            FlowerStem = Create("Flower Stem", new Color(0.16f, 0.46f, 0.15f));
+            FlowerPetal = Create("Flower Petal", new Color(0.88f, 0.34f, 0.48f));
+            FlowerPetalLight = Create("Flower Petal Light", new Color(1f, 0.72f, 0.26f));
+            MushroomStem = Create("Mushroom Stem", new Color(0.76f, 0.68f, 0.52f));
+            MushroomCap = Create("Mushroom Cap", new Color(0.67f, 0.18f, 0.11f));
+            MushroomCapLight = Create("Mushroom Cap Light", new Color(0.92f, 0.42f, 0.18f));
+            Water = Create("Water", new Color(0.18f, 0.58f, 0.82f));
+            Lava = Create("Lava", new Color(1f, 0.24f, 0.035f));
             TreeMaterials = new[] { Trunk, Leaves, LeavesLight };
             BushMaterials = new[] { Leaves, LeavesLight };
             BushLowMaterials = new[] { Leaves };
-            RockMaterials = new[] { Rock };
+            RockMaterials = new[] { Rock, RockLight, RockDark };
             MarkerMaterials = new[] { Marker };
+            FlowerMaterials = new[] { FlowerStem, FlowerPetal, FlowerPetalLight };
+            MushroomMaterials = new[] { MushroomStem, MushroomCap, MushroomCapLight };
         }
 
         public Material Terrain { get; }
@@ -42,13 +54,25 @@ namespace MyGameWorld.Client.ProceduralWorld
         public Material LeavesLight { get; }
 
         public Material Rock { get; }
+        public Material RockLight { get; }
+        public Material RockDark { get; }
 
         public Material Marker { get; }
+        public Material FlowerStem { get; }
+        public Material FlowerPetal { get; }
+        public Material FlowerPetalLight { get; }
+        public Material MushroomStem { get; }
+        public Material MushroomCap { get; }
+        public Material MushroomCapLight { get; }
+        public Material Water { get; }
+        public Material Lava { get; }
         public Material[] TreeMaterials { get; }
         public Material[] BushMaterials { get; }
         public Material[] BushLowMaterials { get; }
         public Material[] RockMaterials { get; }
         public Material[] MarkerMaterials { get; }
+        public Material[] FlowerMaterials { get; }
+        public Material[] MushroomMaterials { get; }
 
         public void Dispose()
         {

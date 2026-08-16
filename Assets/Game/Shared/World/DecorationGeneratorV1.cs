@@ -10,11 +10,16 @@ namespace MyGameWorld.Shared.World
         private const uint HabitatScope = 0x48414254;
         private readonly WorldGenerationLimits _limits;
         private readonly bool _useHabitatDistribution;
+        private readonly bool _useGroundFlora;
+        private readonly bool _useNaturalClusters;
 
-        public DecorationGeneratorV1(WorldGenerationLimits limits, bool useHabitatDistribution = false)
+        public DecorationGeneratorV1(WorldGenerationLimits limits, bool useHabitatDistribution = false, bool useGroundFlora = false,
+            bool useNaturalClusters = false)
         {
             _limits = limits ?? throw new ArgumentNullException(nameof(limits));
             _useHabitatDistribution = useHabitatDistribution;
+            _useGroundFlora = useGroundFlora;
+            _useNaturalClusters = useNaturalClusters;
         }
 
         public IReadOnlyList<DecorationPlacement> Generate(
@@ -71,7 +76,8 @@ namespace MyGameWorld.Shared.World
                         continue;
                     }
 
-                    DecorationKind kind = ResolveKind(random, slope, biome.RockSlopeThreshold, _useHabitatDistribution ? habitat : -1f);
+                    DecorationKind kind = ResolveKind(random, slope, biome.RockSlopeThreshold,
+                        _useHabitatDistribution ? habitat : -1f, _useGroundFlora, _useNaturalClusters);
                     float yaw = (float)(random.NextUnitDouble() * 360d);
                     float scale = ResolveScale(kind, random);
                     placements.Add(new DecorationPlacement(
@@ -95,7 +101,9 @@ namespace MyGameWorld.Shared.World
             DeterministicRandom random,
             float slope,
             float rockSlopeThreshold,
-            float habitat = -1f)
+            float habitat = -1f,
+            bool useGroundFlora = false,
+            bool useNaturalClusters = false)
         {
             if (slope >= rockSlopeThreshold * 0.82f)
             {
@@ -103,6 +111,29 @@ namespace MyGameWorld.Shared.World
             }
 
             int roll = random.NextInt(100);
+            if (useGroundFlora)
+            {
+                if (useNaturalClusters)
+                {
+                    if (roll < 5) return DecorationKind.Flower;
+                    if (roll < 9) return DecorationKind.FlowerCluster;
+                    if (roll < 12) return habitat >= 0.45f ? DecorationKind.Mushroom : DecorationKind.Bush;
+                    if (roll < 14) return habitat >= 0.62f ? DecorationKind.MushroomCluster : DecorationKind.Rock;
+                    if (roll < 20) return DecorationKind.TreeCluster;
+                    if (roll < 24) return DecorationKind.BushCluster;
+                    if (roll < 28) return DecorationKind.RockCluster;
+                    int clusteredTreeThreshold = 54 + (int)Math.Round(Math.Max(0f, habitat) * 18f);
+                    if (roll < clusteredTreeThreshold) return DecorationKind.Tree;
+                    return roll < 84 ? DecorationKind.Bush : DecorationKind.Rock;
+                }
+                if (roll < 7) return DecorationKind.Flower;
+                if (roll < 12) return DecorationKind.FlowerCluster;
+                if (roll < 16) return habitat >= 0.45f ? DecorationKind.Mushroom : DecorationKind.Bush;
+                if (roll < 19) return habitat >= 0.62f ? DecorationKind.MushroomCluster : DecorationKind.Rock;
+                int treeThresholdV2 = 50 + (int)Math.Round(Math.Max(0f, habitat) * 20f);
+                if (roll < treeThresholdV2) return DecorationKind.Tree;
+                return roll < 84 ? DecorationKind.Bush : DecorationKind.Rock;
+            }
             int treeThreshold = habitat < 0f ? 52 : 38 + (int)Math.Round(habitat * 30f);
             if (roll < treeThreshold)
             {
@@ -124,6 +155,20 @@ namespace MyGameWorld.Shared.World
                     return 0.65f + (unit * 0.75f);
                 case DecorationKind.Bush:
                     return 0.65f + (unit * 0.45f);
+                case DecorationKind.Flower:
+                    return 0.52f + (unit * 0.34f);
+                case DecorationKind.FlowerCluster:
+                    return 0.62f + (unit * 0.38f);
+                case DecorationKind.Mushroom:
+                    return 0.48f + (unit * 0.42f);
+                case DecorationKind.MushroomCluster:
+                    return 0.58f + (unit * 0.42f);
+                case DecorationKind.TreeCluster:
+                    return 0.82f + (unit * 0.32f);
+                case DecorationKind.RockCluster:
+                    return 0.72f + (unit * 0.46f);
+                case DecorationKind.BushCluster:
+                    return 0.68f + (unit * 0.38f);
                 default:
                     return 1f;
             }

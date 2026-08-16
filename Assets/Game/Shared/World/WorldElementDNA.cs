@@ -13,7 +13,15 @@ namespace MyGameWorld.Shared.World
         Tree = 6,
         Rock = 7,
         Bush = 8,
-        ScaleMarker = 9
+        ScaleMarker = 9,
+        Flower = 10,
+        FlowerCluster = 11,
+        Mushroom = 12,
+        MushroomCluster = 13,
+        TreeCluster = 14,
+        RockCluster = 15,
+        BushCluster = 16,
+        LiquidBody = 17
     }
 
     public readonly struct WorldElementId : IEquatable<WorldElementId>

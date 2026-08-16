@@ -78,7 +78,12 @@ namespace MyGameWorld.Client.ProceduralWorld
             _text.Append("Objects: ").Append(_sandbox.DecorationCount)
                 .Append(" (T ").Append(_sandbox.TreeCount)
                 .Append(", R ").Append(_sandbox.RockCount)
-                .Append(", B ").Append(_sandbox.BushCount).AppendLine(")");
+                .Append(", B ").Append(_sandbox.BushCount)
+                .Append(", F ").Append(_sandbox.FlowerCount).Append('+').Append(_sandbox.FlowerClusterCount)
+                .Append(", M ").Append(_sandbox.MushroomCount).Append('+').Append(_sandbox.MushroomClusterCount).AppendLine(")");
+            _text.Append("Groups: Trees ").Append(_sandbox.TreeClusterCount)
+                .Append(" | Rocks ").Append(_sandbox.RockClusterCount)
+                .Append(" | Bushes ").Append(_sandbox.BushClusterCount).AppendLine();
             ProceduralRuntimeMetrics metrics = _sandbox.RuntimeMetrics;
             _text.Append("Queue: ").Append(metrics.QueueCount)
                 .Append(" | Mesh cache: ").Append(metrics.CachedMeshes).AppendLine();

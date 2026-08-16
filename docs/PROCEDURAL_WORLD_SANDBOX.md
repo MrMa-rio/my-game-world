@@ -143,7 +143,7 @@ seed 101 → fingerprint B
 A != B
 ```
 
-O fingerprint cobre heights, path masks, configuração resolvida, identidades dos acidentes, `AssetId` visual e DNAs das decorações. Para a seed padrão `829172`, catálogo V1 e gerador V2, a referência dourada atual é `D182ABC90DEBAE26`. Os testes garantem sua repetição exata e divergência para outra seed.
+O fingerprint cobre heights, path masks, configuração resolvida, identidades dos acidentes, líquidos, `AssetId` visual e DNAs das decorações. A versão atual usa a seed padrão `829172`, catálogo V3 e gerador V4; seu fingerprint dourado é `9B330B8968E0830E`. A referência histórica do gerador V3 com catálogo V2 permanece `7433A6EE28E0AC51`.
 
 ## Direção visual pesquisada
 
@@ -157,6 +157,8 @@ A geometria matemática utiliza referências apenas como estudo de linguagem vis
 Os princípios extraídos são massas de copa sobrepostas, taper de tronco, assimetria controlada, rochas com planos largos, famílias de silhueta e paleta compartilhada. Cada família continua recebendo variação procedural por seed, LOD, proporção, cor e ambiente.
 
 A evolução específica das árvores está registrada em [Direção Artística da Árvore Procedural](PROCEDURAL_TREE_ART_DIRECTION.md).
+
+A direção conjunta de terreno e pedras está registrada em [Direção Artística do Terreno e das Pedras](PROCEDURAL_TERRAIN_ROCK_ART_DIRECTION.md).
 
 ## Controles
 
