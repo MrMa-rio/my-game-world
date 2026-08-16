@@ -28,7 +28,7 @@ namespace MyGameWorld.Client.ProceduralWorld.Editor
             cameraObject.AddComponent<AudioListener>();
             cameraObject.AddComponent<DevelopmentFreeCamera>();
             camera.transform.position = new Vector3(0f, 210f, -330f);
-            camera.transform.rotation = Quaternion.Euler(30f, 0f, 0f);
+            camera.transform.rotation = Quaternion.Euler(12f, 0f, 0f);
             camera.clearFlags = CameraClearFlags.Skybox;
             camera.nearClipPlane = 0.1f;
             camera.farClipPlane = 1800f;

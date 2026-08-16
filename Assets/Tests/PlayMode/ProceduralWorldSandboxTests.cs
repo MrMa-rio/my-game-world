@@ -40,6 +40,11 @@ namespace MyGameWorld.Tests.PlayMode
             Assert.That(environment.TimeSystem.Snapshot.Hour, Is.InRange(0f, 24f));
             Assert.That(RenderSettings.sun, Is.Not.Null);
             Assert.That(GameObject.Find("Moon"), Is.Not.Null);
+            Assert.That(GameObject.Find("Procedural Star Field"), Is.Not.Null);
+            Assert.That(sandbox.ProceduralStarCount, Is.GreaterThan(10000));
+            Assert.That(sandbox.ProceduralStars[0].Kind, Is.EqualTo(CelestialItemKind.Star));
+            Assert.That(sandbox.ProceduralStars[0].ItemId, Is.EqualTo(1));
+            Assert.That(sandbox.ProceduralStars[0].Seed, Is.Not.Zero);
             Assert.That(environment.GetComponentsInChildren<TrailRenderer>(true).Length, Is.EqualTo(4));
             Assert.That(sandbox.SingularTerrainFeatureCount, Is.EqualTo(33));
             WorldElementRuntimeIdentity[] identities = UnityEngine.Object.FindObjectsByType<WorldElementRuntimeIdentity>();

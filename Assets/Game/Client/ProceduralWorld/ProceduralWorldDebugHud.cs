@@ -101,6 +101,11 @@ namespace MyGameWorld.Client.ProceduralWorld
                 .Append(" | Active VFX chunks: ").Append(_sandbox.ActiveEnvironmentalVfxChunks).AppendLine();
             WorldTimeSnapshot worldTime = _sandbox.WorldTime;
             _text.Append("Time: ").Append(worldTime.Hour.ToString("00.00")).Append("h | ").Append(worldTime.Phase)
+                .Append(" | Stars: ").Append(_sandbox.EstimatedVisibleStars).Append('/').Append(_sandbox.ProceduralStarCount)
+                .Append(" @ ").Append((worldTime.StarVisibility * 100f).ToString("0")).Append("%")
+                .Append(" | Light: ").Append(_sandbox.LocalCelestialLuminosity.ToString("0.00"))
+                .Append(" | Density: ").Append(_sandbox.StarDensityMultiplier.ToString("0.0")).Append('x')
+                .Append(" | Nebula: ").Append((_sandbox.NebulaVisibility * 100f).ToString("0")).Append('%')
                 .Append(" | Celestial events: ").Append(_sandbox.ActiveCelestialEvents).AppendLine();
             _text.AppendLine();
             _text.AppendLine("WASD move | Q/E down/up | RMB look");

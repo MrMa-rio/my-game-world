@@ -1,4 +1,5 @@
 using MyGameWorld.Shared.World;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MyGameWorld.Client.ProceduralWorld
@@ -21,6 +22,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         private WorldTimeSystem _timeSystem;
         private CelestialCycleSystem _celestialCycle;
         private CelestialEventSystem _celestialEvents;
+        private ProceduralStarFieldSystem _starField;
         private bool _initialized;
 
         public WindSystem Wind => _windSystem;
@@ -30,12 +32,19 @@ namespace MyGameWorld.Client.ProceduralWorld
         public float VfxDensity { get => _vfxDensity; set => _vfxDensity = Mathf.Clamp(value, 0f, 2f); }
         public WorldTimeSystem TimeSystem => _timeSystem;
         public int ActiveCelestialEvents => _celestialEvents != null ? _celestialEvents.ActiveCount : 0;
+        public int ProceduralStarCount => _starField != null ? _starField.StarCount : 0;
+        public IReadOnlyList<ProceduralStar> ProceduralStars => _starField != null ? _starField.Stars : System.Array.Empty<ProceduralStar>();
+        public float LocalCelestialLuminosity => _starField != null ? _starField.LocalLuminosity : 1f;
+        public float StarDensityMultiplier => _starField != null ? _starField.DensityMultiplier : 1f;
+        public int EstimatedVisibleStars => _starField != null ? _starField.EstimatedVisibleCount : 0;
+        public float NebulaVisibility => _starField != null ? _starField.NebulaVisibility : 0f;
         public bool SpawnCelestialEvent(CelestialEventKind kind) => _celestialEvents != null && _celestialEvents.Spawn(kind, Camera.main);
 
         public void Initialize(ZoneGenerationResult zone, ProceduralWorldMaterialLibrary materials, ProceduralRuntimeManager runtime)
         {
             _materials = materials; _windSystem = new WindSystem(_wind, zone.DNA.Seed);
             _timeSystem = new WorldTimeSystem(_time); _celestialCycle = new CelestialCycleSystem(transform);
+            _starField = new ProceduralStarFieldSystem(transform, zone.DNA.Seed);
             _celestialEvents = new CelestialEventSystem(transform, zone.DNA.Seed);
             _physicalResponses = new EnvironmentalPhysicalResponseSystem(); runtime.SetEnvironmentalResponses(_physicalResponses);
             _vfx = new EnvironmentalVfxSystem(transform, materials.EnvironmentVfx, _maximumVfxChunks, _biomeProfiles); _vfx.Configure(zone);
@@ -48,13 +57,14 @@ namespace MyGameWorld.Client.ProceduralWorld
             _windSystem.Tick(Time.deltaTime);
             _timeSystem.Tick(Time.unscaledDeltaTime); _celestialCycle.Apply(_timeSystem.Snapshot);
             Camera camera = Camera.main;
+            _starField.Tick(_timeSystem.Snapshot, camera, _celestialCycle.Orbit.StellarRotation);
             _celestialEvents.Tick(Time.unscaledDeltaTime, _timeSystem.Snapshot, camera);
             _physicalResponses.ProcessBatch(_windSystem, camera, _physicalUpdatesPerFrame);
             _vfx.Biome = _debugBiome; _vfx.DensityMultiplier = _vfxDensity;
             _vfx.Tick(Time.unscaledTime, camera, _windSystem);
         }
 
-        private void OnDestroy() { _vfx?.Dispose(); _celestialEvents?.Dispose(); _celestialCycle?.Dispose(); }
+        private void OnDestroy() { _vfx?.Dispose(); _celestialEvents?.Dispose(); _starField?.Dispose(); _celestialCycle?.Dispose(); }
 
         private void OnDrawGizmosSelected()
         {

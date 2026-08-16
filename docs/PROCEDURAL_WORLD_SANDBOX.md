@@ -14,10 +14,10 @@ Assets/Scenes/ProceduralWorldSandbox.unity
 
 | Parâmetro | Valor |
 |---|---:|
-| Zone ID | `TEST_001` / `1` |
-| Seed | `829172` |
-| Generator version | `2` |
-| Asset catalog version | `1` |
+| Zone ID | `TEST_002` / `2` |
+| Seed | `829173` |
+| Generator version | `4` |
+| Asset catalog version | `3` |
 | Biome | `TemperateGrassland` |
 | Tamanho | `1.000 × 1.000 m` |
 | Resolução solicitada | `257 × 257` |
@@ -143,7 +143,7 @@ seed 101 → fingerprint B
 A != B
 ```
 
-O fingerprint cobre heights, path masks, configuração resolvida, identidades dos acidentes, líquidos, `AssetId` visual e DNAs das decorações. A versão atual usa a seed padrão `829172`, catálogo V3 e gerador V4; seu fingerprint dourado é `9B330B8968E0830E`. A referência histórica do gerador V3 com catálogo V2 permanece `7433A6EE28E0AC51`.
+O fingerprint cobre heights, path masks, configuração resolvida, identidades dos acidentes, líquidos, `AssetId` visual e DNAs das decorações. O mundo visual atual usa a seed `829173`, catálogo V3 e gerador V4. A referência dourada V4 da seed `829172` permanece `9B330B8968E0830E`, e a referência histórica do gerador V3 com catálogo V2 permanece `7433A6EE28E0AC51`.
 
 ## Direção visual pesquisada
 

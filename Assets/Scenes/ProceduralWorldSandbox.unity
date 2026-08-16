@@ -258,8 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2794d5696f68407baa3eae09eb64008e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: MyGameWorld.Client.ProceduralWorld::MyGameWorld.Client.ProceduralWorld.ProceduralWorldSandbox
-  _zoneId: 1
-  _zoneSeed: 829172
+  _zoneId: 2
+  _zoneSeed: 829173
   _width: 1000
   _depth: 1000
   _requestedResolution: 257
@@ -385,13 +385,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447188405}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.258819, y: 0, z: 0, w: 0.9659258}
+  m_LocalRotation: {x: 0.10452846, y: 0, z: 0, w: 0.9945219}
   m_LocalPosition: {x: 0, y: 210, z: -330}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

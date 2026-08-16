@@ -13,10 +13,10 @@ namespace MyGameWorld.Client.ProceduralWorld
     {
         [Header("Zone DNA")]
         [SerializeField, Min(1)]
-        private long _zoneId = 1;
+        private long _zoneId = 2;
 
         [SerializeField]
-        private long _zoneSeed = 829172;
+        private long _zoneSeed = 829173;
 
         [Header("Terrain Geometry")]
         [SerializeField, Min(10f)]
@@ -103,6 +103,12 @@ namespace MyGameWorld.Client.ProceduralWorld
         public EnvironmentalBiomeKind DebugEnvironmentalBiome => _environmentalManager != null ? _environmentalManager.DebugBiome : EnvironmentalBiomeKind.Grassland;
         public WorldTimeSnapshot WorldTime => _environmentalManager?.TimeSystem != null ? _environmentalManager.TimeSystem.Snapshot : default;
         public int ActiveCelestialEvents => _environmentalManager != null ? _environmentalManager.ActiveCelestialEvents : 0;
+        public int ProceduralStarCount => _environmentalManager != null ? _environmentalManager.ProceduralStarCount : 0;
+        public IReadOnlyList<ProceduralStar> ProceduralStars => _environmentalManager != null ? _environmentalManager.ProceduralStars : Array.Empty<ProceduralStar>();
+        public float LocalCelestialLuminosity => _environmentalManager != null ? _environmentalManager.LocalCelestialLuminosity : 1f;
+        public float StarDensityMultiplier => _environmentalManager != null ? _environmentalManager.StarDensityMultiplier : 1f;
+        public int EstimatedVisibleStars => _environmentalManager != null ? _environmentalManager.EstimatedVisibleStars : 0;
+        public float NebulaVisibility => _environmentalManager != null ? _environmentalManager.NebulaVisibility : 0f;
 
         public bool IsHudVisible { get; private set; } = true;
 

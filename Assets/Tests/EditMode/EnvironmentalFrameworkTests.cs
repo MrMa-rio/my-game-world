@@ -83,5 +83,46 @@ namespace MyGameWorld.Tests.EditMode
             Assert.That(time.Snapshot.Hour, Is.EqualTo(0.9f).Within(0.001f));
             Assert.That(time.Snapshot.DayIndex, Is.EqualTo(dayBefore + 1));
         }
+
+        [Test]
+        public void StarVisibility_RevealsHighlightsBeforeFullNightAndHidesDuringDay()
+        {
+            float earlyDusk = new WorldTimeSnapshot(18f).StarVisibility;
+            float lateDusk = new WorldTimeSnapshot(19.5f).StarVisibility;
+            Assert.That(new WorldTimeSnapshot(12f).StarVisibility, Is.Zero);
+            Assert.That(earlyDusk, Is.GreaterThan(0f).And.LessThan(lateDusk));
+            Assert.That(new WorldTimeSnapshot(22f).StarVisibility, Is.EqualTo(1f));
+        }
+
+        [Test]
+        public void StarVisibility_DawnReducesPopulationBeforeRemovingAllStars()
+        {
+            float earlyDawn = new WorldTimeSnapshot(5f).StarVisibility;
+            float lateDawn = new WorldTimeSnapshot(6.5f).StarVisibility;
+            Assert.That(earlyDawn, Is.GreaterThan(lateDawn));
+            Assert.That(lateDawn, Is.GreaterThan(0f));
+            Assert.That(new WorldTimeSnapshot(7.1f).StarVisibility, Is.Zero);
+        }
+
+        [Test]
+        public void StarDensity_LocalLuminosityScalesContinuouslyUpToThirtyTimes()
+        {
+            Assert.That(ProceduralStarFieldSystem.ResolveDensityMultiplier(0.2f), Is.EqualTo(30f));
+            Assert.That(ProceduralStarFieldSystem.ResolveDensityMultiplier(0.5f), Is.InRange(1.01f, 29.99f));
+            Assert.That(ProceduralStarFieldSystem.ResolveDensityMultiplier(0.75f), Is.EqualTo(1f));
+        }
+
+        [Test]
+        public void CelestialOrbit_OneSolarDayUsesDistinctPhysicalAngularRates()
+        {
+            CelestialOrbitSnapshot start = CelestialOrbitModel.Evaluate(new WorldTimeSnapshot(0d));
+            CelestialOrbitSnapshot nextDay = CelestialOrbitModel.Evaluate(new WorldTimeSnapshot(24d));
+            float stellarAdvance = Mathf.DeltaAngle(start.SiderealAngle, nextDay.SiderealAngle);
+            float solarAdvance = Mathf.DeltaAngle(start.SolarHourAngle, nextDay.SolarHourAngle);
+            float lunarAdvance = Mathf.DeltaAngle(start.LunarHourAngle, nextDay.LunarHourAngle);
+            Assert.That(stellarAdvance, Is.EqualTo(0.9856f).Within(0.002f));
+            Assert.That(solarAdvance, Is.EqualTo(0f).Within(0.002f));
+            Assert.That(lunarAdvance, Is.EqualTo(-12.19f).Within(0.03f));
+        }
     }
 }
