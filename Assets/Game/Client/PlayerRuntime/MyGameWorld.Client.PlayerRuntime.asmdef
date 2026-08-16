@@ -1,0 +1,12 @@
+{
+  "name": "MyGameWorld.Client.PlayerRuntime",
+  "rootNamespace": "MyGameWorld.Client.PlayerRuntime",
+  "references": [
+    "MyGameWorld.Shared.Core",
+    "MyGameWorld.Shared.World",
+    "MyGameWorld.Client.EntityRuntime",
+    "MyGameWorld.Client.ActorRuntime",
+    "Unity.InputSystem"
+  ],
+  "autoReferenced": true
+}

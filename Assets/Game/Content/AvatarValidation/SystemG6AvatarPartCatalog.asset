@@ -1,0 +1,421 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800c4fbf2dc9e7945997f5961e1faac4, type: 3}
+  m_Name: SystemG6AvatarPartCatalog
+  m_EditorClassIdentifier: MyGameWorld.Client.CharacterRuntime::MyGameWorld.Client.CharacterRuntime.AvatarPartCatalog
+  _entries:
+  - _assetId: 1536515876
+    _slot: 1
+    _category: 2
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1564222148
+    _slot: 12
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1397946774
+    _slot: 8
+    _category: 4
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 1
+  - _assetId: 1715613507
+    _slot: 8
+    _category: 4
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 1
+  - _assetId: 1669497480
+    _slot: 8
+    _category: 4
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 1
+  - _assetId: 1667881610
+    _slot: 11
+    _category: 2
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1895088525
+    _slot: 2
+    _category: 3
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1621604122
+    _slot: 2
+    _category: 3
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 2046987102
+    _slot: 2
+    _category: 3
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1321286357
+    _slot: 9
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1849242835
+    _slot: 12
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1450258352
+    _slot: 11
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1511934311
+    _slot: 13
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 1
+  - _assetId: 1761843910
+    _slot: 9
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1742715639
+    _slot: 9
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1667453388
+    _slot: 9
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1312484577
+    _slot: 9
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1248253608
+    _slot: 12
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1748751329
+    _slot: 12
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1923559769
+    _slot: 11
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 2112848079
+    _slot: 11
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1688983538
+    _slot: 13
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 1
+  - _assetId: 1429866533
+    _slot: 9
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1193080227
+    _slot: 12
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 2054048736
+    _slot: 11
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 0
+  - _assetId: 1409919735
+    _slot: 13
+    _category: 5
+    _traitsBits: 4105
+    _requiredTraitsBits: 4105
+    _weight: 1
+    _optional: 1
+  - _assetId: 1793780358
+    _slot: 1
+    _category: 2
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1095833634
+    _slot: 12
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1525634656
+    _slot: 8
+    _category: 4
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 1
+  - _assetId: 2043405585
+    _slot: 8
+    _category: 4
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 1
+  - _assetId: 1922855598
+    _slot: 8
+    _category: 4
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 1
+  - _assetId: 1437786407
+    _slot: 8
+    _category: 4
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 1
+  - _assetId: 1781175484
+    _slot: 8
+    _category: 4
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 1
+  - _assetId: 1082584413
+    _slot: 8
+    _category: 4
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 1
+  - _assetId: 1080218072
+    _slot: 11
+    _category: 2
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1755370511
+    _slot: 2
+    _category: 3
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 2098759588
+    _slot: 2
+    _category: 3
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1616836473
+    _slot: 2
+    _category: 3
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1932490774
+    _slot: 2
+    _category: 3
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1176415683
+    _slot: 2
+    _category: 3
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1211198656
+    _slot: 2
+    _category: 3
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1203114167
+    _slot: 9
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1547752929
+    _slot: 12
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1469291186
+    _slot: 11
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1472424009
+    _slot: 13
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 1
+  - _assetId: 1663224528
+    _slot: 9
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1172473273
+    _slot: 9
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1871008342
+    _slot: 9
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1269533775
+    _slot: 9
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1343157806
+    _slot: 12
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1583476559
+    _slot: 12
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1333620227
+    _slot: 11
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1737913129
+    _slot: 11
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1417777140
+    _slot: 13
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 1
+  - _assetId: 1320445943
+    _slot: 9
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1095575329
+    _slot: 12
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 1501561842
+    _slot: 11
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 0
+  - _assetId: 2103924105
+    _slot: 13
+    _category: 5
+    _traitsBits: 2057
+    _requiredTraitsBits: 2057
+    _weight: 1
+    _optional: 1

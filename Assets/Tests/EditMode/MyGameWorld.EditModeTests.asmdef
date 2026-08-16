@@ -8,7 +8,12 @@
     "MyGameWorld.Shared.NpcCognition",
     "MyGameWorld.Shared.World",
     "MyGameWorld.Client.AssetResolution",
-    "MyGameWorld.Client.ProceduralWorld"
+    "MyGameWorld.Client.ProceduralWorld",
+    "MyGameWorld.Client.EntityRuntime",
+    "MyGameWorld.Client.ActorRuntime",
+    "MyGameWorld.Client.PlayerRuntime",
+    "MyGameWorld.Client.CharacterRuntime",
+    "Unity.InputSystem"
   ],
   "optionalUnityReferences": [
     "TestAssemblies"

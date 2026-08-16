@@ -1,0 +1,163 @@
+{
+  "armature": "human_female",
+  "bone_count": 43,
+  "parts": [
+    {
+      "file": "human_female_body_default.fbx",
+      "name": "human_female_body_default",
+      "triangles": 932,
+      "vertices": 488
+    },
+    {
+      "file": "human_female_feet_default.fbx",
+      "name": "human_female_feet_default",
+      "triangles": 404,
+      "vertices": 212
+    },
+    {
+      "file": "human_female_hair_1.fbx",
+      "name": "human_female_hair_1",
+      "triangles": 368,
+      "vertices": 205
+    },
+    {
+      "file": "human_female_hair_2.fbx",
+      "name": "human_female_hair_2",
+      "triangles": 236,
+      "vertices": 135
+    },
+    {
+      "file": "human_female_hair_3.fbx",
+      "name": "human_female_hair_3",
+      "triangles": 334,
+      "vertices": 177
+    },
+    {
+      "file": "human_female_hands_default.fbx",
+      "name": "human_female_hands_default",
+      "triangles": 740,
+      "vertices": 380
+    },
+    {
+      "file": "human_female_head_2.fbx",
+      "name": "human_female_head_2",
+      "triangles": 488,
+      "vertices": 254
+    },
+    {
+      "file": "human_female_head_3.fbx",
+      "name": "human_female_head_3",
+      "triangles": 488,
+      "vertices": 254
+    },
+    {
+      "file": "human_female_head_default.fbx",
+      "name": "human_female_head_default",
+      "triangles": 488,
+      "vertices": 254
+    },
+    {
+      "file": "human_female_heavy_armor.fbx",
+      "name": "human_female_heavy_armor",
+      "triangles": 1448,
+      "vertices": 758
+    },
+    {
+      "file": "human_female_heavy_boots.fbx",
+      "name": "human_female_heavy_boots",
+      "triangles": 332,
+      "vertices": 176
+    },
+    {
+      "file": "human_female_heavy_gloves.fbx",
+      "name": "human_female_heavy_gloves",
+      "triangles": 804,
+      "vertices": 412
+    },
+    {
+      "file": "human_female_heavy_helmet.fbx",
+      "name": "human_female_heavy_helmet",
+      "triangles": 408,
+      "vertices": 206
+    },
+    {
+      "file": "human_female_light_armor.fbx",
+      "name": "human_female_light_armor",
+      "triangles": 1108,
+      "vertices": 587
+    },
+    {
+      "file": "human_female_light_armor_2.fbx",
+      "name": "human_female_light_armor_2",
+      "triangles": 932,
+      "vertices": 488
+    },
+    {
+      "file": "human_female_light_armor_3.fbx",
+      "name": "human_female_light_armor_3",
+      "triangles": 1076,
+      "vertices": 569
+    },
+    {
+      "file": "human_female_light_armor_4.fbx",
+      "name": "human_female_light_armor_4",
+      "triangles": 1166,
+      "vertices": 616
+    },
+    {
+      "file": "human_female_light_boots.fbx",
+      "name": "human_female_light_boots",
+      "triangles": 404,
+      "vertices": 212
+    },
+    {
+      "file": "human_female_light_boots_2.fbx",
+      "name": "human_female_light_boots_2",
+      "triangles": 404,
+      "vertices": 212
+    },
+    {
+      "file": "human_female_light_gloves.fbx",
+      "name": "human_female_light_gloves",
+      "triangles": 740,
+      "vertices": 380
+    },
+    {
+      "file": "human_female_light_gloves_3.fbx",
+      "name": "human_female_light_gloves_3",
+      "triangles": 740,
+      "vertices": 380
+    },
+    {
+      "file": "human_female_light_helmet.fbx",
+      "name": "human_female_light_helmet",
+      "triangles": 264,
+      "vertices": 134
+    },
+    {
+      "file": "human_female_medium_armor.fbx",
+      "name": "human_female_medium_armor",
+      "triangles": 1404,
+      "vertices": 733
+    },
+    {
+      "file": "human_female_medium_boots.fbx",
+      "name": "human_female_medium_boots",
+      "triangles": 420,
+      "vertices": 220
+    },
+    {
+      "file": "human_female_medium_gloves.fbx",
+      "name": "human_female_medium_gloves",
+      "triangles": 836,
+      "vertices": 428
+    },
+    {
+      "file": "human_female_medium_helmet.fbx",
+      "name": "human_female_medium_helmet",
+      "triangles": 456,
+      "vertices": 230
+    }
+  ],
+  "source": "C:\\Users\\mario\\my-game-world\\Assets\\ia assets\\avatar-reference\\system-g6\\modular_rpg_characters\\human_female.blend"
+}

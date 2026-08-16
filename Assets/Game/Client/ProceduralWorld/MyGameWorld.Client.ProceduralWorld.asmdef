@@ -5,6 +5,7 @@
     "MyGameWorld.Shared.Core",
     "MyGameWorld.Shared.Procedural",
     "MyGameWorld.Shared.World",
+    "MyGameWorld.Client.EntityRuntime",
     "Unity.InputSystem",
     "Unity.RenderPipelines.Universal.Runtime"
   ],

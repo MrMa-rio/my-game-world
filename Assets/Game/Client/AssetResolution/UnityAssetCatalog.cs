@@ -16,5 +16,12 @@ namespace MyGameWorld.Client.AssetResolution
         public AssetCatalogVersion Version => new AssetCatalogVersion(_version);
 
         public IReadOnlyList<UnityAssetBinding> Bindings => _bindings;
+
+        public void Configure(ushort version, IReadOnlyList<UnityAssetBinding> bindings)
+        {
+            if (version == 0) throw new System.ArgumentOutOfRangeException(nameof(version));
+            if (bindings == null) throw new System.ArgumentNullException(nameof(bindings));
+            _version = version; _bindings = new List<UnityAssetBinding>(bindings);
+        }
     }
 }

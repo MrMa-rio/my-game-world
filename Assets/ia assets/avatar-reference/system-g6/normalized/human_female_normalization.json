@@ -1,0 +1,33 @@
+{
+  "armature": "human_female",
+  "bone_count": 43,
+  "mesh_count": 26,
+  "output": "C:\\Users\\mario\\my-game-world\\Assets\\ia assets\\avatar-reference\\system-g6\\normalized\\human_female_modular.fbx",
+  "repaired_armature_modifiers": [
+    "human_female_hair_1",
+    "human_female_hair_2",
+    "human_female_hair_3",
+    "human_female_head_2",
+    "human_female_head_3",
+    "human_female_heavy_armor",
+    "human_female_heavy_boots",
+    "human_female_heavy_gloves",
+    "human_female_heavy_helmet",
+    "human_female_light_armor",
+    "human_female_light_armor_2",
+    "human_female_light_armor_3",
+    "human_female_light_armor_4",
+    "human_female_light_boots",
+    "human_female_light_boots_2",
+    "human_female_light_gloves",
+    "human_female_light_gloves_3",
+    "human_female_light_helmet",
+    "human_female_medium_armor",
+    "human_female_medium_boots",
+    "human_female_medium_gloves",
+    "human_female_medium_helmet"
+  ],
+  "source": "C:\\Users\\mario\\my-game-world\\Assets\\ia assets\\avatar-reference\\system-g6\\modular_rpg_characters\\human_female.blend",
+  "total_triangles": 17420,
+  "total_vertices": 9100
+}

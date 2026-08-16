@@ -1,11 +1,12 @@
 using MyGameWorld.Shared.World;
+using MyGameWorld.Client.EntityRuntime;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace MyGameWorld.Client.ProceduralWorld
 {
     [DisallowMultipleComponent]
-    public sealed class EnvironmentalManager : MonoBehaviour
+    public sealed class EnvironmentalManager : MonoBehaviour, IWorldEnvironmentContextProvider
     {
         [SerializeField] private WindProfile _wind = new WindProfile();
         [SerializeField] private WorldTimeProfile _time = new WorldTimeProfile();
@@ -26,6 +27,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         private ProceduralStarFieldSystem _starField;
         private ProceduralShaderManager _shaderManager;
         private bool _initialized;
+        private EnvironmentalSurfaceResolver _surfaceResolver;
 
         public WindSystem Wind => _windSystem;
         public EnvironmentalPhysicalResponseSystem PhysicalResponses => _physicalResponses;
@@ -54,6 +56,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             _celestialEvents = new CelestialEventSystem(transform, zone.DNA.Seed);
             _physicalResponses = new EnvironmentalPhysicalResponseSystem(); runtime.SetEnvironmentalResponses(_physicalResponses);
             _vfx = new EnvironmentalVfxSystem(transform, materials.EnvironmentVfx, _maximumVfxChunks, _biomeProfiles); _vfx.Configure(zone);
+            _surfaceResolver = new EnvironmentalSurfaceResolver(zone);
             _windSystem.Tick(0f); _timeSystem.Tick(0f); _celestialCycle.Apply(_timeSystem.Snapshot); _initialized = true;
         }
 
@@ -72,6 +75,14 @@ namespace MyGameWorld.Client.ProceduralWorld
         }
 
         private void OnDestroy() { _vfx?.Dispose(); _celestialEvents?.Dispose(); _starField?.Dispose(); _shaderManager?.Dispose(); _celestialCycle?.Dispose(); }
+
+        public WorldEnvironmentSnapshot Sample(Vector3 localPosition, GlobalPosition globalPosition)
+        {
+            EnvironmentalBiomeKind biome = _debugBiome;
+            EnvironmentalSurfaceKind surface = _surfaceResolver != null ? _surfaceResolver.Resolve(localPosition, biome) : EnvironmentalSurfaceKind.Grass;
+            WindSample wind = _windSystem != null ? _windSystem.SampleWind(localPosition) : default;
+            return new WorldEnvironmentSnapshot((int)biome, (int)surface, wind.Direction, wind.EffectiveStrength, 0);
+        }
 
         private void OnDrawGizmosSelected()
         {

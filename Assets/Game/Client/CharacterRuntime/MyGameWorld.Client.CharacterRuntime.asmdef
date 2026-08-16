@@ -1,0 +1,10 @@
+{
+  "name": "MyGameWorld.Client.CharacterRuntime",
+  "rootNamespace": "MyGameWorld.Client.CharacterRuntime",
+  "references": [
+    "MyGameWorld.Shared.Core",
+    "MyGameWorld.Shared.Procedural",
+    "MyGameWorld.Client.AssetResolution"
+  ],
+  "autoReferenced": true
+}
