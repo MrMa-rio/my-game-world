@@ -23,8 +23,9 @@ namespace MyGameWorld.Client.ProceduralWorld
         {
             _sun = RenderSettings.sun != null ? RenderSettings.sun : CreateLight("Sun", parent);
             _ownsSun = RenderSettings.sun == null; _sun.name = "Sun"; _sun.type = LightType.Directional;
-            _sun.shadows = LightShadows.Soft; _sun.shadowStrength = 0.78f; RenderSettings.sun = _sun;
-            _moon = CreateLight("Moon", parent); _moon.type = LightType.Directional; _moon.shadows = LightShadows.Soft; _moon.shadowStrength = 0.34f;
+            _sun.shadows = LightShadows.Soft; _sun.shadowStrength = 0.78f; ConfigureTerrainScaleShadows(_sun); RenderSettings.sun = _sun;
+            _moon = CreateLight("Moon", parent); _moon.type = LightType.Directional; _moon.shadows = LightShadows.Soft;
+            _moon.shadowStrength = 0.34f; ConfigureTerrainScaleShadows(_moon);
             Shader skyShader = Shader.Find("MyGameWorld/Procedural World/Celestial Sky");
             if (skyShader == null) throw new InvalidOperationException("Celestial sky shader was not found.");
             _previousSkybox = RenderSettings.skybox; _skyMaterial = new Material(skyShader) { name = "Runtime Celestial Sky" };
@@ -102,6 +103,13 @@ namespace MyGameWorld.Client.ProceduralWorld
         private static Light CreateLight(string name, Transform parent)
         {
             GameObject root = new GameObject(name); root.transform.SetParent(parent, false); return root.AddComponent<Light>();
+        }
+
+        private static void ConfigureTerrainScaleShadows(Light light)
+        {
+            light.shadowBias = 0.035f;
+            light.shadowNormalBias = 0.22f;
+            light.shadowNearPlane = 0.15f;
         }
     }
 }

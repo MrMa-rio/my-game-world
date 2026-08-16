@@ -35,6 +35,9 @@ namespace MyGameWorld.Client.ProceduralWorld
             _terrainMesh = BuildTerrainMesh(data, styleVersion);
             filter.sharedMesh = _terrainMesh;
             renderer.sharedMaterial = terrainMaterial;
+            renderer.shadowCastingMode = ShadowCastingMode.On;
+            renderer.receiveShadows = true;
+            renderer.lightProbeUsage = LightProbeUsage.BlendProbes;
             collider.sharedMesh = _terrainMesh;
 
             _wireframe = new GameObject("Debug Wireframe");

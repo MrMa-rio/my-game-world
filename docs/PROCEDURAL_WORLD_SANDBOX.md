@@ -14,8 +14,8 @@ Assets/Scenes/ProceduralWorldSandbox.unity
 
 | Parâmetro | Valor |
 |---|---:|
-| Zone ID | `TEST_002` / `2` |
-| Seed | `829173` |
+| Zone ID | `TEST_003` / `3` |
+| Seed | `829174` |
 | Generator version | `4` |
 | Asset catalog version | `3` |
 | Biome | `TemperateGrassland` |
@@ -143,7 +143,7 @@ seed 101 → fingerprint B
 A != B
 ```
 
-O fingerprint cobre heights, path masks, configuração resolvida, identidades dos acidentes, líquidos, `AssetId` visual e DNAs das decorações. O mundo visual atual usa a seed `829173`, catálogo V3 e gerador V4. A referência dourada V4 da seed `829172` permanece `9B330B8968E0830E`, e a referência histórica do gerador V3 com catálogo V2 permanece `7433A6EE28E0AC51`.
+O fingerprint cobre heights, path masks, configuração resolvida, identidades dos acidentes, líquidos, `AssetId` visual e DNAs das decorações. O mundo visual atual usa a seed `829174`, catálogo V3 e gerador V4. A referência dourada V4 da seed `829172` permanece `9B330B8968E0830E`, e a referência histórica do gerador V3 com catálogo V2 permanece `7433A6EE28E0AC51`.
 
 ## Direção visual pesquisada
 
@@ -197,3 +197,10 @@ A seed também pode ser alterada no campo `_zoneSeed` do componente `ProceduralW
 ## Próximo passo recomendado
 
 Criar validação/editor tooling para `ZoneDNA` e `BiomeDefinition`, seguida por um adapter de decoração que associe `DecorationKind`/`AssetId` a prefabs do `AssetRegistry`. Não iniciar estruturas, streaming ou `WorldDelta` antes de estabilizar esse contrato e medir a geração em diferentes budgets.
+# Sandbox procedural de 5 km
+
+A zona ativa de desenvolvimento usa `ZoneId 3`, seed `829174` e dimensoes de `5000 m x 5000 m`. A malha global possui resolucao `401 x 401`, 320.000 triangulos e 960.000 vertices renderizados em flat shading. Ela e dividida em `20 x 20` chunks de 250 m para preservar a fronteira futura de streaming e LOD.
+
+O perfil `LargeSandbox` limita a composicao a 96 acidentes de terreno, 24 caminhos e 2.400 decoracoes. Raios de acidentes chegam a 360 m e amplitudes a 75 m; o `maxHeight` global e 120 m. Esses limites criam macrovariacao compativel com 25 km² sem escalar objetos e geometria linearmente com a area.
+
+Na seed padrao, as regras de superficie aceitaram 1.674 decoracoes. A validacao em Unity produziu o fingerprint deterministico `F35861B98A8E1F22` em duas geracoes consecutivas. A geracao integral ainda e sincrona e levou aproximadamente 7,7 s no ambiente de desenvolvimento; streaming e geracao incremental por chunks permanecem como proxima necessidade antes de aumentar novamente a area ou a densidade.

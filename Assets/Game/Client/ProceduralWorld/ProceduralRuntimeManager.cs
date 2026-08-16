@@ -206,6 +206,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             GameObject root = new GameObject();
             root.AddComponent<MeshFilter>();
             MeshRenderer renderer = root.AddComponent<MeshRenderer>(); renderer.shadowCastingMode = ShadowCastingMode.On; renderer.receiveShadows = true;
+            renderer.lightProbeUsage = LightProbeUsage.BlendProbes;
             root.AddComponent<WorldElementRuntimeIdentity>();
             root.AddComponent<ProceduralRuntimeDebugInfo>();
             root.AddComponent<CapsuleCollider>().enabled = false;

@@ -27,6 +27,14 @@ namespace MyGameWorld.Shared.World
             maxLandformAmplitude: 18f,
             boundaryPadding: 15f);
 
+        public static WorldGenerationLimits LargeSandbox => new WorldGenerationLimits(
+            maxLandforms: 96,
+            maxPaths: 24,
+            maxDecorations: 2400,
+            maxLandformRadius: 360f,
+            maxLandformAmplitude: 75f,
+            boundaryPadding: 60f);
+
         public static WorldGenerationLimits LegacySandbox => new WorldGenerationLimits();
     }
 }

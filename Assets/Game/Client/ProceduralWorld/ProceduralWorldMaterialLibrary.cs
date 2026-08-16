@@ -37,6 +37,13 @@ namespace MyGameWorld.Client.ProceduralWorld
             Lava = Create("Lava", new Color(1f, 0.24f, 0.035f));
             Branch = Create("Branch", new Color(0.34f, 0.18f, 0.08f));
             EnvironmentVfx = Create("Environmental VFX", Color.white);
+            SetSurfaceResponse(Terrain, 0.14f, 0.20f);
+            SetSurfaceResponse(Trunk, 0.08f, 0.16f); SetSurfaceResponse(Branch, 0.08f, 0.16f);
+            SetSurfaceResponse(Leaves, 0.12f, 0.24f); SetSurfaceResponse(LeavesLight, 0.14f, 0.28f);
+            SetSurfaceResponse(Rock, 0.22f, 0.38f); SetSurfaceResponse(RockLight, 0.24f, 0.42f); SetSurfaceResponse(RockDark, 0.18f, 0.34f);
+            SetSurfaceResponse(Water, 0.86f, 0.88f); SetSurfaceResponse(Lava, 0.38f, 0.58f);
+            SetSurfaceResponse(FlowerPetal, 0.20f, 0.40f); SetSurfaceResponse(FlowerPetalLight, 0.24f, 0.46f);
+            SetSurfaceResponse(MushroomCap, 0.28f, 0.48f); SetSurfaceResponse(MushroomCapLight, 0.32f, 0.52f);
             SetWindResponse(Trunk, PhysicalResponseCatalog.Resolve(PhysicalResponseZone.Trunk).ShaderResponse, 0.25f);
             SetWindResponse(Branch, PhysicalResponseCatalog.Resolve(PhysicalResponseZone.LargeBranch).ShaderResponse, 0.18f);
             float leafResponse = PhysicalResponseCatalog.Resolve(PhysicalResponseZone.Leaves).ShaderResponse;
@@ -116,6 +123,11 @@ namespace MyGameWorld.Client.ProceduralWorld
         private static void SetWindResponse(Material material, float response, float heightStart)
         {
             material.SetFloat("_WindResponse", response); material.SetFloat("_WindHeightStart", heightStart);
+        }
+
+        private static void SetSurfaceResponse(Material material, float reflection, float smoothness)
+        {
+            material.SetFloat("_ReflectionStrength", reflection); material.SetFloat("_SurfaceSmoothness", smoothness);
         }
     }
 }

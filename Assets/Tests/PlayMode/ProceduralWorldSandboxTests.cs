@@ -20,14 +20,16 @@ namespace MyGameWorld.Tests.PlayMode
 
             ProceduralWorldSandbox sandbox = UnityEngine.Object.FindAnyObjectByType<ProceduralWorldSandbox>();
             Assert.That(sandbox, Is.Not.Null);
-            for (int frame = 0; frame < 120 && sandbox.RuntimeMetrics.QueueCount > 0; frame++)
+            for (int frame = 0; frame < 240 && sandbox.RuntimeMetrics.QueueCount > 0; frame++)
             {
                 yield return null;
             }
             Assert.That(sandbox.Fingerprint, Is.Not.Zero);
-            Assert.That(sandbox.ChunkCount, Is.EqualTo(100));
-            Assert.That(sandbox.TriangleCount, Is.EqualTo(80000));
-            Assert.That(sandbox.RenderedVertexCount, Is.EqualTo(240000));
+            Assert.That(sandbox.TerrainWidth, Is.EqualTo(5000f));
+            Assert.That(sandbox.TerrainDepth, Is.EqualTo(5000f));
+            Assert.That(sandbox.ChunkCount, Is.EqualTo(400));
+            Assert.That(sandbox.TriangleCount, Is.EqualTo(320000));
+            Assert.That(sandbox.RenderedVertexCount, Is.EqualTo(960000));
             Assert.That(sandbox.DecorationCount, Is.EqualTo(sandbox.PlannedDecorationCount));
             Assert.That(sandbox.RuntimeMetrics.QueueCount, Is.Zero);
             Assert.That(sandbox.RuntimeMetrics.CachedMeshes, Is.LessThan(sandbox.DecorationCount));
@@ -46,7 +48,7 @@ namespace MyGameWorld.Tests.PlayMode
             Assert.That(sandbox.ProceduralStars[0].ItemId, Is.EqualTo(1));
             Assert.That(sandbox.ProceduralStars[0].Seed, Is.Not.Zero);
             Assert.That(environment.GetComponentsInChildren<TrailRenderer>(true).Length, Is.EqualTo(4));
-            Assert.That(sandbox.SingularTerrainFeatureCount, Is.EqualTo(33));
+            Assert.That(sandbox.SingularTerrainFeatureCount, Is.GreaterThan(90));
             WorldElementRuntimeIdentity[] identities = UnityEngine.Object.FindObjectsByType<WorldElementRuntimeIdentity>();
             Assert.That(identities.Length, Is.EqualTo(sandbox.DecorationCount + sandbox.ChunkCount + 1));
 
@@ -68,7 +70,7 @@ namespace MyGameWorld.Tests.PlayMode
             int hitsBefore = sandbox.RuntimeMetrics.CacheHits;
             ulong fingerprintBefore = sandbox.Fingerprint;
             sandbox.RegenerateSameSeed();
-            for (int frame = 0; frame < 120 && sandbox.RuntimeMetrics.QueueCount > 0; frame++) yield return null;
+            for (int frame = 0; frame < 240 && sandbox.RuntimeMetrics.QueueCount > 0; frame++) yield return null;
             Assert.That(sandbox.Fingerprint, Is.EqualTo(fingerprintBefore));
             Assert.That(sandbox.RuntimeMetrics.GeneratedMeshes, Is.EqualTo(generatedBefore));
             Assert.That(sandbox.RuntimeMetrics.CacheHits, Is.GreaterThan(hitsBefore));

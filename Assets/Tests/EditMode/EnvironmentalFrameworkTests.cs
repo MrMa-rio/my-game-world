@@ -124,5 +124,42 @@ namespace MyGameWorld.Tests.EditMode
             Assert.That(solarAdvance, Is.EqualTo(0f).Within(0.002f));
             Assert.That(lunarAdvance, Is.EqualTo(-12.19f).Within(0.03f));
         }
+
+        [Test]
+        public void ShaderBudget_QualityLayersIncreaseWithoutRemovingBaseLighting()
+        {
+            ProceduralShaderBudget low = ProceduralShaderManager.ResolveBudget(ProceduralShaderQuality.Low);
+            ProceduralShaderBudget high = ProceduralShaderManager.ResolveBudget(ProceduralShaderQuality.High);
+            ProceduralShaderBudget ultra = ProceduralShaderManager.ResolveBudget(ProceduralShaderQuality.Ultra);
+            Assert.That(low.Has(ProceduralShaderLayer.BaseLighting), Is.True);
+            Assert.That(low.Has(ProceduralShaderLayer.StylizedReflection), Is.False);
+            Assert.That(high.Has(ProceduralShaderLayer.StylizedReflection), Is.True);
+            Assert.That(ultra.DiffuseBands, Is.GreaterThan(high.DiffuseBands));
+            Assert.That(ultra.ReflectionStrength, Is.GreaterThan(high.ReflectionStrength));
+        }
+
+        [Test]
+        public void LightingPalette_AdjacentTimesBlendWithoutAbruptColorJumps()
+        {
+            ProceduralLightingPaletteSample before = ProceduralShaderManager.EvaluatePalette(17.49f);
+            ProceduralLightingPaletteSample after = ProceduralShaderManager.EvaluatePalette(17.51f);
+            Assert.That(ColorDistance(before.WorldTint, after.WorldTint), Is.LessThan(0.02f));
+            Assert.That(ColorDistance(before.ShadowColor, after.ShadowColor), Is.LessThan(0.02f));
+            Assert.That(Mathf.Abs(before.Exposure - after.Exposure), Is.LessThan(0.02f));
+        }
+
+        [Test]
+        public void LightingPalette_MidnightWrapRemainsContinuous()
+        {
+            ProceduralLightingPaletteSample before = ProceduralShaderManager.EvaluatePalette(23.99f);
+            ProceduralLightingPaletteSample after = ProceduralShaderManager.EvaluatePalette(0.01f);
+            Assert.That(ColorDistance(before.WorldTint, after.WorldTint), Is.LessThan(0.02f));
+        }
+
+        private static float ColorDistance(Color first, Color second)
+        {
+            Vector4 delta = (Vector4)first - (Vector4)second;
+            return delta.magnitude;
+        }
     }
 }

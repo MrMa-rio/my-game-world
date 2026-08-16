@@ -94,6 +94,9 @@ namespace MyGameWorld.Client.ProceduralWorld
                 .Append(metrics.VisibleTriangles).AppendLine(" triangles");
             _text.Append("Estimated renderer passes: ").Append(metrics.EstimatedDrawCalls).AppendLine();
             _text.Append("Runtime generation: ").Append(metrics.LastFrameGenerationMilliseconds.ToString("0.00")).AppendLine(" ms");
+            ProceduralShaderBudget shaderBudget = _sandbox.ShaderBudget;
+            _text.Append("Shader: ").Append(_sandbox.ShaderQuality).Append(" | Layers: ").Append(shaderBudget.Layers)
+                .Append(" | Bands: ").Append(shaderBudget.DiffuseBands).Append('/').Append(shaderBudget.ShadowBands).AppendLine();
             WindSample wind = _sandbox.Wind;
             _text.Append("Wind: ").Append(wind.EffectiveStrength.ToString("0.00"))
                 .Append(" @ ").Append(wind.Speed.ToString("0.0")).Append(" m/s | Gust ").Append(wind.Gust.ToString("0.00")).AppendLine();
@@ -114,6 +117,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             _text.AppendLine("F5 wind | F6 biome | F7 VFX density");
             _text.AppendLine("F8 +3 hours | F9 pause time");
             _text.AppendLine("F10 shooting star | F11 meteor");
+            _text.AppendLine("F12 shader quality");
 
             GUI.Label(new Rect(20f, 20f, 402f, 460f), _text.ToString(), _textStyle);
         }
