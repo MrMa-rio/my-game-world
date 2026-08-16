@@ -38,6 +38,18 @@ As fases usam paletas graduais, sem troca abrupta: madrugada azul-violeta com ho
 
 ## Estrelas cadentes e meteoros
 
+As estrelas fixas não são mais desenhadas por um hash angular no skybox. `ProceduralStarFieldSystem` cria estrelas singulares determinísticas e conglomerados irregulares em uma esfera 3D, eliminando padrões circulares no horizonte e no zênite. A representação permanece batched em um único mesh/material.
+
+Cada estrela é um `CelestialItemKind.Star` singular com `ItemId`, seed derivada, direção, magnitude, tamanho, cor e indicador de pertencimento a conglomerado. `CelestialOrbitModel` separa o dia solar de 24 h, o dia sideral de 23,9344696 h, o ano tropical de 365,2422 dias e a órbita lunar sideral de 27,321662 dias. Assim, estrelas avançam aproximadamente quatro minutos por dia solar, o Sol acompanha o ciclo solar e a Lua desloca-se contra o fundo estelar em vez de permanecer artificialmente oposta ao Sol. A observabilidade usa magnitude: no início do entardecer aparecem apenas estrelas de destaque, depois estrelas comuns e conglomerados; na madrugada a ordem se inverte; durante o dia o renderer é desativado completamente. O mesmo `StarVisibility` limita o agendamento de estrelas cadentes e meteoros.
+
+O centro de cada estrela permanece posicionado na abóbada 3D, mas seu pequeno disco é expandido em espaço de tela. Assim, o tamanho aparente permanece estável entre resoluções, FOVs e ângulos próximos ao horizonte, sem transformar cada estrela em um `GameObject` ou aumentar draw calls.
+
+No URP, o campo usa a fila `Transparent-100`: ele é composto depois do skybox, que de outra forma o sobrescreveria, e respeita o depth buffer do terreno. A abóbada também escala para 92% do `farClipPlane`, mantendo estrelas atrás da geometria observável.
+
+A densidade estelar usa luminosidade local normalizada pelo sol de meio-dia: sol máximo mais ambiente diurno representam `1.0`. Lua, ambiente e luzes direcionais/locais próximas entram no mesmo cálculo. Em luminosidade `<= 0.25`, o catálogo libera até 30 camadas; em `>= 0.75`, mantém a camada padrão 1x; entre os limites, interpola continuamente. A câmera de desenvolvimento representa o observador até existir um player.
+
+Nebulosas estilizadas são calculadas no sky shader com ruído tridimensional em múltiplas escalas. A amostragem ocorre no mesmo referencial sideral das estrelas, evitando projeção circular e mantendo a rotação física do céu profundo. Sua visibilidade combina `StarVisibility` com luminosidade local: céu lunar escuro revela filamentos azul, ciano e violeta; sol, amanhecer e luz artificial intensa os esmaecem até desaparecer.
+
 `CelestialEventSystem` possui pool fixo de quatro `TrailRenderer`s. Durante a noite, um scheduler determinístico agenda eventos visuais:
 
 - estrela cadente: rápida, fina e azul-branca;

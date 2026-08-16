@@ -28,7 +28,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         {
             _elapsed += Mathf.Max(0f, deltaTime);
             for (int index = 0; index < _instances.Count; index++) _instances[index].Tick(deltaTime);
-            if (camera == null || time.Night < 0.72f || _elapsed < _nextEvent) return;
+            if (camera == null || time.StarVisibility < 0.72f || _elapsed < _nextEvent) return;
             CelestialEventKind kind = _random.NextUnitDouble() < 0.1d ? CelestialEventKind.Meteor : CelestialEventKind.ShootingStar;
             Spawn(kind, camera); ScheduleNext();
         }

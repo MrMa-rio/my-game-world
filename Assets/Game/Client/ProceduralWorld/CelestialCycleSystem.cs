@@ -6,6 +6,8 @@ namespace MyGameWorld.Client.ProceduralWorld
 {
     public sealed class CelestialCycleSystem : IDisposable
     {
+        // Noon sun plus the configured daytime ambient sky defines normalized local luminosity 1.0.
+        public const float MaximumSolarIlluminationReference = 1.8f;
         private static readonly int SunDirection = Shader.PropertyToID("_CelestialSunDirection");
         private static readonly int MoonDirection = Shader.PropertyToID("_CelestialMoonDirection");
         private static readonly int CelestialTime = Shader.PropertyToID("_CelestialTime");
@@ -31,12 +33,13 @@ namespace MyGameWorld.Client.ProceduralWorld
         }
 
         public Light Sun => _sun; public Light Moon => _moon;
+        public CelestialOrbitSnapshot Orbit { get; private set; }
 
         public void Apply(WorldTimeSnapshot time)
         {
-            float solarAngle = time.NormalizedDay * 360f - 90f;
-            _sun.transform.rotation = Quaternion.Euler(solarAngle, -28f, 0f);
-            _moon.transform.rotation = Quaternion.Euler(solarAngle + 180f, -18f, 0f);
+            Orbit = CelestialOrbitModel.Evaluate(time);
+            _sun.transform.rotation = Orbit.SunRotation;
+            _moon.transform.rotation = Orbit.MoonRotation;
             Vector3 sunToSky = -_sun.transform.forward; Vector3 moonToSky = -_moon.transform.forward;
             float twilight = Mathf.Max(time.Dawn, time.Dusk);
             _sun.intensity = time.Daylight * Mathf.Lerp(0.32f, 1.28f, time.Daylight);

@@ -24,7 +24,6 @@ Shader "MyGameWorld/Procedural World/Celestial Sky"
             float4 _CelestialTime; float4 _CelestialDayColor; float4 _CelestialNightColor; float4 _CelestialHorizonColor;
             struct Attributes { float4 positionOS : POSITION; }; struct Varyings { float4 positionCS : SV_POSITION; float3 direction : TEXCOORD0; };
             Varyings Vert(Attributes input) { Varyings o; o.positionCS = TransformObjectToHClip(input.positionOS.xyz); o.direction = normalize(input.positionOS.xyz); return o; }
-            float Hash21(float2 p) { p = frac(p * float2(123.34, 456.21)); p += dot(p, p + 45.32); return frac(p.x * p.y); }
             half4 Frag(Varyings input) : SV_Target
             {
                 float3 d = normalize(input.direction); float horizon = saturate(1.0 - abs(d.y) * 3.2);
@@ -37,10 +36,6 @@ Shader "MyGameWorld/Procedural World/Celestial Sky"
                 float moonDisk = smoothstep(0.9986, 0.99935, moonDot);
                 float moonCut = smoothstep(0.9983, 0.99925, dot(d, normalize(_CelestialMoonDirection.xyz + float3(0.018, 0.01, 0))));
                 sky += float3(0.68, 0.78, 1.0) * saturate(moonDisk - moonCut * 0.72) * 2.2 * _CelestialTime.y;
-                float2 starCell = floor(float2(atan2(d.z, d.x) * 310.0, asin(d.y) * 220.0));
-                float starHash = Hash21(starCell); float stars = step(0.972, starHash) * lerp(0.65, 1.0, saturate(abs(d.y)));
-                float twinkle = 0.62 + 0.38 * sin(_Time.y * (1.4 + starHash * 2.5) + starHash * 41.0);
-                sky += stars * twinkle * _CelestialTime.y * lerp(float3(0.65,0.78,1), float3(1,0.78,0.48), step(0.992,starHash)) * 3.2;
                 return half4(sky * _Exposure, 1);
             }
             ENDHLSL

@@ -9,7 +9,7 @@ namespace MyGameWorld.Client.ProceduralWorld
     public sealed class WorldTimeProfile
     {
         [SerializeField, Min(10f)] private float _realSecondsPerDay = 300f;
-        [SerializeField, Range(0f, 24f)] private float _startHour = 5.5f;
+        [SerializeField, Range(0f, 24f)] private float _startHour = 21.5f;
         [SerializeField, Range(0f, 20f)] private float _timeScale = 1f;
         [SerializeField] private bool _paused;
         public float RealSecondsPerDay => _realSecondsPerDay;
@@ -30,10 +30,19 @@ namespace MyGameWorld.Client.ProceduralWorld
             Night = 1f - Daylight;
             Dawn = Mathf.Clamp01(1f - Mathf.Abs(Hour - 6.25f) / 1.65f);
             Dusk = Mathf.Clamp01(1f - Mathf.Abs(Hour - 18.25f) / 1.65f);
+            StarVisibility = ResolveStarVisibility(Hour);
         }
         public double TotalHours { get; } public float Hour { get; } public float NormalizedDay { get; }
         public long DayIndex { get; } public DayPhase Phase { get; } public float Daylight { get; }
         public float Night { get; } public float Dawn { get; } public float Dusk { get; }
+        public float StarVisibility { get; }
+        private static float ResolveStarVisibility(float hour)
+        {
+            if (hour >= 7.1f && hour < 17.25f) return 0f;
+            if (hour >= 17.25f && hour < 20f) return Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(17.25f, 20f, hour));
+            if (hour >= 4.5f && hour < 7.1f) return 1f - Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(4.5f, 7.1f, hour));
+            return 1f;
+        }
         private static DayPhase ResolvePhase(float hour)
         {
             if (hour < 4.75f) return DayPhase.DeepNight; if (hour < 7.25f) return DayPhase.Dawn;
