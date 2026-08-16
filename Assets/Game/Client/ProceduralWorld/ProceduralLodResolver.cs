@@ -5,18 +5,37 @@ namespace MyGameWorld.Client.ProceduralWorld
 {
     public sealed class ProceduralLodResolver
     {
+        private float _lodBias = 1f;
+        private float _subpixelThreshold = 1.5f;
+        public void ConfigureImageStability(float lodBias, float subpixelThreshold)
+        { _lodBias = Mathf.Clamp(lodBias, 0.5f, 3f); _subpixelThreshold = Mathf.Clamp(subpixelThreshold, 0.5f, 4f); }
+
         public ProceduralVisualLod Resolve(DecorationPlacement definition, Vector3 viewerPosition)
         {
             Vector3 position = new Vector3(definition.Position.X, definition.Position.Y, definition.Position.Z);
             float distance = Vector3.Distance(position, viewerPosition);
             float sizeBias = Mathf.Max(0.65f, definition.Scale);
+            float projectedSize = definition.Scale * 900f / Mathf.Max(1f, distance);
+            if (projectedSize < _subpixelThreshold) return ProceduralVisualLod.Low;
             if (definition.Kind == DecorationKind.Tree || definition.Kind == DecorationKind.TreeCluster)
             {
-                if (distance < 520f * sizeBias) return ProceduralVisualLod.High;
-                return distance < 900f * sizeBias ? ProceduralVisualLod.Medium : ProceduralVisualLod.Low;
+                if (distance < 520f * sizeBias * _lodBias) return ProceduralVisualLod.High;
+                return distance < 900f * sizeBias * _lodBias ? ProceduralVisualLod.Medium : ProceduralVisualLod.Low;
             }
-            if (distance < 24f * sizeBias) return ProceduralVisualLod.High;
-            return distance < 52f * sizeBias ? ProceduralVisualLod.Medium : ProceduralVisualLod.Low;
+            if (distance < 24f * sizeBias * _lodBias) return ProceduralVisualLod.High;
+            return distance < 52f * sizeBias * _lodBias ? ProceduralVisualLod.Medium : ProceduralVisualLod.Low;
+        }
+
+        public ProceduralVisualLod ResolveStable(DecorationPlacement definition, Vector3 viewerPosition, ProceduralVisualLod previous)
+        {
+            ProceduralVisualLod desired = Resolve(definition, viewerPosition);
+            if (desired == previous) return desired;
+            float distance = Vector3.Distance(new Vector3(definition.Position.X, definition.Position.Y, definition.Position.Z), viewerPosition);
+            float sizeBias = Mathf.Max(0.65f, definition.Scale) * _lodBias;
+            bool tree = definition.Kind == DecorationKind.Tree || definition.Kind == DecorationKind.TreeCluster;
+            float boundary = previous == ProceduralVisualLod.High || desired == ProceduralVisualLod.High
+                ? (tree ? 520f : 24f) * sizeBias : (tree ? 900f : 52f) * sizeBias;
+            return Mathf.Abs(distance - boundary) <= boundary * 0.08f ? previous : desired;
         }
 
         public int ResolveSegments(ProceduralVisualLod lod)

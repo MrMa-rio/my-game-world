@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43016546e76467b9862ef1fb5de895d, type: 3}
+  m_Name: Low
+  m_EditorClassIdentifier: 
+  _tier: 0
+  _antiAliasing: 1
+  _msaaSamples: 1
+  _renderScale: 0.8
+  _temporalStability: 0
+  _anisotropicFiltering: 1
+  _lodBias: 1
+  _mipMapBias: 0
+  _alphaToCoverage: 0
+  _distantWorldStabilization: 1
+  _subpixelThreshold: 2.5
+  _taaHistoryWeight: 0.88
+  _taaSharpening: 0.2

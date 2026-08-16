@@ -49,7 +49,7 @@ namespace MyGameWorld.Client.ProceduralWorld
 
             Color previousColor = GUI.color;
             GUI.color = new Color(0.045f, 0.075f, 0.06f, 0.88f);
-            GUI.Box(new Rect(16f, 16f, 440f, 590f), GUIContent.none, _boxStyle);
+            GUI.Box(new Rect(16f, 16f, 470f, 680f), GUIContent.none, _boxStyle);
             GUI.color = previousColor;
 
             Vector3 cameraPosition = _developmentCamera != null
@@ -106,6 +106,17 @@ namespace MyGameWorld.Client.ProceduralWorld
                 .Append(" | Jobs: ").Append(distant.PendingJobs).AppendLine();
             _text.Append("Streaming select/commit: ").Append(distant.SelectionMilliseconds.ToString("0.00")).Append('/')
                 .Append(distant.CommitMilliseconds.ToString("0.00")).AppendLine(" ms");
+            RenderingStabilityMetrics rendering = _sandbox.RenderingMetrics;
+            _text.AppendLine("<b>IMAGE STABILITY</b>");
+            _text.Append("Quality/AA: ").Append(rendering.Tier).Append(" / ").Append(rendering.Mode)
+                .Append(" | MSAA ").Append(rendering.Msaa).Append('x').AppendLine();
+            _text.Append("Scale/Resolution: ").Append(rendering.RenderScale.ToString("0.00")).Append(" / ")
+                .Append(rendering.Width).Append('x').Append(rendering.Height).AppendLine();
+            _text.Append("LOD/Mip: ").Append(rendering.LodBias.ToString("0.00")).Append(" / ")
+                .Append(rendering.MipBias.ToString("0.00")).Append(" | Aniso: ").Append(rendering.Anisotropic).AppendLine();
+            _text.Append("Temporal: ").Append(rendering.Temporal ? "ON" : "OFF").Append(" | CPU/GPU: ")
+                .Append(rendering.CpuMilliseconds.ToString("0.00")).Append('/')
+                .Append(rendering.GpuMilliseconds.ToString("0.00")).AppendLine(" ms");
             ProceduralShaderBudget shaderBudget = _sandbox.ShaderBudget;
             _text.Append("Shader: ").Append(_sandbox.ShaderQuality).Append(" | Layers: ").Append(shaderBudget.Layers)
                 .Append(" | Bands: ").Append(shaderBudget.DiffuseBands).Append('/').Append(shaderBudget.ShadowBands).AppendLine();
@@ -131,8 +142,9 @@ namespace MyGameWorld.Client.ProceduralWorld
             _text.AppendLine("F10 shooting star | F11 meteor");
             _text.AppendLine("F12 shader quality");
             _text.AppendLine("Home LOD colors | End quadtree | Insert clear atmosphere");
+            _text.AppendLine("PageUp quality | PageDown AA mode");
 
-            GUI.Label(new Rect(20f, 20f, 432f, 582f), _text.ToString(), _textStyle);
+            GUI.Label(new Rect(20f, 20f, 462f, 672f), _text.ToString(), _textStyle);
         }
     }
 }

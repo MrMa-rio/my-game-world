@@ -127,6 +127,8 @@ namespace MyGameWorld.Client.ProceduralWorld
             if (keyboard.homeKey.wasPressedThisFrame) _sandbox.ToggleDistantLodDebug();
             if (keyboard.endKey.wasPressedThisFrame) _sandbox.ToggleDistantQuadtreeDebug();
             if (keyboard.insertKey.wasPressedThisFrame) _sandbox.ToggleMaximumVisibility();
+            if (keyboard.pageUpKey.wasPressedThisFrame) _sandbox.CycleRenderingQuality();
+            if (keyboard.pageDownKey.wasPressedThisFrame) _sandbox.CycleAntiAliasing();
         }
 
         private static float ReadAxis(KeyControl negative, KeyControl positive)

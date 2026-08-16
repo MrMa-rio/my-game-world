@@ -87,6 +87,30 @@ namespace MyGameWorld.Tests.PlayMode
             }
         }
 
+        [UnityTest]
+        public IEnumerator ImageStability_MovingCameraAndQualityChanges_RemainOperational()
+        {
+            SceneManager.LoadScene("ProceduralWorldSandbox");
+            yield return null;
+            ProceduralWorldSandbox sandbox = Object.FindAnyObjectByType<ProceduralWorldSandbox>();
+            RenderingQualityManager quality = Object.FindAnyObjectByType<RenderingQualityManager>();
+            Camera camera = Camera.main;
+            Assert.That(sandbox, Is.Not.Null); Assert.That(quality, Is.Not.Null); Assert.That(camera, Is.Not.Null);
+            for (int frame = 0; frame < 24; frame++)
+            {
+                camera.transform.position += camera.transform.forward * 6f;
+                camera.transform.Rotate(0f, 1.5f, 0f, Space.World);
+                if (frame == 6 || frame == 12 || frame == 18) sandbox.CycleRenderingQuality();
+                yield return null;
+            }
+            RenderingStabilityMetrics metrics = sandbox.RenderingMetrics;
+            Assert.That(metrics.Width, Is.GreaterThan(0));
+            Assert.That(metrics.Height, Is.GreaterThan(0));
+            Assert.That(metrics.RenderScale, Is.InRange(0.8f, 1f));
+            sandbox.CycleAntiAliasing(); yield return null;
+            Assert.That(sandbox.RenderingMetrics.Mode, Is.Not.EqualTo(metrics.Mode));
+        }
+
         private static void CaptureSandbox(ProceduralWorldSandbox sandbox)
         {
             const int width = 1280;

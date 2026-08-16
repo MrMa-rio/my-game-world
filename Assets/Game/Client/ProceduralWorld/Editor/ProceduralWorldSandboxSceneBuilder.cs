@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 namespace MyGameWorld.Client.ProceduralWorld.Editor
@@ -11,6 +12,7 @@ namespace MyGameWorld.Client.ProceduralWorld.Editor
     {
         public const string ScenePath = "Assets/Scenes/ProceduralWorldSandbox.unity";
         private const string SkyboxPath = "Assets/Settings/ProceduralWorldSkybox.mat";
+        private const string QualityFolder = "Assets/Resources/RenderingQuality";
 
         [MenuItem("My Game World/Build Procedural World Sandbox Scene")]
         public static void BuildScene()
@@ -21,10 +23,13 @@ namespace MyGameWorld.Client.ProceduralWorld.Editor
             GameObject world = new GameObject("Procedural World Sandbox");
             world.AddComponent<ProceduralWorldSandbox>();
             world.AddComponent<ProceduralWorldDebugHud>();
+            RenderingQualityManager quality = world.AddComponent<RenderingQualityManager>();
+            quality.ConfigureProfiles(CreateRenderingProfiles(), RenderingQualityTier.High);
 
             GameObject cameraObject = new GameObject("Development Camera");
             cameraObject.tag = "MainCamera";
             Camera camera = cameraObject.AddComponent<Camera>();
+            cameraObject.AddComponent<UniversalAdditionalCameraData>();
             cameraObject.AddComponent<AudioListener>();
             cameraObject.AddComponent<DevelopmentFreeCamera>();
             camera.transform.position = new Vector3(0f, 260f, -330f);
@@ -56,6 +61,35 @@ namespace MyGameWorld.Client.ProceduralWorld.Editor
             AssetDatabase.Refresh();
             Selection.activeGameObject = world;
             Debug.Log($"Built {ScenePath} and set it as the startup scene.");
+        }
+
+        private static RenderingQualityProfile[] CreateRenderingProfiles()
+        {
+            if (!AssetDatabase.IsValidFolder("Assets/Resources")) AssetDatabase.CreateFolder("Assets", "Resources");
+            if (!AssetDatabase.IsValidFolder(QualityFolder)) AssetDatabase.CreateFolder("Assets/Resources", "RenderingQuality");
+            return new[] {
+                GetOrCreateProfile("Low", RenderingQualityTier.Low, ImageAntiAliasingMode.Fxaa, 1, 0.8f, false,
+                    AnisotropicFiltering.Enable, 1f, 0f, false, true, 2.5f),
+                GetOrCreateProfile("Medium", RenderingQualityTier.Medium, ImageAntiAliasingMode.Smaa, 1, 0.9f, false,
+                    AnisotropicFiltering.ForceEnable, 1.25f, -0.1f, false, true, 2f),
+                GetOrCreateProfile("High", RenderingQualityTier.High, ImageAntiAliasingMode.Smaa, 1, 1f, true,
+                    AnisotropicFiltering.ForceEnable, 1.6f, -0.15f, false, true, 1.5f),
+                GetOrCreateProfile("Ultra", RenderingQualityTier.Ultra, ImageAntiAliasingMode.Temporal, 1, 1f, true,
+                    AnisotropicFiltering.ForceEnable, 2f, -0.25f, false, true, 1f, 0.9f, 0.22f)
+            };
+        }
+
+        private static RenderingQualityProfile GetOrCreateProfile(string name, RenderingQualityTier tier,
+            ImageAntiAliasingMode aa, int msaa, float renderScale, bool temporal, AnisotropicFiltering anisotropic,
+            float lodBias, float mipBias, bool alphaToCoverage, bool distantStability, float subpixel,
+            float history = 0.88f, float sharpen = 0.2f)
+        {
+            string path = $"{QualityFolder}/{name}.asset";
+            RenderingQualityProfile profile = AssetDatabase.LoadAssetAtPath<RenderingQualityProfile>(path);
+            if (profile == null) { profile = ScriptableObject.CreateInstance<RenderingQualityProfile>(); profile.name = name; AssetDatabase.CreateAsset(profile, path); }
+            profile.Configure(tier, aa, msaa, renderScale, temporal, anisotropic, lodBias, mipBias,
+                alphaToCoverage, distantStability, subpixel, history, sharpen);
+            EditorUtility.SetDirty(profile); return profile;
         }
 
         public static void BuildFromCommandLine()
