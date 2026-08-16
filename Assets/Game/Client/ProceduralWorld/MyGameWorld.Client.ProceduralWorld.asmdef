@@ -5,7 +5,8 @@
     "MyGameWorld.Shared.Core",
     "MyGameWorld.Shared.Procedural",
     "MyGameWorld.Shared.World",
-    "Unity.InputSystem"
+    "Unity.InputSystem",
+    "Unity.RenderPipelines.Universal.Runtime"
   ],
   "autoReferenced": true
 }

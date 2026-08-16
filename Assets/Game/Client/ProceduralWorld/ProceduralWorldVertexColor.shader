@@ -61,6 +61,7 @@ Shader "MyGameWorld/Procedural World/Vertex Color Lit"
             float4 _ProceduralShadowParameters;
             float _WorldAtmosphericVisibility;
             float _WorldAtmosphereDisabled;
+            float4 _DistantWorldStability;
 
             half SmoothToonBand(half value, half bandCount, half softness)
             {
@@ -149,7 +150,8 @@ Shader "MyGameWorld/Procedural World/Vertex Color Lit"
                 half fresnel = pow(saturate(1.0h - dot(normalWS, viewDirection)), 3.0h);
                 half reflectionResponse = _ReflectionStrength * _ProceduralShaderLayers.y;
                 half litReflection = saturate(ndotl * 1.4h) * shadow;
-                color += _ProceduralReflectionColor.rgb * (toonSpecular * 0.72h + fresnel * 0.18h) * reflectionResponse * litReflection;
+                half stabilityDistanceFade = lerp(1.0h, saturate(1.0h - input.cameraDistance / 4500.0h), saturate(_DistantWorldStability.z));
+                color += _ProceduralReflectionColor.rgb * (toonSpecular * 0.72h + fresnel * 0.18h) * reflectionResponse * litReflection * stabilityDistanceFade;
                 color = MixFog(color, input.fogFactor);
                 // Geometry remains rendered independently of weather visibility. This is a presentation layer,
                 // intentionally disabled by the clear-atmosphere debug mode.

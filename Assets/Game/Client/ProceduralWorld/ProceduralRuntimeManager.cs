@@ -71,6 +71,7 @@ namespace MyGameWorld.Client.ProceduralWorld
 
         public void SetInstanceParent(Transform parent) => _instanceParent = parent;
         public void SetEnvironmentalResponses(EnvironmentalPhysicalResponseSystem responses) => _environmentalResponses = responses;
+        public void ConfigureImageStability(float lodBias, float subpixelThreshold) => _lodResolver.ConfigureImageStability(lodBias, subpixelThreshold);
 
         public void RegisterGeometryProvider(IProceduralGeometryProvider provider)
         {
@@ -301,7 +302,7 @@ namespace MyGameWorld.Client.ProceduralWorld
                 if (_lodCursor >= _active.Count) _lodCursor = 0;
                 RuntimeInstance instance = _active[_lodCursor++]; checkedCount++;
                 if (!instance.Active || instance.LodQueued) continue;
-                ProceduralVisualLod desired = _lodResolver.Resolve(instance.Definition, camera.transform.position);
+                ProceduralVisualLod desired = _lodResolver.ResolveStable(instance.Definition, camera.transform.position, instance.Lod);
                 if (desired == instance.Lod) continue;
                 instance.LodQueued = true;
                 ProceduralGenerationRequest request = new ProceduralGenerationRequest(instance.Definition, instance.Environment, desired, GenerationPriority.Low);

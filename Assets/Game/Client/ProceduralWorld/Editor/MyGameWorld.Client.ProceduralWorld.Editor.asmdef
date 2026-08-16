@@ -5,7 +5,8 @@
     "MyGameWorld.Client.ProceduralWorld",
     "MyGameWorld.Shared.Core",
     "MyGameWorld.Shared.Procedural",
-    "MyGameWorld.Shared.World"
+    "MyGameWorld.Shared.World",
+    "Unity.RenderPipelines.Universal.Runtime"
   ],
   "includePlatforms": [
     "Editor"

@@ -51,6 +51,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         private ProceduralRuntimeManager _runtimeManager;
         private EnvironmentalManager _environmentalManager;
         private DistantWorldRenderer _distantWorld;
+        private RenderingQualityManager _renderingQuality;
         private ZoneGenerationResult _result;
         private bool _wireframeVisible;
 
@@ -112,6 +113,7 @@ namespace MyGameWorld.Client.ProceduralWorld
         public float NebulaVisibility => _environmentalManager != null ? _environmentalManager.NebulaVisibility : 0f;
         public ProceduralShaderQuality ShaderQuality => _environmentalManager != null ? _environmentalManager.ShaderQuality : ProceduralShaderQuality.Low;
         public ProceduralShaderBudget ShaderBudget => _environmentalManager != null ? _environmentalManager.ShaderBudget : default;
+        public RenderingStabilityMetrics RenderingMetrics => _renderingQuality != null ? _renderingQuality.Metrics : default;
         public DistantWorldMetrics DistantMetrics => _distantWorld != null ? _distantWorld.Metrics : default;
 
         public bool IsHudVisible { get; private set; } = true;
@@ -121,6 +123,8 @@ namespace MyGameWorld.Client.ProceduralWorld
             _materials = new ProceduralWorldMaterialLibrary();
             _runtimeManager = gameObject.AddComponent<ProceduralRuntimeManager>();
             _runtimeManager.Initialize(_materials);
+            _renderingQuality = GetComponent<RenderingQualityManager>();
+            if (_renderingQuality == null) _renderingQuality = gameObject.AddComponent<RenderingQualityManager>();
         }
 
         private void Start()
@@ -197,6 +201,8 @@ namespace MyGameWorld.Client.ProceduralWorld
         public void ToggleDistantLodDebug() { if (_distantWorld != null) _distantWorld.DebugLodColors = !_distantWorld.DebugLodColors; }
         public void ToggleDistantQuadtreeDebug() { if (_distantWorld != null) _distantWorld.DrawQuadtree = !_distantWorld.DrawQuadtree; }
         public void ToggleMaximumVisibility() { if (_distantWorld != null) _distantWorld.MaximumVisibility = !_distantWorld.MaximumVisibility; }
+        public void CycleRenderingQuality() => _renderingQuality?.CycleTier();
+        public void CycleAntiAliasing() => _renderingQuality?.CycleAaMode();
 
         public void Generate()
         {
@@ -233,6 +239,7 @@ namespace MyGameWorld.Client.ProceduralWorld
             HeightFieldGeneratorV2 sharedHeightSource = new HeightFieldGeneratorV2(nextResult.DNA, config, biome, nextResult.Features, largeScale);
             _distantWorld.Initialize(sharedHeightSource, biome, config, _zoneSeed, TerrainGeneratorV6.GeneratorVersion.Value,
                 _materials.Terrain, Camera.main != null ? Camera.main.transform : null);
+            _renderingQuality?.Reapply();
             for (int index = 0; index < nextResult.Terrain.Chunks.Count; index++)
             {
                 UnityTerrainChunkRuntime chunk = _runtimeManager.MaterializeTerrainChunk(

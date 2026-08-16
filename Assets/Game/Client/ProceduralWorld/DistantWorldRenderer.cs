@@ -39,6 +39,10 @@ namespace MyGameWorld.Client.ProceduralWorld
         private bool _initialized;
         private DistantWorldMetrics _metrics;
         private WorldBounds? _detailedWorldBounds;
+        private float _stabilityLodBias = 1f;
+        private float _subpixelThreshold = 1.5f;
+        private bool _stabilizeDistantWorld = true;
+        private bool _temporalStability;
 
         public event Action<GlobalPosition, GlobalPosition> WorldRebased;
         public DistantWorldMetrics Metrics => _metrics;
@@ -47,6 +51,13 @@ namespace MyGameWorld.Client.ProceduralWorld
         public bool MaximumVisibility { get => _maximumVisibility; set => _maximumVisibility = value; }
         public bool DebugLodColors { get => _debugLodColors; set { _debugLodColors = value; RefreshExistingMaterials(); } }
         public bool DrawQuadtree { get => _drawQuadtree; set => _drawQuadtree = value; }
+        public void ApplyImageStability(float lodBias, float subpixelThreshold, bool stabilizeDistantWorld, bool temporalStability)
+        {
+            _stabilityLodBias = Mathf.Max(0.5f, lodBias); _subpixelThreshold = Mathf.Max(0.5f, subpixelThreshold);
+            _stabilizeDistantWorld = stabilizeDistantWorld; _temporalStability = temporalStability;
+            Shader.SetGlobalVector("_DistantWorldStability", new Vector4(_stabilityLodBias, _subpixelThreshold,
+                _stabilizeDistantWorld ? 1f : 0f, _temporalStability ? 1f : 0f));
+        }
 
         public void Initialize(long seed, ushort generationVersion, Material terrainMaterial, Transform viewer = null)
         {
@@ -92,7 +103,16 @@ namespace MyGameWorld.Client.ProceduralWorld
             if (Time.unscaledTime >= _nextSelectionTime) RefreshSelection(force: false);
             CommitCompleted();
             UpdateAtmosphere();
+            UpdateSubpixelVisibility();
             _frame++;
+        }
+
+        private void UpdateSubpixelVisibility()
+        {
+            if (!_stabilizeDistantWorld || _viewer == null) return;
+            Camera camera = _viewer.GetComponent<Camera>(); if (camera == null) return;
+            foreach (CellRuntime runtime in _active.Values)
+                runtime.UpdateSubpixelVisibility(camera, _subpixelThreshold);
         }
 
         private void RefreshSelection(bool force)
@@ -255,6 +275,14 @@ namespace MyGameWorld.Client.ProceduralWorld
                 if (enabled) { Color color = ResolveDebugColor(Level); for (int i = 0; i < colors.Length; i++) colors[i] = color; }
                 else Array.Copy(_worldColors, colors, colors.Length);
                 _mesh.colors = colors;
+            }
+            public void UpdateSubpixelVisibility(Camera camera, float thresholdPixels)
+            {
+                if (!_forestProxy.activeSelf) return;
+                float distance = Mathf.Max(1f, Vector3.Distance(camera.transform.position, _forestProxy.transform.position));
+                float projectedPixels = _forestProxy.transform.lossyScale.y / distance *
+                    (camera.pixelHeight / (2f * Mathf.Tan(camera.fieldOfView * 0.5f * Mathf.Deg2Rad)));
+                _forestProxy.GetComponent<MeshRenderer>().enabled = projectedPixels >= thresholdPixels;
             }
             public void SetActive(bool active) => _root.SetActive(active);
             public void DrawBounds() { Gizmos.color = ResolveDebugColor(Level); Vector3 c = _root.transform.position + new Vector3((float)_bounds.Size * 0.5f, 0f, (float)_bounds.Size * 0.5f); Gizmos.DrawWireCube(c, new Vector3((float)_bounds.Size, 20f, (float)_bounds.Size)); }

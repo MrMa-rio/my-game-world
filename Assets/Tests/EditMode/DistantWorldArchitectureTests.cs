@@ -2,6 +2,9 @@ using System.Linq;
 using MyGameWorld.Shared.World;
 using NUnit.Framework;
 using MyGameWorld.Shared.Core;
+using MyGameWorld.Client.ProceduralWorld;
+using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace MyGameWorld.Tests.EditMode
 {
@@ -140,6 +143,19 @@ namespace MyGameWorld.Tests.EditMode
             Assert.That(hillHeight, Is.LessThanOrEqualTo(100d * System.Math.Tan(GeologicalLandformModel.MaximumHillSlopeDegrees * System.Math.PI / 180d) * 0.48d));
             Assert.That(GeologicalLandformModel.Evaluate(depression, 100d, 0d), Is.Zero);
             Assert.That(GeologicalLandformModel.Evaluate(hill, 100d, 0d), Is.Zero);
+        }
+
+        [Test]
+        public void RenderingQualityProfile_NormalizesMsaaAndPreservesStabilitySettings()
+        {
+            RenderingQualityProfile profile = ScriptableObject.CreateInstance<RenderingQualityProfile>();
+            profile.Configure(RenderingQualityTier.Ultra, ImageAntiAliasingMode.Msaa, 7, 1f, true,
+                AnisotropicFiltering.ForceEnable, 2f, -0.25f, true, true, 1f);
+            Assert.That(profile.MsaaSamples, Is.EqualTo(4));
+            Assert.That(profile.TemporalStability, Is.True);
+            Assert.That(profile.DistantWorldStabilization, Is.True);
+            Assert.That(profile.MipMapBias, Is.EqualTo(-0.25f));
+            Object.DestroyImmediate(profile);
         }
 
     }
